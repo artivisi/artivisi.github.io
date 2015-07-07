@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[ArtiVisi Intermedia]]></title>
+  <link href="http://artivisi.github.io/atom.xml" rel="self"/>
+  <link href="http://artivisi.github.io/"/>
+  <updated>2015-07-07T12:29:53+07:00</updated>
+  <id>http://artivisi.github.io/</id>
+  <author>
+    <name><![CDATA[ArtiVisi Intermedia]]></name>
+    <email><![CDATA[info@artivisi.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Training Java Web Service]]></title>
+    <link href="http://artivisi.github.io/training-java-web-service-di-lembaga-sandi-negara/"/>
+    <updated>2014-06-02T14:53:00+07:00</updated>
+    <id>http://artivisi.github.io/training-java-web-service-di-lembaga-sandi-negara</id>
+    <content type="html"><![CDATA[<p>ArtiVisi menyampaikan pelatihan tentang implementasi web services dengan menggunakan Java.</p>
+
+<p><b>Materi yang disampaikan</b><br /></p>
+
+<!--more-->
+
+
+<p>Hari ke-1:<br />
+Web Service Overview</p>
+
+<ul>
+<li>Service Oriented Architecture (SOA)</li>
+<li>SOA and Web Services</li>
+<li>Web Services</li>
+<li>Web Service Standards</li> 
+<li>Standard Managers</li> 
+<li>Java and Web Services</li> 
+<li>How do you do SOA and Web services?</li>
+</ul>
+
+
+<p>
+XML Syntax</p>
+
+<ul>
+<li>An XML History</li> 
+<li>HTML</li>
+<li>XML vs. HTML</li> 
+<li>W3C and the XML Specification</li> 
+<li>XML Syntax: The Bricks</li> 
+<li>Elements</li> 
+<li>Attributes</li> 
+<li>Attributes vs. Element</li> 
+<li>XML Miscellaneous</li> 
+<li>Well-Formed</li>
+</ul>
+
+
+<p>Hari ke-2:<br />
+XML Namespaces</p>
+
+<ul>
+<li>XML Name Conflicts</li> 
+<li>Namespaces</li> 
+<li>Qualified and Unqualified Names</li> 
+<li>Global and Local Scope</li>
+</ul>
+
+
+<p>
+XML Schema</p>
+
+<ul>
+<li>XML Schema Specifications</li>
+<li>A Simple Schema Example</li> 
+<li>XML Schema and Namespaces</li> 
+<li>The Schema Document</li> 
+<li>Schema Root Element</li> 
+<li>Element Definitions</li> 
+<li>Complex Element Definitions</li> 
+<li>Attribute Definitions</li> 
+<li>Element and Attribute References</li> 
+<li>Abstract Data Types</li>
+<li>Target Namespaces</li> 
+<li>Importing vs. Including Schemas</li> 
+<li>Validating Documents</li>
+</ul>
+
+
+<p>
+Schema Best Practices and Patterns</p>
+
+<ul>
+<li>Designing Good Schemata</li> 
+<li>Design Goals</li> 
+<li>Naming Conventions</li> 
+<li>Enumerations</li> 
+<li>Element vs. Type</li> 
+<li>Element vs. Attribute</li> 
+<li>Global vs. Local</li> 
+<li>Qualified vs. Unqualified</li> 
+<li>Default Namespace</li> 
+<li>Miscellaneous Schema Design Tips and Conventions</li> 
+<li>Common Schema Design Patterns</li> 
+</ul>
+
+
+<p>Hari ke-3:<br />
+SOAP</p>
+
+<ul>
+<li>SOAP Specifications</li> 
+<li>SOAP Basics</li> 
+<li>The SOAP Envelope</li> 
+<li>The SOAP Header</li> 
+<li>The SOAP Body</li> 
+<li>SOAP Faults</li> 
+<li>SOAP Protocols</li> 
+</ul>
+
+
+<p>WSDL</p>
+
+<ul>
+<li>What is WSDL?</li>
+<li>WSDL Specification</li> 
+<li>The WSDL Document</li> 
+<li>WSDL by Example</li> 
+<li>WSDL</li> 
+<li>WSDL Abstract</li> 
+<li>WSDL Concrete</li> 
+<li>Style and Use</li> 
+<li>How is WSDL Used?</li> 
+<li>WS-1 Testing Tools</li>
+</ul>
+
+
+<p>UDDI</p>
+
+<ul>
+<li>UDDI Basics</li> 
+<li>UDDI Servers</li> 
+<li>Is a UDDI registry required?</li> 
+<li>Registry System</li> 
+<li>BusinessEntity</li> 
+<li>BusinessService</li> 
+<li>BindingTemplate</li> 
+<li>tModel</li> 
+<li>PublisherAssertion</li> 
+<li>Interacting with a UDDI Registry</li>
+</ul>
+
+
+<p>Hari ke-4:<br />
+Versioning</p>
+
+<ul>
+<li>Classifying Changes</li> 
+<li>Handling Backward Compatible Change</li> 
+<li>Handling Non-Backward Compatible Change</li> 
+<li>Behavioral Change</li> 
+<li>WSDL Versioning</li> 
+</ul>
+
+
+<p>Java Web Service APIs</p>
+
+<ul>
+<li>Java and XML Processing</li> 
+<li>API Overview</li> 
+<li>JAX-WS</li> 
+<li>SAAJ</li> 
+<li>JAXB</li> 
+<li>JAXP</li> 
+<li>JAXR</li> 
+<li>JAX-RS</li>
+</ul>
+
+
+<p>XML to Java Mapping</p>
+
+<ul>
+<li>How does WSDL and schema map to Java?</li> 
+<li>Development Approaches</li> 
+<li>Mapping Tools</li> 
+<li>Target Namespace Mapping</li> 
+<li>WSDL portType Mapping</li> 
+<li>Type Mapping</li>
+</ul>
+
+
+<p>Hari ke-5:<br />
+JAX-WS</p>
+
+<ul>
+<li>Bottom-Up Java Web Service Development</li> 
+<li>JAX-WS Annotations</li> 
+<li>JAXB Annotations</li> 
+<li>POJO Requirements</li> 
+<li>Top-Down Java Web Service Development</li> 
+<li>JAX-WS Web Service as an EJB</li> 
+<li>Enterprise Deployment</li> 
+</ul>
+
+
+<p>Java Web Service Clients</p>
+
+<ul>
+<li>Java Web Service Clients</li> 
+<li>Dynamic Proxy Clients</li> 
+<li>Dispatch Clients</li> 
+<li>Asynchronous Clients</li> 
+<li>Tracking SOAP Traffic</li>
+</ul>
+
+
+<p>Handlers</p>
+
+<ul>
+<li>JAX-WS Handlers</li> 
+<li>SOAPHandlers</li> 
+<li>LogicalHandlers</li> 
+<li>Handler Chains</li> 
+<li>Managing Handlers</li>
+</ul>
+
+
+<p>Hari ke-6:<br />
+RESTful Services</p>
+
+<ul>
+<li>What are RESTful Services?</li> 
+<li>RESTful Services and Java</li> 
+<li>Jersey Setup</li> 
+<li>JAX-RS Services</li> 
+<li>JAX-RS, JAXB and JSON</li> 
+<li>Resource Lifecycle</li> 
+<li>JAX-RS Resource Deployment</li> 
+<li>JAX-RS Clients</li>
+</ul>
+
+
+<p>
+Advanced XML Schema (APPENDIX)</p>
+
+<ul>
+<li>Non-atomic Simple Types</li> 
+<li>Restrictions and Facets</li> 
+<li>Extensions</li> 
+<li>Groups</li> 
+<li>Defining the type of Element Content</li> 
+<li>Any</li> 
+<li>Commenting Schema</li>
+</ul>
+
+
+<p>
+DOM and SAX (APPENDIX)</p>
+
+<ul>
+<li>What is the Document Object Model?</li> 
+<li>Document Object Model Specifications</li> 
+<li>DOM Interfaces</li> 
+<li>Begin Working with DOM</li> 
+<li>Document Interface</li> 
+<li>Node Interface</li> 
+<li>NodeList Interface</li> 
+<li>NamedNodeMap Interface</li> 
+<li>Event-Based Parsing</li> 
+<li>SAX</li> 
+<li>Creating a Simple Java SAX Application</li> 
+<li>Limitation of SAX</li> 
+<li>Benefits of SAX</li> 
+<li>Benefits of DOM</li>
+</ul>
+
+
+<p>Hari ke-7:<br />
+Implementasi Web Service  untuk iOS<br /><br />
+Hari ke-8:<br />
+Implementasi Web Service untuk Android<br /><br />
+Hari ke-9:<br />
+Implementasi Web Service untuk Windows 8<br /><br />
+Hari ke-10:<br />
+Membuat aplikasi storage berbasis cloud</p>
+
+<ul>
+<li>Design arsitektur</li>
+<li>Design tampilan</li>
+<li>Design skema database</li>
+</ul>
+
+
+<p>Hari ke-11:<br />
+Membuat aplikasi storage berbasis cloud</p>
+
+<ul>
+<li>Implementasi akses database</li>
+<li>Implementasi user interface</li>
+<li>Implementasi REST Services</li>
+</ul>
+
+
+<p>Hari ke-12:<br />
+Membuat aplikasi client</p>
+
+<br />
+
+
+<p><b>FOTO DOKUMENTASI</b><br /><br />
+<img src="http://i1053.photobucket.com/albums/s466/dadangiswan/lemsaneg_3_zps1a9dbc30.jpg" alt="foto dokumentasi1" /><br /><br />
+<img src="http://i1053.photobucket.com/albums/s466/dadangiswan/lemsaneg_2_zps806698c3.jpg" alt="foto dokumentasi2" /><br /><br />
+<img src="http://i1053.photobucket.com/albums/s466/dadangiswan/lemsaneg_4_zpsf10c0118.jpg" alt="foto dokumentasi3" /><br /><br />
+<img src="http://i1053.photobucket.com/albums/s466/dadangiswan/lemsaneg_1_zpsae1c7927.jpg" alt="foto dokumentasi4" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Membuat Categories Aside]]></title>
+    <link href="http://artivisi.github.io/octopress/membuat-categories-aside/"/>
+    <updated>2013-07-03T12:38:00+07:00</updated>
+    <id>http://artivisi.github.io/octopress/membuat-categories-aside</id>
+    <content type="html"><![CDATA[<p>Ada satu fitur yang cukup esensial di blog engine tapi tidak ada di Octopress yaitu tampilan daftar kategori. Alhamdulillah, ternyata sudah ada yang membuat plugin tersebut. Namun, di sini ada beberapa perbaikan dari plugin tersebut.</p>
+
+<!-- more -->
+
+
+<p>Berikut ini langkah-langkahnya :<br />
+<strong>1. Download <code>category_list.rb</code> berikut ini</strong><br />
+File /home/ivans/Workspace/kantor/artivisi.github.io/source/downloads/code/categories/category_list.rb could not be found</p>
+
+<p><strong>2. Buat file <code>source/_includes/custom/asides/categories.html</code> dengan isi sebagai berikut :</strong></p>
+
+<p>File /home/ivans/Workspace/kantor/artivisi.github.io/source/downloads/code/categories/categories.html could not be found</p>
+
+<p><strong>3. Tambahkan nilai <code>custom/asides/categories.html</code> pada properti <code>default_asides</code> di file <code>_config.yml</code> sehingga menjadi seperti ini : </strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>default_asides: [asides/recent_posts.html, custom/asides/categories.html, 
+</span><span class='line'>asides/github.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html]</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>4. Selesai. Daftar kategori akan tampil di sidebar blog.</strong></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Membuat Read More]]></title>
+    <link href="http://artivisi.github.io/octopress/membuat-read-more/"/>
+    <updated>2013-07-03T08:25:00+07:00</updated>
+    <id>http://artivisi.github.io/octopress/membuat-read-more</id>
+    <content type="html"><![CDATA[<p>Saya akan memberikan tips sederhana
+bagaimana membuat Read more pada postingan
+di Octopress.</p>
+
+<!-- more -->
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;!-- more --&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Bagi anda yang membuat postingan pada
+Octopress, dan merasa postingan anda
+terlalu panjang untuk ditampilkan secara
+keseluruhan, anda bisa membuat read more pada postingan anda di Octopress. Anda
+Cukup memberi syntax sederhana seperti ini</p>
+
+<br />
+
+
+<p>Selamat Mencoba</p>
+]]></content>
+  </entry>
+  
+</feed>
