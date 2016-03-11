@@ -460,13 +460,13 @@ var array = [
     {   
     	document.write("<div class='col-xs-12 col-sm-6 col-md-3 portfolio-item-wrapper "+array[i].tahun+"'>");
        		document.write("<div class='portfolio-item'>");
-        		document.write("<div class='portfolio-thumb'>");
-        			document.write("<img src='"+array[i].image+"' class='img-responsive'>"); 
+        		document.write("<div class='portfolio-thumb' >");
+        			document.write("<img src='"+array[i].image+"' class='img-responsive' style='height:120px;width:100%'>"); 
        				document.write("<div class='image-overlay'></div>"); 
        				document.write("<a class='portfolio-zoom'><i class='fa fa-eye'></i></a>"); 
         			document.write("<a href='#' onclick='changeTextModal("+i+")' class='portfolio-zoom' data-toggle='modal' data-target='#myModal'><i class='fa fa-eye'></i></a>"); 
         		document.write("</div>"); 
-        		document.write("<div class='portfolio-details'>"); 
+        		document.write("<div class='portfolio-details' style='height:150px'>"); 
         			document.write("<h5>"+array[i].nama+"</h5>"); 
         document.write("<p>("+array[i].training+")<br />Tahun : "+array[i].tahun+"</p>"); 
 
