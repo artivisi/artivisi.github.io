@@ -1,0 +1,93 @@
+<!-- /.main-wrapper -->
+<footer id="footer-1" class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="widget about-us">
+                    <div class="footer-brand"><img src="{{ root_url }}/images/logo/artivisi.png" style="max-width:150px;max-height:80px"></img></div>
+                    <p>
+                        Software Development Company<br />
+                        based in Jakarta Indonesia
+                    </p>
+                    <p>
+                        <b>Core competence</b><br />
+                        Java, Spring Framework, Hibernate, MySQL, Tomcat, and other open source technologies
+                    </p>
+                    <p>
+                        <b>Core Business</b><br />
+                        Software Development, Consulting, and Training
+                    </p>
+                </div>
+                <!-- /.about-us -->
+                <div class="widget stay-connedted">
+                    <div class="subpage-title">
+                        <h5>Stay Connected</h5>
+                    </div>
+                    <ul class="social-links">
+                        <li><a class="facebook" href="http://fb.me/artivisi.intermedia"><i class="fa fa-facebook"></i></a></li>
+                        <li><a class="google-plus" href="mailto:info@artivisi.com"><i class="fa fa-envelope"></i></a></li>
+                        <li><a class="twitter" href="https://twitter.com/artivisi"><i class="fa fa-twitter"></i></a></li>
+                        <li><a class="pinterest" href="http://goo.gl/maps/np9gj"><i class="fa fa-map-marker"></i></a></li>
+                        <li><a class="rss" href="ymsgr:sendim?artivisi1"><i class="fa fa-comments"></i></a></li>
+                        <li><a class="google-plus" href="http://github.com/artivisi"><i class="fa fa-github"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="widget categories">
+                    <div class="subpage-title">
+                        <h5>Artikel Terbaru</h5>
+                    </div>
+                    <ul class="recent-posts border-footer">
+                        <script>
+                        {% for post in site.posts limit: site.recent_posts %}
+                        document.write("<li><h5>");
+                        document.write("<a href='{{ root_url }}{{ post.url }}'>");
+                        {% if site.titlecase %}
+                        var a = "{{ post.title | titlecase }}";
+                        document.write(a);
+                        {% else %}
+                        var a = "{{ post.title }}";
+                        document.write(a);
+                        {% endif %}
+                        var date = "{{ post.date }}";
+                        document.write("</a><small style='color:#696969;margin-bottom:5px;'>Posted " + date.substring(0,10) + "</small></h5></li>");
+                        {% endfor %}
+                        </script>
+                    </ul>
+                </div>
+            </div>
+            <!-- /.col-md-3 -->
+            <div class="col-md-3">
+                <div class="widget categories">
+                    <div class="subpage-title">
+                        <h5>Download</h5>
+                    </div>
+                    <ul class="widget-list border-footer">
+                        <li><a href="http://endy.muhardin.googlepages.com/minibook-log4j.pdf">Minibook Log4J</a></li>
+                        <li><a href="http://software.endy.muhardin.com/downloads/user-story.odt">Template User Story</a></li>
+                        <li><a href="http://software.endy.muhardin.com/downloads/change-request.odt">Template Change Request Form</a></li>
+                        <li><a href="http://software.endy.muhardin.com/downloads/change-request.odt">Aplikasi Belajar RESTful</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /.col-md-3 -->
+            <div class="col-md-3">
+                <div class="widget categories">
+                    <div class="subpage-title">
+                        <h5>Open Source</h5>
+                    </div>
+                    <ul class="widget-list border-footer">
+                        <li><a href="https://github.com/artivisi/biller-simulator">Biller Simulator</a></li>
+                        <li><a href="http://www.playsms.org/">playSMS</a></li>
+                        <li><a href="https://github.com/artivisi/iso8583-processor">ISO-8583 Processor</a></li>
+                        <li><a href="https://github.com/artivisi/standard-webapp-archetype">Template Aplikasi Web Java</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /.col-md-3 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</footer>

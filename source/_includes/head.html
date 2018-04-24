@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% capture description %}{% if page.description %}{{ page.description }}{% else %}{{ content | raw_content }}{% endif %}{% endcapture %}
+	<meta name="description" content="{{ description | strip_html | condense_spaces | truncate:150 }}">
+	{% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
+    <meta name="author" content="{{ site.author }}">
+    <link rel="shortcut icon" href="ico.png">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <!-- Bootstrap Core CSS -->
+        <link href="{{ root_url }}/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <!-- Plugins CSS -->
+        <link href="{{ root_url }}/assets/UItoTop/css/ui.totop.css" rel="stylesheet">
+        <link href="{{ root_url }}/assets/prettyPhoto/css/prettyPhoto.css" rel="stylesheet">
+        <!-- REVOLUTION BANNER CSS SETTINGS -->
+        <link rel="stylesheet" type="text/css" href="{{ root_url }}/assets/rs-plugin/css/settings.css" media="screen" />
+        <!-- Font Awesome  -->    
+        <link href="{{ root_url }}/assets/font-awesome-4.0.1/css/font-awesome.min.css" rel="stylesheet">
+        <!-- Custom Stylesheet For This Template -->
+        <link href="{{ root_url }}/assets/css/stylesheet.css" rel="stylesheet">
+        <link href="{{ root_url }}/assets/css/skins.css" rel="stylesheet">
+        <!-- Google Fonts -->    
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic|Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="assets/js/html5shiv.js"></script>
+        <script src="assets/js/respond.min.js"></script>
+        <![endif]-->
+        <link href="{{ root_url }}/assets/css/artivisi.css" rel="stylesheet">
+    </head>
+    <!--end head-->

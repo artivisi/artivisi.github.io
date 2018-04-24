@@ -1,0 +1,198 @@
+---
+layout: page
+title: "Play SMS"
+date: 2013-07-25 11:25
+comments: true
+sharing: true
+footer: true
+include_opensource : true
+---
+
+<div class="col-md-8 pad-25">
+	<div>
+		<div class="subpage-title">
+			<h5>Project Description</h5>
+		</div>
+		<p>playSMS is a free and open source SMS software. A flexible Web-based Mobile Portal System that it can be made to fit to various services such as an SMS gateway, bulk SMS, personal messaging systems, corporate and group communication tools.</p>
+		<p>This project was first wrote in year 2003 by Anton Raharja.</p>
+		<br />
+		<br />
+	</div>
+	<div>
+		<div class="subpage-title">
+			<h5>Feature Highlights</h5>
+		</div>
+		<p>
+			<ul>
+				<li>Multiple database engine supported (using PHP PEAR DB)</li>
+				<li>Send SMS to single mobile phone (web2mobile)</li>
+				<li>Send SMS broadcasted to a group of mobile phones (web2mobiles, bulk SMS)</li>
+				<li>Support sending text, flash and unicode message</li>
+				<li>Capable of handling large amount of SMS (500k SMS monthly)</li>
+				<li>Receive private SMS to Inbox and forward it to email (mobile2web)</li>
+				<li>Forward single SMS from mobile to a group of mobile phones (mobile2mobiles)</li>
+				<li>SMS autoreply, for easy autoreplying formatted incoming SMS</li>
+				<li>SMS board, forward received SMS to email, export output in JSON and a few other formats</li>
+				<li>SMS command, execute server side shell script using SMS</li>
+				<li>SMS custom, forward incoming SMS to custom application, locally or external URL</li>
+				<li>SMS poll, manage polling system using SMS, export output in graph, JSON and other formats</li>
+				<li>SMS quiz, serve quizzes on SMS</li>
+				<li>SMS subscribe, manage user subscribes to a service using SMS</li>
+				<li>
+					SMS sync to utilize SMSSync app from 
+					<a target="_blank" href="http://smssync.ushahidi.com" title="SMSSync SMS Gateway by Ushahidi">smssync.ushahidi.com</a>
+				</li>
+				<li>Create your own features, tools, themes and gateway modules as a plugin</li>
+				<li>Supports Gammu, Gnokii, Kannel, SMS Server Tools, Msgtoolbox, Uplink, Nexmo, Twilio, Infobip and Clickatell</li>
+				<li>Supports simulation gateway for testing incoming and outgoing SMS</li>
+				<li>Webservices for sending SMS, retrieving delivery reports, checking credits and more</li>
+				<li>Long SMS support, length of text is configurable</li>
+				<li>Rate SMS by destination prefix</li>
+				<li>SMS credit system per user</li>
+				<li>Timezone settings</li>
+				<li>Multi-language user interface (English, French, Bahasa Indonesia, Russian and a few others)</li>
+				<li>Easily add new language for user interface</li>
+				<li>Web-based interface</li>
+			</ul>	
+		</p>
+		<br />
+		<br />
+	</div>
+	<div>
+		<div class="subpage-title">
+			<h5>Requirements</h5>
+		</div>
+		<p>Minimum Required Hardware</p>
+		<p>
+			<ul>
+				<li>Web server capable hardware</li>
+				<li>GSM modem, single/modem pool (optional, only when you plan to use Kannel, Gammu, Gnokii or smstools gateway plugins)</li>
+				<li>Internet connection (optional, only when you plan to use Clickatell, Nexmo, Twilio, Infobip gateway plugins)</li>
+				<li>LAN (optional, only when you plan to link 2 playSMS on different server in the same network using Uplink gateway plugin)</li>
+			</ul>
+		</p>
+		<p>Minimum Required Hardware</p>
+		<p>
+			<ul>
+				<li>Operating System Linux (install on MS Windows or BSD is possible)</li>
+				<li>Web Server (for example Apache2, nginx or lighttpd)</li>
+				<li>Database Server MySQL 5.x.x or latest stable release</li>
+				<li>PHP 5.x.x or latest stable release with mysql module enabled</li>
+				<li>PHP CLI (very important, do not forget this)</li>
+				<li>PHP gettext extension (this is a must for text translation)</li>
+				<li>PHP multibyte string function (should be able to call mb_convert_encoding)</li>
+				<li>Access to SMTP server (playSMS will use this to send email)</li>
+				<li>lynx, wget or curl, a console web browser (example scripts require lynx)</li>
+				<li>Downloaded playSMS package from SF.net or latest source code from Github</li>
+			</ul>
+		</p>
+		<p>Minimum Required Server Administrator (or Developer)</p>
+		<p>
+			<ul>
+				<li>Understand howto make sure installed PHP has MySQL module enabled/loaded</li>
+				<li>Understand howto create/drop MySQL database</li>
+				<li>Understand howto insert SQL statements into created database</li>
+				<li>Basic knowledges to manage Linux (skill to navigate in console mode)</li>
+			</ul>
+		</p>
+		<br />
+		<br />
+	</div>
+	<div>
+		<div class="subpage-title">
+			<h5>Gateway Modules</h5>
+		</div>
+		<p>Working Gateway Module:</p>
+		<p>
+			<ul>
+				<li>
+					Clickatell (
+					<a target="_blank" href="http://www.tkqlhce.com/click-4099975-10790566">www.clickatell.com</a>
+					)
+				</li>
+				<li>
+					Gammu (
+					<a target="_blank" href="http://wammu.eu/">wammu.eu</a>
+					)
+				</li>
+				<li>
+					Gnokii (
+					<a target="_blank" href="http://www.gnokii.org/">www.gnokii.org</a>
+					)
+				</li>
+				<li>
+					Kannel (
+					<a target="_blank" href="http://www.kannel.org/">www.kannel.org</a>
+					)
+				</li>
+				<li>
+					Msgtoolbox (
+					<a target="_blank" href="http://www.42it.eu">www.42it.eu</a>
+					)
+				</li>
+				<li>
+					Nexmo (
+					<a target="_blank" href="http://www.nexmo.com">www.nexmo.com</a>
+					)
+				</li>
+				<li>
+					SMS Server Tools (
+					<a target="_blank" href="http://smstools.meinemullemaus.de/">smstools.meinemullemaus.de</a>
+					)
+				</li>
+				<li>
+					SMS Server Tools 3 (
+					<a target="_blank" href="http://smstools3.kekekasvi.com/">smstools3.kekekasvi.com</a>
+					)
+				</li>
+				<li>
+					Twilio (
+					<a target="_blank" href="http://www.twilio.com">www.twilio.com</a>
+					)
+				</li>
+				<li>
+					Infobip (
+					<a target="_blank" href="http://www.infobip.com/">www.infobip.com</a>
+					)
+				</li>
+				<li>Uplink</li>
+			</ul>
+		</p>
+		<br />
+		<br />
+	</div>
+</div>
+<div class="col-md-4 pad-25">
+	<div style="margin-bottom:2em;">
+		<img src="{{ root_url }}/images/opensource/playsms.png" style="max-width: 100%;">
+	</div>
+	<div class="subpage-title">
+		<h5>Project Details</h5>
+	</div>
+	<ul class="project-details-list">
+		<li>
+			<h6>Developer:</h6>
+			<div class="project-terms">
+				Anton Raharja
+			</div>
+		</li>
+		<li>
+			<h6>OS:</h6>
+			<div class="project-terms">
+				Linux
+			</div>
+		</li>
+		<li>
+			<h6>Date:</h6>
+			<div class="project-terms">
+				2003
+			</div>
+		</li>
+		<li>
+			<h6>Website:</h6>
+			<div class="project-terms">
+				<a href="http://playsms.org">playsms.org</a>
+			</div>
+		</li>
+	</ul>
+</div>

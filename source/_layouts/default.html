@@ -1,0 +1,16 @@
+{% capture root_url %}{{ site.root | strip_slash }}{% endcapture %}
+{% include head.html %}
+
+<body>
+	<div id="utter-wrapper" class="color-skin-1">
+	{% include header.html %}
+	
+	{{ content | expand_urls: root_url }}
+	
+	{% include footer.html %}
+	{% include after_footer.html %}
+	{% include javascript.html %}
+	
+	<div>
+</body>
+

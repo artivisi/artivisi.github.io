@@ -1,0 +1,20 @@
+{% capture post_category %}{{ post.categories | size }}{% endcapture %}
+{% capture page_category %}{{ page.categories | size }}{% endcapture %}
+
+<span>Categories </span>
+
+{% if index %}
+  {% if post_category != '0' %}
+    {% for category in post.categories %}
+      <a href="#">{{ category }}</a>
+       <span>,</span>
+    {% endfor %}
+  {% endif %}
+{% else %}
+  {% if page_category != '0' %}
+    {% for category in page.categories %}
+      <a href="#">{{ category }}</a>
+       <span>,</span>
+    {% endfor %}
+  {% endif %}
+{% endif %}

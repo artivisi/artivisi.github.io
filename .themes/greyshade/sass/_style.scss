@@ -1,0 +1,133 @@
+/**
+ * HTML 5 standard elements
+ */
+img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+body {
+  background: #EEE;
+  margin: 0;
+}
+p {
+  text-align: justify;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: #2e3192;
+}
+
+a {
+    color: #2E3192;
+}
+
+#main-footer h4 {
+    color: #FFF;
+}
+
+/* custom heading inside panel foundation */
+.panel h1, .panel h2, .panel h3, .panel h4, .panel h5, .panel h6 {
+  color: #2e3192;
+}
+
+/**
+ * ID
+ */
+#sidebar {
+  padding: 20px;
+}
+  ul.socialicon li {
+    list-style: none;
+    margin-left: -1em;
+  }
+
+#main {
+
+}
+  #main-header, #main-content, #main-footer {
+    margin-left: 3px;
+  }
+  #main-content, #main-footer {
+    margin-top: 10px;
+  }
+  #main-header {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+  }
+    .main-header-kiri, .main-header-kanan {
+      background: #2E3192;
+    }
+    .main-header-kiri {
+      margin-left: -10px;
+      margin-right: -20px;
+      margin-top: -1px;
+      padding: 13px;
+    }
+    .main-header-kanan {
+      margin-left: 10px;
+      margin-right: -10px;
+      padding: 10px;
+    }
+      form#cari {
+        margin-bottom: -10px;
+      }
+    ul.navigasi {
+      margin: 1px 20px 0 0;
+    }
+    ul.navigasi li {
+      display: inline;
+      list-style: none;
+    }
+    ul.navigasi li a {
+      color: #fff;
+      font-size: 1.2em;
+    }
+    #cari {
+      margin-bottom: -3px;
+    }
+
+  #main-content {
+    background: #6567A4;
+    padding-top: 10px;
+  }
+    .frame {
+      border: 10px solid #a9a9a9;
+    }
+  #main-footer {
+    padding: 10px;
+    font-size: .9em;
+    background: #58C034;
+  }
+
+/**
+ * Class
+ */
+.copyright {
+  text-align: center;
+  font-size: .8em;
+  color: #2e3192;
+}
+/*costumize*/
+.code{
+	overflow:auto;
+}
+.client-logo>tbody>tr>td>center>img{
+	
+	max-height:80px;
+	width:auto;
+}
+.pageContent>ul>li, .pageContent>ol>li{
+	margin-left:1em;
+}
+.pageContentBottom>ul>li, .pageContentBottom>ol>li{
+	margin-bottom:1em;
+}
+.pageContent>h5{
+color:#585858;
+}
+.pageSilabus>table>tbody>tr>td,table>thead>tr>td{
+border:1px solid #D8D8D8;
+}
+.pageSilabus>table{
+width:100%;
+}

@@ -1,0 +1,492 @@
+---
+layout: page
+title: "In House Training"
+date: 2013-10-24 13:17
+comments: true
+sharing: true
+filter_portofolio: true
+footer: true
+---
+
+<script>
+// namaApp | Tahun | Description | project | date | company | website
+//var LoreIpsum = "Donec in velit vel ipsum auctor pulvinar. Vesti bulum iaculis lacinia est. Proin dictum elementum velit. Fusce euismod auctor pulvinar.";
+var LoreIpsum = "-";
+  
+var array = [
+{
+    "nama": "PT. Citra Multi Services", // new property for this object
+    "training": "Training Angular JS & Spring",
+    "tahun": "2016",
+    "description":"Training Angular JS & Spring Framework di PT. Citra Multi Services dengan materi meliputi :<br>- Pengenalan Angular JS,  <br>- Spring Fundamental,<br>- Spring Boot,<br>- Spring OAuth" ,
+    "date": "Januari 2016",
+    "website": "-",
+    "company": "PT. Citra Multi Services",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "PT. Asuransi Jiwasraya (Persero)", // new property for this object
+    "training": "Penggunaan Versioning Tools",
+    "tahun": "2015",
+    "description":"Pelatihan Penggunaan Versioning Tools di PT. Asuransi Jiwasraya (Persero) dimulai dari Pengenalan Linux dan dilanjutkan dengan materi GIT yang dilaksanakan selama 5 hari" ,
+    "date": "Desember 2015",
+    "website": "-",
+    "company": "PT. Asuransi Jiwasraya (Persero)",
+	"image": "{{ root_url }}/images/content/jiwasraya.jpg"},
+{
+    "nama": "PT Pegadaian (Persero)", // new property for this object
+    "training": "Programmer Switching",
+    "tahun": "2015",
+    "description":"Training Programmer Switching di PT. Pegadaian (Persero) di isi dengan materi :<br>- Maven,<br>- GIT,<br>- ISO 8583 dengan jPos,<br>- Spring Boot,<br>- Web Service,<br>- ANGULARJS DAN BOOSTRAP" ,
+    "date": "Maret 2015",
+    "website": "-",
+    "company": "PT Pegadaian (Persero)",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "PT Waruna Nusa Sentana", // new property for this object
+    "training": "Training SDT",
+    "tahun": "2015",
+    "description": "Training Software Development Tools di PT Waruna Nusa Sentana di isi dengan materi Software Development Tools, GIT, Automated Testing Java & Continuous Integration Java",
+    "date": "Maret 2015",
+    "website": "-",
+    "company": "PT. Waruna Nusa Sentana",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "PT Anabatic Technologies", // new property for this object
+    "training": "Training CMMI",
+    "tahun": "2015",
+    "description": "Training CMMI di PT Anabatic Technologies dilaksanakan selama 5 hari",
+    "date": "April 2015",
+    "website": "-",
+    "company": "PT Anabatic Technologies",
+	"image": "{{ root_url }}/images/content/anabatic.JPG"},
+{
+    "nama": "PT Askrindo", // new property for this object
+    "training": "Training Java",
+    "tahun": "2015",
+    "description": "Training Java di PT (Persero) Asuransi Kredit Indonesia dengan materi : <br>- GIT, <br>- Maven, <br>- Java Fundamental, <br>- Database Fundamental, <br>- Java Spring Framework, <br>- Java Persistence With Hibernate, <br>- Java Web Fundamental, <br>- Java Spring Framework, <br>- Web Service",
+    "date": "Agustus 2015",
+    "website": "-",
+    "company": "PT Askrindo",
+	"image": "{{ root_url }}/images/content/askrindo.jpg"},
+{
+    "nama": "Direktorat Jenderal Pajak", // new property for this object
+    "training": "Workshop Teknologi Single Sign On",
+    "tahun": "2015",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Direktorat Jenderal Pajak, Kantor Pusat",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "PT Kereta Api Indonesia", // new property for this object
+    "training": "Training Java Web Basic",
+    "tahun": "2015",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "PT Kereta Api Indonesia, Kantor Pusat",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "PT. Bank Andara", // new property for this object
+    "training": "Training Java",
+    "tahun": "2014",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "PT. Bank Andara",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Direktorat Jenderal Bea dan Cukai", // new property for this object
+    "training": "Training Java",
+    "tahun": "2014",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Direktorat Jenderal Bea dan Cukai",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Kementrian Pendidikan dan Kebudayaan Republik Indonesia", // new property for this object
+    "training": "Training Java",
+    "tahun": "2014",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Kementrian Pendidikan dan Kebudayaan Republik Indonesia",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "PT. Panin Dai-Ichi Life", // new property for this object
+    "training": "Training Java",
+    "tahun": "2014",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "PT. Panin Dai-Ichi Life",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Bank Perkreditan Rakyat Karyajatnika Sadaya", // new property for this object
+    "training": "Training Java",
+    "tahun": "2013",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Bank Perkreditan Rakyat Karyajatnika Sadaya",
+	"image": "{{ root_url }}/images/icon_example.png"},
+
+{
+    "nama": "Mandala Finance", // new property for this object
+    "training": "Training Java Desktop",
+    "tahun": "2013",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Mandala Finance",
+	"image": "{{ root_url }}/images/icon_example.png"},
+
+{
+    "nama": "Mandala Finance", // new property for this object
+    "training": "Training Spring MVC",
+    "tahun": "2013",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Mandala Finance",
+	"image": "{{ root_url }}/images/icon_example.png"},
+
+{
+    "nama": "Intisoft Mitra Sejahtera", // new property for this object
+    "training": "Training Java Web",
+    "tahun": "2013",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Intisoft Mitra Sejahtera",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Trimedia Profitama", // new property for this object
+    "training": "Training Teknologi Informasi",
+    "tahun": "2012",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Trimedia Profitama",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Cahaya Buana Intitama", // new property for this object
+    "training": "Training Java",
+    "tahun": "2012",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Cahaya Buana Intitama",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Alita Praya Mitra", // new property for this object
+    "training": "Training Java Web",
+    "tahun": "2012",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Alita Praya Mitra",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Bank Mega", // new property for this object
+    "training": "Training Java",
+    "tahun": "2012",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Bank Mega",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Anabatic Technologies", // new property for this object
+    "training": "Training Web Service",
+    "tahun": "2012",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Anabatic Technologies",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Anabatic Technologies", // new property for this object
+    "training": "Training Java",
+    "tahun": "2012",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Anabatic Technologies",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Sumber Sarana", // new property for this object
+    "training": "Training Training Hibernate dan Spring",
+    "tahun": "2011",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Sumber Sarana",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Jasa Asuransi Indonesia", // new property for this object
+    "training": "Training Java Web",
+    "tahun": "2011",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Jasa Asuransi Indonesia",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Sigma Cipta Caraka", // new property for this object
+    "training": "Training Java",
+    "tahun": "2011",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Sigma Cipta Caraka",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Graha Informatika Nusantara", // new property for this object
+    "training": "Training MySQL",
+    "tahun": "2011",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Graha Informatika Nusantara",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Pura Barutama", // new property for this object
+    "training": "Training Java Web",
+    "tahun": "2010",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Pura Barutama",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Visi Solusi Teknologi", // new property for this object
+    "training": "Training Java",
+    "tahun": "2010",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Visi Solusi Teknologi",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "ITC Finance", // new property for this object
+    "training": "Training Java",
+    "tahun": "2010",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "ITC Finance",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "AJN Solusindo", // new property for this object
+    "training": "Training JPos",
+    "tahun": "2010",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "AJN Solusindo",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Nusantara Compnet Integrator", // new property for this object
+    "training": "Training Java",
+    "tahun": "2010",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Nusantara Compnet Integrator",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "ITC Finance", // new property for this object
+    "training": "Training Java",
+    "tahun": "2009",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "ITC Finance",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Sarana Multi Solusi", // new property for this object
+    "training": "Training Ibatis",
+    "tahun": "2009",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Sarana Multi Solusi",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Derektorat Jendral Bea dan Cukai", // new property for this object
+    "training": "Training Java Fundamental & Java Web Basic",
+    "tahun": "2009",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Derektorat Jendral Bea dan Cukai",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Bappenas", // new property for this object
+    "training": "Training Java",
+    "tahun": "2009",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Bappenas",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Inter Aneka Lestari Kimia", // new property for this object
+    "training": "Training Java",
+    "tahun": "2008",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Inter Aneka Lestari Kimia",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Agranet Multi Citra Siberkom", // new property for this object
+    "training": "Training Java Application Designing dan Programming",
+    "tahun": "2008",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Agranet Multi Citra Siberkom",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Wahana Arthan Harsaka", // new property for this object
+    "training": "Training Java",
+    "tahun": "2008",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Wahana Arthan Harsaka",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Perdanan Informatika", // new property for this object
+    "training": "Training Java",
+    "tahun": "2008",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Perdanan Informatika",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Pertamina Bina Medika", // new property for this object
+    "training": "Training Java",
+    "tahun": "2008",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Pertamina Bina Medika",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Bajau Escorindo", // new property for this object
+    "training": "Training MySQL",
+    "tahun": "2008",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Bajau Escorindo",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Lembaga Sandi Negara", // new property for this object
+    "training": "Training Java",
+    "tahun": "2008",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Lembaga Sandi Negara",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Wijaya Karya", // new property for this object
+    "training": "Training Java",
+    "tahun": "2008",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Wijaya Karya",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Andia", // new property for this object
+    "training": "Training Java",
+    "tahun": "2008",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Andia",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Bappenas", // new property for this object
+    "training": "Training Java",
+    "tahun": "2008",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Bappenas",
+	"image": "{{ root_url }}/images/icon_example.png"},
+{
+    "nama": "Primenet", // new property for this object
+    "training": "Training Java",
+    "tahun": "2008",
+    "description": LoreIpsum,
+    "date": "-",
+    "website": "-",
+    "company": "Primenet",
+	"image": "{{ root_url }}/images/icon_example.png"},
+]; 
+</script>
+
+<style>
+    .content-hidden{
+        display: none;
+    }
+</style>
+
+<ul class="portfolio-filter nav nav-pills">
+    <li class="active"><a href="#" data-filter="*">All</a></li>
+    <li><a href="#" data-filter=".2015">2015</a></li>
+    <li><a href="#" data-filter=".2014">2014</a></li>
+    <li><a href="#" data-filter=".2013">2013</a></li>
+    <li><a href="#" data-filter=".2012">2012</a></li>
+    <li><a href="#" data-filter=".2011">2011</a></li>
+    <li><a href="#" data-filter=".2010">2010</a></li>
+    <li><a href="#" data-filter=".2009">2009</a></li>
+    <li><a href="#" data-filter=".2008">2008</a></li>
+</ul>
+<!-- /.portfolio-filter -->
+<div class="row">
+    <div id="isotope-portfolio-container">
+        
+<script>
+ for (i=0; i<array.length; i++)
+    {   
+    	document.write("<div class='col-xs-12 col-sm-6 col-md-3 portfolio-item-wrapper "+array[i].tahun+"'>");
+       		document.write("<div class='portfolio-item'>");
+        		document.write("<div class='portfolio-thumb' >");
+        			document.write("<img src='"+array[i].image+"' class='img-responsive' style='height:120px;width:100%'>"); 
+       				document.write("<div class='image-overlay'></div>"); 
+       				document.write("<a class='portfolio-zoom'><i class='fa fa-eye'></i></a>"); 
+        			document.write("<a href='#' onclick='changeTextModal("+i+")' class='portfolio-zoom' data-toggle='modal' data-target='#myModal'><i class='fa fa-eye'></i></a>"); 
+        		document.write("</div>"); 
+        		document.write("<div class='portfolio-details' style='height:150px'>"); 
+        			document.write("<h5>"+array[i].nama+"</h5>"); 
+        document.write("<p>("+array[i].training+")<br />Tahun : "+array[i].tahun+"</p>"); 
+
+        	document.write("<div class='content-hidden'>");
+        		document.write("<div id='list-project-description"+i+"'>"+array[i].description+"</div>");
+        		document.write("<div id='list-project-project"+i+"'>"+array[i].training+"</div>");
+        		document.write("<div id='list-project-date"+i+"'>"+array[i].date+"</div>");
+        		document.write("<div id='list-project-company"+i+"'>"+array[i].company+"</div>");
+        		document.write("<div id='list-project-website"+i+"'>"+array[i].website+"</div>");
+        	document.write("</div>");
+
+        document.write("</div></div></div>"); 
+
+    }
+</script>
+
+    </div>
+    <!-- /.isotope-portfolio-container -->
+</div>
+<!-- /.row -->
+
+
+{% include modal/modal_project.html %}
