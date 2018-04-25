@@ -1,0 +1,90 @@
+{% capture root_url %}{{ site.root | strip_slash }}{% endcapture %}
+{% include head.html %}
+
+<body>
+	<div class="row">
+    <!--  
+    #####################
+    # Sisi Sebelah Kiri #
+    #####################
+    -->
+    <div id="sidebar" class="large-3 columns">
+		{% include page_default/side_bar.html %}
+    </div>
+    <!-- # Akhir Sisi Sebelah Kiri # -->
+
+    <!--  
+    ################################
+    # Sisi Sebelah Kanan / Content #
+    ################################
+    -->
+    <div id="main" class="large-9 columns">
+      
+      <!-- Header Utama / #main-header -->
+      <div id="main-header" class="row">
+			{% include page_default/content_header.html %}
+      </div>
+
+      <!-- Lokasi #main-content -->
+      <div id="main-content" class="row">
+			{{ content | expand_urls: root_url }}
+	  </div>
+	  
+      <!--  
+      ###############
+      # main-footer #
+      ###############
+      -->
+      <div id="main-footer" class="row">
+			{% include page_default/content_footer.html %}
+      </div>
+      <!-- # main-footer # -->
+    </div>
+  </div>
+
+  <script>
+  document.write('<script src=' +
+  ('__proto__' in {} ? '{{ root_url }}/assets/foundation/vendor/zepto' : '{{ root_url }}/assets/foundation/vendor/jquery') +
+  '.js><\/script>')
+  </script>
+  
+  <script src="{{ root_url }}/assets/foundation/foundation.min.js"></script>
+  <!--
+  
+  <script src="js/foundation/foundation.js"></script>
+  
+  <script src="js/foundation/foundation.interchange.js"></script>
+  
+  <script src="js/foundation/foundation.dropdown.js"></script>
+  
+  <script src="js/foundation/foundation.placeholder.js"></script>
+  
+  <script src="js/foundation/foundation.forms.js"></script>
+  
+  <script src="js/foundation/foundation.alerts.js"></script>
+  
+  <script src="js/foundation/foundation.magellan.js"></script>
+  
+  <script src="js/foundation/foundation.reveal.js"></script>
+  
+  <script src="js/foundation/foundation.tooltips.js"></script>
+  
+  <script src="js/foundation/foundation.clearing.js"></script>
+  
+  <script src="js/foundation/foundation.cookie.js"></script>
+  
+  <script src="js/foundation/foundation.joyride.js"></script>
+  
+  <script src="js/foundation/foundation.orbit.js"></script>
+  
+  <script src="js/foundation/foundation.section.js"></script>
+  
+  <script src="js/foundation/foundation.topbar.js"></script>
+  
+  -->
+  
+  <script>
+    $(document).foundation();
+  </script> 
+</body>
+

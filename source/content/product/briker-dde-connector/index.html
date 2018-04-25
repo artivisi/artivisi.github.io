@@ -1,0 +1,120 @@
+---
+layout: page
+title: "Briker DDE Connector"
+date: 2014-12-23 13:17
+comments: true
+sharing: true
+footer: true
+---
+
+<div class="col-md-8 pad-25">
+	<div>
+		<div class="subpage-title">
+			<h5>Briker DDE</h5>
+		</div>
+		<p><b>Briker DDE</b> merupakan aplikasi yang menghubungkan antara sistem telepon asterisk 
+			(briker) dengan service DDE (Dynamic Data Exchange). Pada intinya aplikasi ini akan 
+			menampilkan popup jika ada telepon yang masuk ke extension/agent. Popup yang ditampilkan bisa 
+			dikonfigurasi sesuai keinginan data apa saja yang akan ditampilkan sebagai popup. Entah itu nama 
+			penelpon, alamat, nomor pelanggan dll. Berikut ini adalah daftar fitur beserta penjelasan dari 
+			aplikasi Briker DDE.
+		</p><br />
+	</div>
+	<div>
+		<div class="subpage-title">
+			<h5>1. Menu Service</h5>
+		</div>
+		<p><img src="{{root_url}}/images/content/briker-dde-connector/menu_service.png" style="max-width: 100%;" /></p>
+		<p>Menu service ini digunakan untuk menjalankan atau memberhentikan fitur pooling data ke 
+			briker. Jika ada telepon masuk ke extension masing-masing agent, Maka aplikasi ini akan 
+			menampilkan popup data penelpon. Dan juga dimenu ini ditampilkan log aplikasi. Di log tersebut 
+			tercatat jalanya proses pooling data ke briker. 
+		</p><br />
+	</div>
+	<div>
+		<div class="subpage-title">
+			<h5>2. Menu Konfigurasi Server</h5>
+		</div>
+		<p><img src="{{root_url}}/images/content/briker-dde-connector/menu_konfigurasi_server.png" style="max-width: 100%;" /></p>
+		<p>Menu server ini adalah menu untuk setting konfigurasi ke sistem asterisk/briker. Didalam
+			menu tersebut yang harus diisi adalah alamat server API briker, username/password serta extension 
+			dari agent yang menggunakan aplikasi ini. 
+		</p><br />
+	</div>
+	<div>
+		<div class="subpage-title">
+			<h5>3. Menu Konfigurasi Datasource</h5>
+		</div>
+		<p><img src="{{root_url}}/images/content/briker-dde-connector/menu_konfigurasi_datasource.png" style="max-width: 100%;" /></p>
+		<p>Menu konfigurasi datasource ini digunakan untuk koneksi ke database. Tujuanya adalah 
+		untuk mencari data member/customer berdasarkan caller_id dari orang/member/customer yang 
+		menelpon ke agent. Jika member/customer di database tersebut ditemukan, maka data customer 
+		tersebut akan ditampilkan sebagai popup notifikasi. Data yang ditampilkan sesuai dengan query 
+		yang di setting. 
+		</p><br />
+	</div>
+	<div>
+		<div class="subpage-title">
+			<h5>4. Menu Konfigurasi DDE Service Incoming/Outgoing</h5>
+		</div>
+		<p><img src="{{root_url}}/images/content/briker-dde-connector/menu_konfigurasi_dde.png" style="max-width: 100%;" /></p>
+		<p>Menu konfigurasi DDE ini merupakan menu yang digunakan untuk komunikasi antara 
+			aplikasi briker-dde dengan Service DDE pada windows. Service DDE ini bisa di aktifkan bisa juga 
+			tidak, tergantung keinginan. Jika <b>Activate DDE</b> di centang, maka ketika ada telepon masuk ke 
+			agent, aplikasi briker-dde ini akan mengirim command ke DDE Service Name yang di simpan 
+			dalam konfigurasi. Jika <b>Activate Outgoing DDE</b> di centang, maka aplikasi briker-dde akan 
+			menjalankan listener untuk menerima command yang dikirim dari Service DDE untuk diteruskan ke 
+			briker. Agar briker menjalankan command click-to-call ke nomor yang dikirimkan oleh Service 
+			DDE. 
+		</p><br />
+	</div>
+	<div>
+		<div class="subpage-title">
+			<h5>5. License</h5>
+		</div>
+		<p><img src="{{root_url}}/images/content/briker-dde-connector/license.png" style="max-width: 100%;" /></p>
+		<p>Jika ingin menggunakan aplikasi briker-dde ini harus mendaftarkan ID terlebih dahulu ke 
+		administrator/vendor. Karena aplikasi ini menggunakan sistem license agar bisa dipakai oleh user.
+		</p><br />
+	</div>
+	<div>
+		<div class="subpage-title">
+			<h5>6. System Tray</h5>
+		</div>
+		<p><img src="{{root_url}}/images/content/briker-dde-connector/tray.png" style="max-width: 100%;" /></p><br />
+	</div>
+	<div>
+		<div class="subpage-title">
+			<h5>7. Popup</h5>
+		</div>
+		<p><img src="{{root_url}}/images/content/briker-dde-connector/popup.png" style="max-width: 100%;" /></p><br />
+	</div>
+</div>
+<div class="col-md-4 pad-25">
+	<div style="margin-bottom:2em;">
+		<img src="{{ root_url }}/images/logo/artivisi.png" style="max-width: 100%;">
+	</div>
+	<div class="subpage-title">
+		<h5>Product Details</h5>
+	</div>
+	<ul class="project-details-list">
+		<li>
+			<h6>Company :</h6>
+			<div class="project-terms">
+				Artivisi Intermedia
+			</div>
+		</li>
+		<li>
+			<h6>Teknologi :</h6>
+			<div class="project-terms">
+				-<br />
+			</div>
+		</li>
+		<li>
+			<h6>Date :</h6>
+			<div class="project-terms">
+				-
+			</div>
+		</li>
+	</ul>
+</div>

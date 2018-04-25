@@ -1,0 +1,40 @@
+---
+layout: default
+---
+
+{% assign index = true %}
+<section id="page-title-wrapper" class="page-title-wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+				{% if page.title %}
+				<h4>{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}</h4>
+				{% endif %}
+			</div>
+			<!-- /.col-sm-6 -->
+			<div class="col-xs-6 hidden-xs">
+				<ol class="breadcrumb pull-right">
+					<li><a href="#">Home</a></li>
+                    <li><a href="#">Pages</a></li>
+                    {% if page.title %}
+					<li class="active">{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}</li>
+					{% endif %}
+                 </ol>
+             </div>
+          </div>
+    </div>
+</section>
+<!-- /.page-title-wrapper -->
+<section id="page" class="pad-25">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 pad-25">
+					{{ content }}
+			</div>
+		</div>
+	</div>
+</section>
+
+{% if page.include_opensource == true %}
+	{% include open_source.html %}
+{% endif %}

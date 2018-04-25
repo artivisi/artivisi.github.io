@@ -1,0 +1,25 @@
+        <div class="small-7 large-9 columns">
+          <!-- main header kanan tempat navigasi utama -->
+          <div class="main-header-kiri rounded">
+            <ul class="navigasi">
+              <li style='margin-right:2em'><a href="{{ root_url }}/">Home</a></li>
+              <li><a href="{{ root_url }}/about/">About Us</a></li>
+            </ul>
+          </div><!-- Akhir dari header kiri -->
+        </div>
+        <div class="small-5 large-3 columns">
+          <!-- main header kanan tempat form search -->
+          <div class="main-header-kanan rounded">
+            <form id="cari" action="{{ site.simple_search }}" method="get">
+			  <input type="hidden" name="q" value="site:{{ site.url | shorthand_url }}" />
+              <div class="row collapse">
+                <div class="small-3 large-2 columns">
+                  <span class="prefix"><i class="icon-search"></i></span>
+                </div>
+                <div class="small-9 large-10 columns">
+                  <input class="search" type="text" name="q" results="0" placeholder="Search Here">
+                </div>
+              </div>
+            </form>
+          </div><!-- Akhir dari header kanan -->
+        </div>
