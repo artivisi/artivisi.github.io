@@ -1,0 +1,22 @@
+---
+layout: page
+title: "Ajax(AJX)"
+date: 2013-07-18 13:17
+comments: true
+sharing: true
+footer: true
+---
+
+<div markdown class="pageContent">
+
+##### AJX 101 :
+- - - - - - -
+* Konsep AJAX
+* Implementasi Server-Side
+* Implementasi Client-Side
+	
+##### AJX 102:
+- - - - - - -
+* Menggunakan jQuery
+* Menggunakan DWR
+

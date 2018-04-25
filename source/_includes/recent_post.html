@@ -1,0 +1,49 @@
+<!-- /#action-box -->
+                <section id="blog-posts" class="pad-25">
+                    <div class="container">
+                        <div class="subpage-title">
+                            <h5>Recent Posts</h5>
+                            <!-- Controls -->
+                            <div class="controls">                            
+                                <span id="blog-posts-prev" class="prev"><i class="fa fa-angle-left"></i></span>
+                                <span id="blog-posts-next" class="next"><i class="fa fa-angle-right"></i></span>
+                            </div>
+                        </div>
+                        <div class="row flush">
+                            <div id="caroufredsel-blog-posts-container">
+                                    
+                                {% for post in site.posts limit: site.recent_posts %}
+                                {% assign content = post.content %}
+                                <div class="col-xs-12 col-sm-6 col-md-4">
+                                    <article class="post pad-0">
+                                        <!-- /.post-thumb -->
+                                        <div class="post-details recent-post-body">
+                                            <h5 class="post-title recent-post-title">
+                                                <a href="{{ root_url }}{{ post.url }}">
+                                                    {% if site.titlecase %}
+                                                        {{ post.title | titlecase }}
+                                                    {% else %}
+                                                        {{ post.title }}
+                                                    {% endif %}
+                                                </a>
+                                            </h5>
+                                            <span class="post-meta" ><i class="fa fa-time"></i> <div class="date">{% include post/date.html %}{{ time }}</div></span>
+                                            <div class="recent-post-content">
+                                            {{ content | excerpt }}
+                                            </div>
+                                        </div>
+                                        <!-- /.post-details -->
+                                    </article>
+                                    <!-- /.post -->
+                                </div>
+                                <!-- /.col-md-4 -->
+                                {% endfor %}
+
+                            </div>
+                            <!-- /#caroufredsel-blog-posts-container -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.container -->
+                </section>
+                <!-- /#blog-posts -->

@@ -1,0 +1,171 @@
+---
+layout: page
+title: "Biller Simulator"
+date: 2013-07-25 11:25
+comments: true
+sharing: true
+footer: true
+include_opensource : true
+---
+
+<div class="col-md-8 pad-25">
+	<div>
+		<div class="subpage-title">
+			<h5>Project Description</h5>
+		</div>
+		<p>Aplikasi ini merupakan simulator yang digunakan di ArtiVisi untuk melakukan tes terhadap aplikasi payment gateway kami. Fitur aplikasi ini :</p>
+		<p>
+			<ul>
+				<li>Manajemen pelanggan</li>
+				<li>Manajemen dummy data tagihan</li>
+				<li>Gateway ISO-8583 untuk melakukan pembayaran tagihan untuk pelanggan yang ada di database</li>
+			</ul>
+		</p>
+		<br />
+		<br />
+	</div>
+	<div>
+		<div class="subpage-title">
+			<h5>Cara Menyiapkan Database</h5>
+		</div>
+		<p>Aplikasi ini menggunakan Hibernate, sehingga secara teoritis mendukung semua database yang didukung oleh Hibernate. Walaupun demikian, development dan test dilakukan menggunakan MySQL.</p>
+		<p>Konfigurasi koneksi database dilakukan di beberapa tempat, yaitu :</p>
+		<p>
+			<ul>
+				<li>pom.xml di root folder : digunakan untuk drop dan create database, dijalankan pada saat automated test dieksekusi</li>
+				<li>jdbc.properties di folder biller-simulator-config/src/main/resources : digunakan oleh aplikasi pada saat dijalankan</li>
+			</ul>
+		</p>
+		<p>Untuk konfigurasi di pom.xml, berikan username MySQL yang memiliki privileges untuk drop dan create database. Biasanya saya menggunakan user root saja supaya gampang. Untuk konfigurasi di jdbc.properties, usernamenya cukup memiliki akses ke database yang digunakan di aplikasi saja.</p>
+		<p>Berikut sintaks SQL untuk membuat username, password, dan database di MySQL. Perintah ini dijalankan dengan user root</p>
+		<p>
+			<div style="background-color: #F5F5F5;
+			border: 1px solid #CCCCCC;
+			border-radius: 4px;
+			color: #333333;
+			display: block;
+			font-size: 13px;
+			line-height: 1.42857;
+			margin: 0 0 10px;
+			padding: 9.5px;
+			word-break: break-all;
+			word-wrap: break-word;">
+			<b>create database</b> ppob_simulator;<br />
+			<b>grant all on</b> ppob_simulator<b>.* to</b> simulator@localhost identified <b>by</b> <font color="red">'simulator'</font><b>;</b>
+		</div>
+
+	</p>
+	<br />
+	<br />
+</div>
+<div>
+	<div class="subpage-title">
+		<h5>Cara Menjalankan Aplikasi Web</h5>
+	</div>
+	<p>Aplikasi web digunakan untuk mengelola data pelanggan dan tagihan.</p>
+	<p>
+		<ol>
+			<li>Buka command prompt, lalu masuk ke folder tempat source code aplikasi</li>
+			<li>Jalankan mvn clean install</li>
+			<li>Masuk ke folder biller-simulator-ui-jsf</li>
+			<li>Jalankan mvn clean jetty:run</li>
+			<li>Arahkan browser ke http://localhost:8080/biller-simulator-ui-jsf/faces/index.xhtml</li>
+		</ol>
+	</p>
+	<br />
+	<br />
+</div>
+<div>
+	<div class="subpage-title">
+		<h5>Cara Menjalankan Gateway PLN</h5>
+	</div>
+	<p>Gateway PLN digunakan untuk melakukan transaksi inquiry dan payment tagihan listrik melalui protokol ISO-8583</p>
+	<p>
+		<ol>
+			<li>Buka command prompt, lalu masuk ke folder tempat source code aplikasi</li>
+			<li>Jalankan mvn clean install</li>
+			<li>Masuk ke folder biller-simulator-gateway-pln</li>
+			<li>Jalankan mvn exec:java -Dexec.mainClass="com.artivisi.biller.simulator.gateway.pln.Launcher"</li>
+			<li>ISO-8583 gateway siap menunggu di port 11111</li>
+		</ol>
+	</p>
+	<br />
+	<br />
+</div>
+<div>
+	<div class="subpage-title">
+		<h5>Cara Kontribusi</h5>
+	</div>
+	<p>Anda ingin berkontribusi? Baguslah kalau begitu.</p>
+	<p>Ada beberapa kontribusi yang bisa Anda lakukan, diantaranya :</p>
+	<p>
+		<ul>
+			<li>Melakukan testing</li>
+			<li>Membuatkan dokumentasi</li>
+			<li>Mengedit source code, baik untuk fix bugs maupun menambah fitur</li>
+		</ul>
+	</p>
+	<p>Untuk kontribusi testing, berikut caranya :</p>
+	<p>
+		<ol>
+			<li>Jalankan aplikasinya, yang web atau yang ISO-8583 terserah.</li>
+			<li>Test fitur-fiturnya.</li>
+			<li>Kalau ada error/bug yang ditemukan, silakan langsung membuat issue baru. Mohon mengikuti panduan melaporkan bug, supaya mudah ditindak lanjuti oleh programmer. Bug report maupun request fitur boleh ditulis dalam bahasa Indonesia atau Inggris.</li>
+		</ol>
+	</p>
+	<p>
+		Untuk kontribusi dokumentasi, sementara kami akan menyiapkan dulu template dokumentasinya. Bila sudah ada, kami akan update bagian ini dengan langkah-langkah untuk kontribusi.
+	</p>
+	<p>Untuk kontribusi source code, berikut caranya :</p>
+	<p>
+		<ol>
+			<li>Fork repository ini menjadi repository Anda sendiri</li>
+			<li>Clone ke local untuk diedit</li>
+			<li>Editlah sesuka hati</li>
+			<li>Commit dan push ke repository Anda sendiri</li>
+			<li>Kirim pull request ke saya supaya bisa saya merge ke repository saya</li>
+		</ol>
+	</p>
+	<br /><br />
+</div>
+</div>
+<div class="col-md-4 pad-25">
+	<div style="margin-bottom:2em;">
+		<img src="{{ root_url }}/images/logo/artivisi.png" style="max-width: 100%;">
+	</div>
+	<div class="subpage-title">
+		<h5>Project Details</h5>
+	</div>
+	<ul class="project-details-list">
+		<li>
+			<h6>Company :</h6>
+			<div class="project-terms">
+				Artivisi Intermedia
+			</div>
+		</li>
+		<li>
+			<h6>Teknologi :</h6>
+			<div class="project-terms">
+				Java SDK 1.6,<br />
+				Spring Framework 3.0.5,<br />
+				Hibernate 3.6.0,<br />
+				MySQL 5.1,<br />
+				Jetty 6.1.26,<br />
+				Maven 2.2.1,<br />
+				jPOS 1.7.0
+			</div>
+		</li>
+		<li>
+			<h6>Date :</h6>
+			<div class="project-terms">
+				14 September, 2011
+			</div>
+		</li>
+		<li>
+			<h6>Source :</h6>
+			<div class="project-terms">
+				<a href="https://github.com/artivisi/biller-simulator"><i class="fa fa-github"></i> artivisi/biller-simulator</a>
+			</div>
+		</li>
+	</ul>
+</div>

@@ -1,0 +1,61 @@
+
+
+{% unless page.no_header %}
+<section id="page-title-wrapper" class="page-title-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        {% if index %}
+        <h4><a href="{{ root_url }}{{ post.url }}">{% if site.titlecase %}{{ post.title | titlecase }}{% else %}{{ post.title }}{% endif %}</a></h4>
+        {% else %}
+        <h4>{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}</h4>
+        {% endif %}
+      </div>
+      <!-- /.col-sm-6 -->
+      <div class="col-xs-6 hidden-xs">
+        <ol class="breadcrumb pull-right">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Post</a></li>
+          {% if index %}
+          <li class="active"><a href="{{ root_url }}{{ post.url }}">{% if site.titlecase %}{{ post.title | titlecase }}{% else %}{{ post.title }}{% endif %}</a></li>
+          {% else %}
+          <li class="active"><a href="{{ root_url }}{{ post.url }}">{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}</a></li>
+          {% endif %}
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+{% endunless %}
+<!-- /.page-title-wrapper -->
+<section id="page" class="">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 pad-25">
+        <div class="post-wrapper">
+          <article class="post">
+            <div class="post-meta">
+              <ul class="meta-list">
+                <li>
+                  <span>Posted on</span>
+                  <a href="#">{% include post/date.html %}{{ time }}</a>
+                </li>
+                <li>
+                  <span>By</span>
+                  <a href="#">Admin</a>
+                </li>
+                <li>
+                  {% include custom/categories.html %}
+                </li>
+              </ul>
+            </div>
+            <div class="post-details">
+              <div class="entry-content">{{ content }}</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

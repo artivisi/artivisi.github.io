@@ -1,0 +1,151 @@
+---
+layout: page
+title: "Standard WebApp Archetype"
+date: 2013-07-25 11:25
+comments: true
+sharing: true
+footer: true
+include_opensource : true
+---
+
+<div class="col-md-8 pad-25">
+	<div>
+		<div class="subpage-title">
+			<h5>Project Description</h5>
+		</div>
+		<p>Archetype untuk membuat template project sesuai dengan <a href="https://github.com/endymuhardin/belajar-restful">arsitektur standar ArtiVisi</a>. </p>
+		<p>Project Structure :</p>
+		<p>
+			<ul>
+				<li>
+					Parent Project<br /><br />
+					<ul>
+						<li> Konfigurasi Aplikasi</li>
+						<li> Domain Model</li>
+						<li> Implementasi Business Service</li>
+						<li> RESTful Web Service</li>
+						<li> Konfigurasi Jenkins</li>
+					</ul>
+				</li>
+			</ul>
+		</p>
+		<br />
+		<br />
+	</div>
+	<div>
+		<div class="subpage-title">
+			<h5>Teknologi Yang Digunakan</h5>
+		</div>
+		<p>Framework dan Library :</p>
+		<p>
+			<ul>
+				<li>Spring Framework 4.0.0</li>
+				<li>Spring Security 3.2.0</li>
+				<li>Spring Data JPA 1.4.2</li>
+				<li>Hibernate 4.2.6</li>
+				<li>Joda Time 2.3</li>
+				<li>Logback 1.0.13</li>
+				<li>AngularJS 1.2.10</li>
+				<li>AngularUI 0.4.0</li>
+				<li>Twitter Bootstrap 3.1.0</li>
+				<li>jQuery 1.8.3</li>
+				<li>Underscore JS 1.5.2</li>
+			</ul>
+		</p>
+		<p>Tools :</p>
+		<p>
+			<ul>
+				<li>Build Tool : Maven 3</li>
+				<li>Database Schema : Liquibase 2.0.5</li>
+				<li>Unit Test Runner : Maven Surefire Plugin</li>
+				<li>Integration Test Runner : Maven Failsafe Plugin</li>
+				<li>Functional Test : Rest-Assured</li>
+				<li>Performance Monitoring : Javamelody 1.39.0</li>
+				<li>Application Server : Jetty 6.1.26</li>
+			</ul>
+		</p>
+		<br />
+		<br />
+	</div>
+	<div>
+		<div class="subpage-title">
+			<h5>Cara Menyiapkan Database</h5>
+		</div>
+		<p>Archetype ini akan membuatkan konfigurasi database untuk 3 environment : development, testing, dan production sesuai nama artifact. Contoh: nama artifact = halo. Maka konfigurasi database akan dibuatkan untuk 3 database, yaitu : </p>
+		<p>
+			<ul>
+				<li> halo_development</li>
+				<li> halo_testing</li>
+				<li> halo_live</li>
+			</ul>
+		</p>
+		<br />
+		<br />
+	</div>
+	<div>
+		<div class="subpage-title">
+			<h5>Cara Menjalankan</h5>
+		</div>
+		<p>
+			<ol>
+				<li> Clone dulu repo ini ke local</li>
+				<li> Buka command prompt dan masuk ke dalam folder tempat clone</li>
+				<li> Install archetype ke local : mvn clean install</li>
+				<li> Pindah ke folder tempat project baru akan dibuat</li>
+				<li> Jalankan archetype untuk membuat project baru dengan command berikut</li>
+			</ol>
+		</p>
+		<p>
+			<div style="background-color: #F5F5F5;
+			border: 1px solid #CCCCCC;
+			border-radius: 4px;
+			color: #333333;
+			display: block;
+			font-size: 13px;
+			line-height: 1.42857;
+			margin: 0 0 10px;
+			padding: 9.5px;
+			word-break: break-all;
+			word-wrap: break-word;">
+			mvn archetype:generate -DarchetypeGroupId=com.artivisi.template -DarchetypeArtifactId=standard-webapp-archetype
+		</div>
+	</p>
+	<p>Semua perintah tersebut dijalankan dalam satu baris.</p>
+	<br />
+	<br />
+</div>
+</div>
+<div class="col-md-4 pad-25">
+	<div style="margin-bottom:2em;">
+		<img src="{{ root_url }}/images/opensource/standard_archetype.png" style="max-width: 100%;">
+	</div>
+	<div class="subpage-title">
+		<h5>Project Details</h5>
+	</div>
+	<ul class="project-details-list">
+		<li>
+			<h6>Company : </h6>
+			<div class="project-terms">
+				Artivisi Intermedia
+			</div>
+		</li>
+		<li>
+			<h6>Date : </h6>
+			<div class="project-terms">
+				11 Desember, 2012
+			</div>
+		</li>
+		<li>
+			<h6>Source : </h6>
+			<div class="project-terms">
+				<a href="https://github.com/artivisi/standard-webapp-archetype"><i class="fa fa-github"></i> artivisi/standard-webapp-archetype</a>
+			</div>
+		</li>
+		<li>
+			<h6>Credits : </h6>
+			<div class="project-terms">
+				<a href="http://johnjianfang.blogspot.com/2009/05/create-maven-archetype-from-existing.html">Jong Jian Fang</a>
+			</div>
+		</li>
+	</ul>
+</div>
