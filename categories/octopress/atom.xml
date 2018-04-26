@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | ArtiVisi Intermedia]]></title>
   <link href="http://artivisi.github.io/categories/octopress/atom.xml" rel="self"/>
   <link href="http://artivisi.github.io/"/>
-  <updated>2018-04-25T10:03:07+07:00</updated>
+  <updated>2018-04-26T10:39:43+07:00</updated>
   <id>http://artivisi.github.io/</id>
   <author>
     <name><![CDATA[ArtiVisi Intermedia]]></name>
@@ -25,11 +25,11 @@
 
 <p>Berikut ini langkah-langkahnya :<br />
 <strong>1. Download <code>category_list.rb</code> berikut ini</strong><br />
-File /home/ivans/artivisi.github.io/source/downloads/code/categories/category_list.rb could not be found</p>
+File /home/ivans/Workspace/kantor/artivisi.github.io/source/downloads/code/categories/category_list.rb could not be found</p>
 
 <p><strong>2. Buat file <code>source/_includes/custom/asides/categories.html</code> dengan isi sebagai berikut :</strong></p>
 
-<p>File /home/ivans/artivisi.github.io/source/downloads/code/categories/categories.html could not be found</p>
+<p>File /home/ivans/Workspace/kantor/artivisi.github.io/source/downloads/code/categories/categories.html could not be found</p>
 
 <p><strong>3. Tambahkan nilai <code>custom/asides/categories.html</code> pada properti <code>default_asides</code> di file <code>_config.yml</code> sehingga menjadi seperti ini : </strong></p>
 
