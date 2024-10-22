@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+{{- partial "head.html" . -}}
+<body class="bg-white dark:bg-gray-900 dark:before:fixed dark:before:-z-50 dark:before:inset-0 dark:before:bg-gray-950/50">
+{{- partial "navbar.html" . -}}
+<div id="content" class="flex-grow">
+    {{- block "main" . }}{{- end }}
+</div>
+{{- partial "footer.html" . -}}
+<script src="/js/main.js"></script>
+
+</body>
+</html>

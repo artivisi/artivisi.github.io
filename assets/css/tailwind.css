@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Geist';
+    src: url('/fonts/Geist-Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Geist';
+    src: url('/fonts/Geist-SemiBold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Geist';
+    src: url('/fonts/Geist-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Geist';
+    src: url('/fonts/Geist-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GeistMono';
+    src: url('/fonts/GeistMono-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.swiper-pagination-bullet{
+    @apply !bg-gray-200 dark:!bg-gray-700 !opacity-100;
+}
+
+.swiper-pagination-bullet-active{
+    @apply !bg-gray-950 dark:!bg-white;
+}
+
+@keyframes loop {
+    to {
+        offset-distance: 100%;
+    }
+}
+
+/*Carousel CSS*/
+/* Carousel container */
+#carousel {
+    display: flex;
+    transition: transform 0.7s ease-in-out;
+    width: 100%;
+}
+
+#carousel > div {
+    min-width: 100%;
+    height: 100%;
+}
+
+/* Slide overlay */
+.bg-gradient-to-r {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.6), transparent);
+}
+
+/* Button styles */
+button {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    padding: 12px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* Text container styling */
+.bg-overlay {
+    background-color: rgba(0, 0, 0, 0.6); /* Black with 60% opacity */
+}
+
+.shadow-md {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.text-white {
+    color: #ffffff;
+}
+
+.magnify-modal {
+    box-shadow: 0 0 6px 2px rgba(0, 0, 0, .3);
+}
+
+.magnify-header .magnify-toolbar {
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.magnify-stage {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-width: 0;
+}
+
+.magnify-footer .magnify-toolbar {
+    background-color: rgba(0, 0, 0, .5);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.magnify-header,
+.magnify-footer {
+    pointer-events: none;
+}
+
+.magnify-button {
+    pointer-events: auto;
+}
+
+.swiper-container {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center; /* Center the images */
+    align-items: center; /* Center the images */
+}

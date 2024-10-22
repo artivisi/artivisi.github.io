@@ -1,0 +1,24 @@
+{
+  "name": "aiweb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.jsy",
+
+  "scripts": {
+    "build": "tailwindcss -i ./assets/css/tailwind.css -o ./static/css/main.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14"
+  },
+  "dependencies": {
+    "@tailus/themer": "^0.0.5",
+    "swiper": "^11.0.6",
+    "jquery": "^3.7.1",
+    "jquery.magnify": "^1.6.3"
+  }
+}
