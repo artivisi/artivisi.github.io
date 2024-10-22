@@ -1,0 +1,261 @@
+{{define "main"}}
+
+<section class="py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
+        <div class="grid gap-2.5 lg:pb-16 pb-10 mt-14">
+            <h2 class="w-full text-center text-4xl font-bold dark:text-white font-manrope leading-normal">Aplikasi Orbit Bongkar Muat (Stevedoring)</h2>
+            <div class="w-full text-center text-lg dark:text-white font-normal leading-8">Aplikasi manajemen logistik yang dirancang untuk meningkatkan efisiensi operasional di pelabuhan. Dengan fitur pemantauan real-time, pengaturan jadwal, dan pelaporan, aplikasi ini memudahkan pengelolaan kegiatan bongkar muat barang, memastikan proses yang lebih cepat dan akurat.</div>
+        </div>
+        <div class="gallery">
+            <div class="flex flex-col mb-10">
+                <div class="grid md:grid-cols-12 gap-8 lg:mb-11 mb-7">
+                    <div class="md:col-span-4 md:h-[404px] h-[277px] w-full rounded-3xl">
+                        <img src="/src/img/orbit-bongkar-muat/Thumbnail.png"
+                             data-magnify="gallery"
+                             data-src="/src/img/orbit-bongkar-muat/Thumbnail.png"
+                             alt="Gallery image" class="gallery-image object-cover rounded-3xl hover:grayscale transition-all duration-700 ease-in-out mx-auto lg:col-span-4 md:col-span-6 w-full h-full">
+                    </div>
+                    <div class="md:col-span-8 md:h-[404px] h-[277px] w-full rounded-3xl">
+                        <img src="/src/img/orbit-bongkar-muat/02-ImageBookingOrder.png"
+                             data-magnify="gallery"
+                             data-src="/src/img/orbit-bongkar-muat/02-ImageBookingOrder.png"
+                             alt="Gallery image" class="gallery-image object-cover rounded-3xl hover:grayscale transition-all duration-700 ease-in-out mx-auto lg:col-span-8 md:col-span-6 w-full h-full">
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 grid-cols-1 gap-8">
+                    <div class="h-[277px] w-full rounded-3xl">
+                        <img src="/src/img/orbit-bongkar-muat/03-ImageDetailBookingOrder.png"
+                             data-magnify="gallery"
+                             data-src="/src/img/orbit-bongkar-muat/03-ImageDetailBookingOrder.png"
+                             alt="Gallery image" class="gallery-image object-cover rounded-3xl hover:grayscale transition-all duration-700 ease-in-out mx-auto w-full h-full">
+                    </div>
+                    <div class="h-[277px] w-full rounded-3xl">
+                        <img src="/src/img/orbit-bongkar-muat/04-ImageListInvoice.png"
+                             data-magnify="gallery"
+                             data-src="/src/img/orbit-bongkar-muat/04-ImageListInvoice.png"
+                             alt="Gallery image" class="gallery-image object-cover rounded-3xl hover:grayscale transition-all duration-700 ease-in-out mx-auto w-full h-full">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="gallery">
+            <div class="w-full text-left text-lg font-bold dark:text-white leading-8 mb-4">Features</div>
+            <div class="flex flex-col mb-10">
+                <ul class="space-y-4 text-gray-500 list-decimal list-inside dark:text-gray-400">
+                    <li>Registrasi Mitra PBM</li>
+                    <ol class="ps-5 mt-2 space-y-1 list-disc list-inside">
+                        <li>Pengajuan Registrasi PBM (Perusahaan Bongkar Muat)</li>
+                        <li>Approval PBM (Perusahaan Bongkar Muat)</li>
+                        <li>Form Survey Peralatan / perlengkapan pendukung</li>
+                    </ol>
+                    <li>Registrasi Mitra Floating Crane</li>
+                    <ol class="ps-5 mt-2 space-y-1 list-disc list-inside">
+                        <li>Pengajuan Registrasi Mitra Floating Crane</li>
+                        <li>Approval Mitra Floating Crane</li>
+                        <li>Form Survey Peralatan / perlengkapan pendukung</li>
+                    </ol>
+                    <li>Registrasi Mitra Alat Berat</li>
+                    <ol class="ps-5 mt-2 space-y-1 list-disc list-inside">
+                        <li>Pengajuan Registrasi Mitra Alat Berat</li>
+                        <li>Approval Mitra Alat Berat</li>
+                        <li>Form Survey Peralatan / perlengkapan pendukung</li>
+                    </ol>
+                    <li>Registrasi Shipper</li>
+                    <ol class="ps-5 mt-2 space-y-1 list-disc list-inside">
+                        <li>Pengajuan Registrasi Shipper</li>
+                        <li>Approval Shipper</li>
+                    </ol>
+                    <li>Booking Order</li>
+                    <ol class="ps-5 mt-2 space-y-1 list-disc list-inside">
+                        <li>Form Booking Order</li>
+                        <li>List Booking Order</li>
+                        <li>Approval Booking Order (Admin)</li>
+                        <li>Booking order assignment (mekanisme penunjukan mitra by system)</li>
+                        <li>Notifikasi Penunjukan Mitra (Mitra)</li>
+                        <li>Approval Booking Order (Mitra)</li>
+                        <li>Task Assignmenent (Penunjukan Peralatan / perlengkapan pendukung yang akan di gunakan) (Mitra)</li>
+                        <li>Kalkulasi Biaya Pekerjaan (Mitra) (Jika Biaya Pekerjaan Dibayarkan Melalui PTB)</li>
+                        <li>Pembatalan Order</li>
+                        <li>Kalkulasi Tarif Bongkar Muat (Admin)</li>
+                    </ol>
+                    <li>Performa Invoice (Admin)</li>
+                    <ol class="ps-5 mt-2 space-y-1 list-disc list-inside">
+                        <li>Generate Performa InvoiceGSPK1Generate SPK</li>
+                        <li>Generate SPK-P</li>
+                        <li>Generate SPK-O</li>
+                    </ol>
+                    <li>Task Monitoring / Progress report</li>
+                    <ol class="ps-5 mt-2 space-y-1 list-disc list-inside">
+                        <li>Input Task Progress / Activities</li>
+                        <li>Generate Task Report / Timesheet</li>
+                    </ol>
+                    <li>Finalisasi Tarif Dan Biaya</li>
+                    <ol class="ps-5 mt-2 space-y-1 list-disc list-inside">
+                        <li>Finalisasi Biaya Pekerjaan (Mitra) (Jika Biaya Pekerjaan Dibayarkan Melalui PTB)</li>
+                        <li>Finalisasi Tarif Bongkar Muat (Admin)</li>
+                        <li>Revisi Invoice</li>
+                        <li>Generate Final Invoice</li>
+                    </ol>
+                    <li>Statement Of Completion</li>
+                    <ol class="ps-5 mt-2 space-y-1 list-disc list-inside">
+                        <li>Generate statement of completionK3rd Party Integration1Virtual Account</li>
+                        <li>Integrasi Inaportnet </li>
+                    </ol>
+                    <li>Dashboard Dan Reporting</li>
+                    <ol class="ps-5 mt-2 space-y-1 list-disc list-inside">
+                        <li>Data Report</li>
+                        <li>Export Data</li>
+                        <li>Graph Dashboard</li>
+                    </ol>
+                </ul>
+            </div>
+        </div>
+        <div class="gallery">
+            <div class="w-full text-left text-lg font-bold dark:text-white leading-8 mb-4">Tech Stack</div>
+            <div class="flex flex-col mb-10">
+                <ol class="max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
+                    <li>
+                        Spring Boot Framework
+                        <ul class="ps-5 mt-2 space-y-1 list-disc list-inside">
+                            <li>Spring Boot Starter Actuator</li>
+                            <li>Spring Boot Starter Data JPA</li>
+                            <li>Spring Boot Starter Thymeleaf</li>
+                            <li>Spring Boot Starter Security</li>
+                            <li>Spring Boot Starter Web</li>
+                            <li>Spring Boot Starter Validation</li>
+                            <li>Spring Boot Starter WebFlux</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Template Engines and Layouts
+                        <ul class="ps-5 mt-2 space-y-1 list-disc list-inside">
+                            <li>Thymeleaf</li>
+                            <li>Thymeleaf Layout Dialect</li>
+                            <li>Thymeleaf Spring Data Dialect</li>
+                            <li>Thymeleaf Extras Spring Security 5</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Database
+                        <ul class="ps-5 mt-2 space-y-1 list-disc list-inside">
+                            <li>PostgreSQL</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Migration Tool
+                        <ul class="ps-5 mt-2 space-y-1 list-disc list-inside">
+                            <li>Flyway</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Google API Integration
+                        <ul class="ps-5 mt-2 space-y-1 list-disc list-inside">
+                            <li>Google API Client</li>
+                            <li>Google OAuth Client Jetty</li>
+                            <li>Google API Services Gmail</li>
+                        </ul>
+                    </li>
+                    <li>
+                        JavaMail
+                        <ul class="ps-5 mt-2 space-y-1 list-disc list-inside">
+                            <li>Jakarta Mail</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Apache POI and JXLS
+                        <ul class="ps-5 mt-2 space-y-1 list-disc list-inside">
+                            <li>Apache POI</li>
+                            <li>JXLS</li>
+                        </ul>
+                    </li>
+                    <li>
+                        PDF Generation
+                        <ul class="ps-5 mt-2 space-y-1 list-disc list-inside">
+                            <li>OpenHTMLToPDF</li>
+                            <li>PDFBox</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Data Format Parsing
+                        <ul class="ps-5 mt-2 space-y-1 list-disc list-inside">
+                            <li>Jackson Dataformat XML</li>
+                            <li>Jackson Datatype JSR310</li>
+                            <li>Woodstox</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Utilities
+                        <ul class="ps-5 mt-2 space-y-1 list-disc list-inside">
+                            <li>Lombok</li>
+                            <li>Apache Commons Lang3 and IO</li>
+                            <li>BouncyCastle</li>
+                            <li>OpenCSV</li>
+                            <li>UA Parser</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="gallery">
+            <div class="w-full text-left text-lg font-bold dark:text-white leading-8 mb-4">Dev Stack</div>
+            <div class="flex flex-col mb-10">
+                <ol class="max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
+                    <li>
+                        Build Tool
+                        <ul class="ps-5 mt-2 space-y-1 list-disc list-inside">
+                            <li>Maven</li>
+                            <li>Spring Boot Maven Plugin</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Version Control and CI/CD
+                        <ul class="ps-5 mt-2 space-y-1 list-disc list-inside">
+                            <li>Git</li>
+                            <li>Git Commit ID Plugin</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Development Environment
+                        <ul class="ps-5 mt-2 space-y-1 list-disc list-inside">
+                            <li>IDE</li>
+                            <li>Java 17</li>
+                            <li>Javascript</li>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Testing Frameworks
+                        <ul class="ps-5 mt-2 space-y-1 list-disc list-inside">
+                            <li>JUnit</li>
+                            <li>Spring Boot Starter Test</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="gallery">
+            <div class="w-full text-left text-lg font-bold dark:text-white leading-8 mb-4">Details</div>
+            <div class="flex flex-col mb-10">
+                <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+                    <li>
+                        752190 Code
+                    </li>
+                    <li>
+                        2466 Files
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="lightbox" id="lightbox">
+        <span class="close" id="close">&times;</span>
+        <img src="" alt="" class="lightbox-image" id="lightbox-image">
+    </div>
+</section>
+
+{{end}}
