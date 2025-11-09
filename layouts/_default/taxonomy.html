@@ -1,0 +1,32 @@
+{{define "main"}}
+<div class="max-w-6xl mx-auto px-6 py-16 2xl:px-0">
+    <div class="mb-8">
+        <h1 class="text-4xl font-bold text-gray-950 dark:text-white mb-4">{{ .Title }}</h1>
+        {{- with .Params.description -}}
+        <p class="text-lg text-gray-600 dark:text-gray-400">{{ . }}</p>
+        {{- end -}}
+    </div>
+
+    {{- if .Pages -}}
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {{- range .Pages -}}
+        <article class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-6 hover:shadow-lg transition-shadow">
+            <h2 class="text-xl font-semibold mb-2">
+                <a href="{{ .RelPermalink }}" class="text-gray-950 dark:text-white hover:text-primary-600 dark:hover:text-primary-400">
+                    {{ .Title }}
+                </a>
+            </h2>
+            {{- with .Description -}}
+            <p class="text-gray-600 dark:text-gray-400 mb-4">{{ . }}</p>
+            {{- end -}}
+            {{- with .Date -}}
+            <time class="text-sm text-gray-500 dark:text-gray-500">{{ .Format "January 2, 2006" }}</time>
+            {{- end -}}
+        </article>
+        {{- end -}}
+    </div>
+    {{- else -}}
+    <p class="text-gray-600 dark:text-gray-400">Tidak ada konten dalam kategori ini.</p>
+    {{- end -}}
+</div>
+{{end}}

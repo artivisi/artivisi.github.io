@@ -1,22 +1,25 @@
 {
-  "name": "aiweb",
+  "name": "artivisi-website",
   "version": "1.0.0",
-  "description": "",
-  "main": "main.jsy",
-
+  "description": "ArtiVisi Intermedia Corporate Website",
   "scripts": {
-    "build": "tailwindcss -i ./assets/css/tailwind.css -o ./static/css/main.css"
+    "build:css": "tailwindcss -i ./assets/css/tailwind.css -o ./static/css/main.css --minify",
+    "dev:css": "tailwindcss -i ./assets/css/tailwind.css -o ./static/css/main.css --watch",
+    "build": "npm run build:css && hugo --gc --minify",
+    "dev": "npm run dev:css & hugo server -D"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "hugo",
+    "website",
+    "tailwindcss"
+  ],
+  "author": "ArtiVisi Intermedia",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.14"
+    "@tailwindcss/cli": "^4.1.17",
+    "tailwindcss": "^4.1.17"
   },
   "dependencies": {
-    "@tailus/themer": "^0.0.5",
     "swiper": "^11.0.6",
     "jquery": "^3.7.1",
     "jquery.magnify": "^1.6.3"
