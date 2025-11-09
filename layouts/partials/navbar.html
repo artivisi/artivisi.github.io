@@ -1,60 +1,58 @@
 <header>
-    <nav class="fixed overflow-hidden z-20 w-full bg-white/80 dark:bg-gray-950/0 dark:shadow-md rounded-b-lg dark:shadow-gray-950/10 border-b border-[--ui-light-border-color] border-x dark:border-[--ui-dark-border-color] backdrop-blur-2xl">
-        <div class="px-6 m-auto max-w-6xl 2xl:px-0">
-            <div class="flex flex-wrap items-center justify-between py-2 sm:py-4">
-                <div class="w-full items-center flex justify-between lg:w-auto">
-                    <a href="/" aria-label="ArtiVisi Intermedia">
-                        <img src="/src/img/artivisi.png" alt="ArtiVisi Intermedia Logo" class="h-11" width="auto" height="44">
-                    </a>
-                    <div class="flex lg:hidden">
-                        <button aria-label="Menu" id="mobileMenuToggle"
-                                class="relative border border-gray-950/30 dark:border-white/20 size-9 rounded-full transition duration-300 active:scale-95">
-                            <div aria-hidden="true" id="line1"
-                                 class="m-auto h-[1.5px] w-4 rounded bg-gray-900 transition duration-300 dark:bg-gray-300"></div>
-                            <div aria-hidden="true" id="line2"
-                                 class="m-auto mt-1.5 h-[1.5px] w-4 rounded bg-gray-900 transition duration-300 dark:bg-gray-300"></div>
-                        </button>
-                    </div>
-                </div>
-                <div id="mobileMenu"
-                     class="lg:hidden hidden flex-col items-center justify-center w-full space-y-6 mt-4">
-                    <ul class="space-y-4 text-center">
+    <nav class="fixed z-20 w-full bg-white/90 dark:bg-gray-950/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 shadow-sm">
+        <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <div class="flex items-center justify-between py-4">
+                <!-- Logo -->
+                <a href="/" aria-label="ArtiVisi Intermedia">
+                    <img src="/src/img/artivisi.png" alt="ArtiVisi Intermedia Logo" class="h-11" width="auto" height="44">
+                </a>
+
+                <!-- Mobile Menu Toggle -->
+                <button
+                    id="mobileMenuToggle"
+                    class="lg:hidden p-2 rounded-md border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                    aria-label="Toggle menu"
+                    aria-expanded="false"
+                >
+                    <svg class="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center gap-8">
+                    <ul class="flex items-center gap-6">
                         {{- range site.Menus.main -}}
                         <li>
-                            <a href="{{ .URL }}" class="block transition hover:text-primary-600 dark:hover:text-primary-400">
+                            <a href="{{ .URL }}" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200">
                                 {{ .Name }}
                             </a>
                         </li>
                         {{- end -}}
-                        <li>
-                            <a href="/contact_us/" class="block transition hover:text-primary-600 dark:hover:text-primary-400">
-                                Contact Us
-                            </a>
-                        </li>
                     </ul>
-                </div>
-                <div class="w-full h-0 lg:w-fit flex-wrap justify-end items-center space-y-8 lg:space-y-0 lg:flex lg:h-fit md:flex-nowrap">
-                    <div class="mt-6 text-gray-600 dark:text-gray-300 md:-ml-4 lg:pr-4 lg:mt-0">
-                        <ul class="space-y-6 tracking-wide text-base lg:text-sm lg:flex lg:space-y-0">
-                            {{- range site.Menus.main -}}
-                            <li>
-                                <a href="{{ .URL }}" class="block md:px-4 transition hover:text-primary-600 dark:hover:text-primary-400">
-                                    <span>{{ .Name }}</span>
-                                </a>
-                            </li>
-                            {{- end -}}
-                        </ul>
-                    </div>
 
-                    <a href="/contact_us/">
-                        <div class="w-full space-y-2 gap-2 pt-6 pb-4 lg:pb-0 border-t border-[--ui-light-border-color] dark:border-[--ui-dark-border-color] items-center flex flex-col lg:flex-row lg:space-y-0 lg:w-fit lg:border-l lg:border-t-0 lg:pt-0 lg:pl-2">
-                            <button type="button" class="w-full h-9 lg:w-fit group flex items-center relative border rounded-[--btn-border-radius] *:select-none [&>*:not(.sr-only)]:relative before:rounded-[calc(var(--btn-border-radius)-1px)] before:absolute before:inset-0 before:border before:bg-gradient-to-b *:disabled:opacity-20 disabled:text-gray-950/40 disabled:border-gray-200 disabled:bg-gray-100 disabled:*:text-gray-300 disabled:before:border-transparent disabled:before:bg-gray-100 disabled:before:from-transparent dark:border-0 dark:before:border-0 dark:before:border-t dark:before:shadow-inner dark:disabled:border dark:disabled:border-gray-800/50 disabled:dark:bg-gray-900 disabled:dark:*:text-gray-700 dark:disabled:before:bg-gray-900 dark:disabled:before:from-gray-900 dark:disabled:before:shadow-none dark:*:disabled:!text-white text-white border-gray-950 bg-gray-600 before:border-gray-600 before:from-gray-800 hover:bg-gray-900 active:bg-gray-950 dark:text-gray-950 dark:before:border-gray-200 dark:before:from-gray-200 dark:bg-white dark:before:shadow-white/10 dark:hover:bg-gray-100 dark:active:bg-gray-300 dark:active:before:from-gray-200 lg:text-sm lg:h-8 px-3 justify-center">
-                                <span>Contact Us</span>
-                            </button>
-                        </div>
+                    <a href="/contact_us/" class="inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium bg-primary-600 hover:bg-primary-700 active:bg-primary-800 dark:bg-primary-500 dark:hover:bg-primary-600 dark:active:bg-primary-700 text-white transition-colors duration-200">
+                        Contact Us
                     </a>
-
                 </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden lg:hidden border-t border-gray-200 dark:border-gray-800 py-4">
+                <ul class="space-y-4">
+                    {{- range site.Menus.main -}}
+                    <li>
+                        <a href="{{ .URL }}" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200">
+                            {{ .Name }}
+                        </a>
+                    </li>
+                    {{- end -}}
+                    <li>
+                        <a href="/contact_us/" class="inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium bg-primary-600 hover:bg-primary-700 active:bg-primary-800 dark:bg-primary-500 dark:hover:bg-primary-600 dark:active:bg-primary-700 text-white transition-colors duration-200 w-full text-center">
+                            Contact Us
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>

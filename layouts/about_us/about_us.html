@@ -1,46 +1,52 @@
 {{define "main"}}
-    <section class="relative pb-36">
-        <div class="max-w-7xl mx-auto py-12 px-6 sm:px-6 lg:px-8 pt-36">
-            <div class="flex flex-col lg:flex-row items-center">
-                <div class="lg:w-1/2 lg:pr-10">
-                    <h1 class="text-4xl dark:text-white font-extrabold mb-6">Tentang Kami</h1>
-                    <p class="text-lg dark:text-white mb-4">
-                        PT ArtiVisi Intermedia adalah perusahaan teknologi yang berfokus pada penyediaan solusi inovatif di bidang pengembangan perangkat lunak, pelatihan, dan konsultasi IT. Kami berdedikasi membantu perusahaan dalam menghadapi tantangan di era digital melalui layanan pembangunan perangkat lunak yang disesuaikan dengan kebutuhan bisnis, serta program training dan bootcamp dalam topik-topik kunci seperti software development, pemrograman, DevOps, dan keamanan IT.
-                    </p>
-                    <p class="text-lg dark:text-white mb-4">
-                        Sebagai mitra strategis, kami berkomitmen memberikan layanan konsultasi yang dapat membantu perusahaan klien mengidentifikasi, menganalisis, dan menyelesaikan masalah terkait pengembangan, pengelolaan, dan pengoperasian aplikasi. Dengan tim ahli yang berpengalaman, PT ArtiVisi Intermedia siap mendukung transformasi digital yang efisien dan berkelanjutan untuk keberhasilan bisnis Anda.
-                    </p>
+    <section class="pt-32 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24">
+        <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <!-- Top Section with Text and Carousel -->
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-12 items-start mb-16">
+                <!-- Text Content -->
+                <div class="order-2 md:order-1">
+                    <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6">Tentang Kami</h1>
+                    <div class="text-base text-gray-700 dark:text-gray-300 space-y-4">
+                        <p>
+                            PT ArtiVisi Intermedia adalah perusahaan teknologi yang berfokus pada penyediaan solusi inovatif di bidang pengembangan perangkat lunak, pelatihan, dan konsultasi IT. Kami berdedikasi membantu perusahaan dalam menghadapi tantangan di era digital melalui layanan pembangunan perangkat lunak yang disesuaikan dengan kebutuhan bisnis, serta program training dan bootcamp dalam topik-topik kunci seperti software development, pemrograman, DevOps, dan keamanan IT.
+                        </p>
+                        <p>
+                            Sebagai mitra strategis, kami berkomitmen memberikan layanan konsultasi yang dapat membantu perusahaan klien mengidentifikasi, menganalisis, dan menyelesaikan masalah terkait pengembangan, pengelolaan, dan pengoperasian aplikasi. Dengan tim ahli yang berpengalaman, PT ArtiVisi Intermedia siap mendukung transformasi digital yang efisien dan berkelanjutan untuk keberhasilan bisnis Anda.
+                        </p>
+                    </div>
                 </div>
-                <div class="lg:w-1/2 mb-8 lg:mb-0 relative">
-                    <!-- Swiper -->
-                    <div class="swiper-container">
+
+                <!-- Photo Carousel -->
+                <div class="order-1 md:order-2">
+                    <div class="swiper-container rounded-xl overflow-hidden shadow-lg bg-gray-100 dark:bg-gray-800">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <img src="/src/img/t-nidya-karya/DSC_3480.jpg" alt="Tentang Kami 1" class="w-full h-auto rounded-lg shadow-lg object-cover">
+                                <img src="/src/img/t-nidya-karya/DSC_3480.jpg" alt="Tentang Kami 1" class="w-full h-full object-cover" loading="lazy">
                             </div>
                             <div class="swiper-slide">
-                                <img src="/src/img/t-erajaya/DSC_3011.jpg" alt="Tentang Kami 2" class="w-full h-auto rounded-lg shadow-lg object-cover">
+                                <img src="/src/img/t-erajaya/DSC_3011.jpg" alt="Tentang Kami 2" class="w-full h-full object-cover" loading="lazy">
                             </div>
                             <div class="swiper-slide">
-                                <img src="/src/img/58.JPG" alt="Tentang Kami 3" class="w-full h-auto rounded-lg shadow-lg object-cover">
+                                <img src="/src/img/58.JPG" alt="Tentang Kami 3" class="w-full h-full object-cover" loading="lazy">
                             </div>
-                            <!-- Tambahkan lebih banyak slide sesuai kebutuhan -->
                         </div>
-                        <!-- Pagination -->
                         <div class="swiper-pagination"></div>
                     </div>
                 </div>
             </div>
-            <div class="mt-12">
-                <h2 class="text-3xl dark:text-white font-bold mb-4">Visi Kami</h2>
-                <p class="text-lg dark:text-white mb-4">
+
+            <!-- Vision and Mission Section -->
+            <div>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Visi Kami</h2>
+                <p class="text-base text-gray-700 dark:text-gray-300 mb-8">
                     Menjadi mitra teknologi yang terdepan dan terpercaya dalam menyediakan solusi digital yang inovatif dan andal di Indonesia.
                 </p>
-                <h2 class="text-3xl font-bold dark:text-white mb-4">Misi Kami</h2>
-                <ul class="list-disc list-inside text-lg">
-                    <li class="dark:text-white mb-2">Menghadirkan solusi perangkat lunak yang sesuai kebutuhan klien dengan teknologi terbaru.</li>
-                    <li class="dark:text-white mb-2">Memberikan pelatihan berkualitas tinggi yang mempersiapkan talenta IT masa depan.</li>
-                    <li class="dark:text-white">Menyediakan konsultasi komprehensif untuk membantu perusahaan klien mengoptimalkan operasional teknologi mereka.</li>
+
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Misi Kami</h2>
+                <ul class="text-base text-gray-700 dark:text-gray-300 space-y-2 list-disc list-inside">
+                    <li>Menghadirkan solusi perangkat lunak yang sesuai kebutuhan klien dengan teknologi terbaru.</li>
+                    <li>Memberikan pelatihan berkualitas tinggi yang mempersiapkan talenta IT masa depan.</li>
+                    <li>Menyediakan konsultasi komprehensif untuk membantu perusahaan klien mengoptimalkan operasional teknologi mereka.</li>
                 </ul>
             </div>
         </div>
