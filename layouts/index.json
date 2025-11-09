@@ -1,0 +1,7 @@
+{{- $pages := where .Site.RegularPages "Type" "in" (slice "products" "projects" "training" "consulting") -}}
+{{- $items := slice -}}
+{{- range $pages -}}
+  {{- $item := dict "title" .Title "url" .Permalink "description" .Description "date" .Date "type" .Type -}}
+  {{- $items = $items | append $item -}}
+{{- end -}}
+{{- dict "items" $items | jsonify -}}

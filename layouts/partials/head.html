@@ -1,14 +1,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{.Title}}</title>
+
+    {{- $title := .Title -}}
+    {{- $description := .Description | default site.Params.description -}}
+    {{- if .IsHome -}}
+        {{- $title = site.Title -}}
+    {{- else -}}
+        {{- $title = printf "%s | %s" .Title site.Title -}}
+    {{- end -}}
+
+    <title>{{ $title }}</title>
+    <meta name="description" content="{{ $description }}">
+    <meta name="keywords" content="{{ delimit site.Params.keywords ", " }}">
+    <meta name="author" content="{{ site.Params.author }}">
+
+    {{- if .Params.robots -}}
+    <meta name="robots" content="{{ .Params.robots }}">
+    {{- else -}}
+    <meta name="robots" content="index, follow">
+    {{- end -}}
+
+    <link rel="canonical" href="{{ .Permalink }}">
+
+    {{- template "_internal/opengraph.html" . -}}
+    {{- template "_internal/twitter_cards.html" . -}}
+    {{- template "_internal/schema.html" . -}}
+
+    <meta property="og:image" content="{{ "/src/img/artivisi.png" | absURL }}">
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" href="{{ "/favicon.ico" | relURL }}">
+
     <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
     <link rel="stylesheet" href="{{ "css/swiper-bundle.css" | relURL }}">
     <link rel="stylesheet" href="{{ "css/jquery.magnify.css" | relURL }}">
 
-
-    <script src="{{ "js/swiper-bundle.js" | relURL }}"></script>
-    <script src="{{ "js/jquery.js" | relURL }}"></script>
-    <script src="{{ "js/jquery.magnify.js" | relURL }}"></script>
-
+    <script defer src="{{ "js/swiper-bundle.min.js" | relURL }}"></script>
+    <script defer src="{{ "js/jquery.min.js" | relURL }}"></script>
+    <script defer src="{{ "js/jquery.magnify.min.js" | relURL }}"></script>
 </head>

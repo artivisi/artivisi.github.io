@@ -1,3 +1,54 @@
 baseURL = 'https://artivisi.com/'
-languageCode = 'en-us'
+languageCode = 'id'
+defaultContentLanguage = 'id'
 title = 'ArtiVisi Intermedia'
+
+[params]
+  description = 'Pengembangan Aplikasi Kustom untuk Kebutuhan Bisnis Anda. Konsultan IT dan pengembang aplikasi enterprise terpercaya di Indonesia.'
+  keywords = ['pengembangan aplikasi', 'konsultan IT', 'enterprise software', 'aplikasi bisnis']
+  author = 'ArtiVisi Intermedia'
+
+  [params.social]
+    youtube = 'https://www.youtube.com/@artivisi'
+    instagram = 'https://www.instagram.com/artivisiintermedia/'
+    facebook = 'https://www.facebook.com/artivisiintermediajakarta'
+    linkedin = 'https://www.linkedin.com/company/artivisi-intermedia'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[menu]
+  [[menu.main]]
+    name = 'About Us'
+    url = '/about_us/'
+    weight = 1
+  [[menu.main]]
+    name = 'Product'
+    url = '/products/'
+    weight = 2
+  [[menu.main]]
+    name = 'Project'
+    url = '/projects/'
+    weight = 3
+  [[menu.main]]
+    name = 'Training'
+    url = '/training/'
+    weight = 4
+  [[menu.main]]
+    name = 'Consulting'
+    url = '/consulting/'
+    weight = 5
+  [[menu.main]]
+    name = 'Career'
+    url = '/content/karir/magang/'
+    weight = 6
+
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
+
+[sitemap]
+  changefreq = 'monthly'
+  filename = 'sitemap.xml'
+  priority = 0.5
