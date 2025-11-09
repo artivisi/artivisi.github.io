@@ -8,6 +8,10 @@ title = 'ArtiVisi Intermedia'
   keywords = ['pengembangan aplikasi', 'konsultan IT', 'enterprise software', 'aplikasi bisnis']
   author = 'ArtiVisi Intermedia'
 
+  [params.branding]
+    primaryColor = "#2563eb"    # Navy blue from logo
+    accentColor = "#22c55e"     # Green from logo
+
   [params.social]
     youtube = 'https://www.youtube.com/@artivisi'
     instagram = 'https://www.instagram.com/artivisiintermedia/'

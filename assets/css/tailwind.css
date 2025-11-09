@@ -1,39 +1,113 @@
 @import "tailwindcss";
 
-@theme {
-  /* Font Families */
-  --font-sans: Geist, Inter, ui-sans-serif, system-ui, sans-serif;
-  --font-mono: GeistMono, "Fira Code", ui-monospace, monospace;
+@variant dark (&:where(.dark, .dark *));
 
-  /* Custom Colors - Nature Palette */
-  --color-primary-50: #f0fdf4;
-  --color-primary-100: #dcfce7;
-  --color-primary-200: #bbf7d0;
-  --color-primary-300: #86efac;
-  --color-primary-400: #4ade80;
-  --color-primary-500: #22c55e;
-  --color-primary-600: #16a34a;
-  --color-primary-700: #15803d;
-  --color-primary-800: #166534;
-  --color-primary-900: #14532d;
-  --color-primary-950: #052e16;
+@theme {
+  /* ===== Brand Colors (from logo) ===== */
+  /* Primary: Navy Blue from logo */
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1e40af;
+  --color-primary-800: #1e3a8a;
+  --color-primary-900: #1e293b;
+  --color-primary-950: #0f172a;
+
+  /* Accent: Green from logo */
+  --color-accent-50: #f0fdf4;
+  --color-accent-100: #dcfce7;
+  --color-accent-200: #bbf7d0;
+  --color-accent-300: #86efac;
+  --color-accent-400: #4ade80;
+  --color-accent-500: #22c55e;
+  --color-accent-600: #16a34a;
+  --color-accent-700: #15803d;
+  --color-accent-800: #166534;
+  --color-accent-900: #14532d;
+  --color-accent-950: #052e16;
+
+  /* ===== Semantic Colors ===== */
+  /* Success */
+  --color-success-50: #f0fdf4;
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+
+  /* Warning */
+  --color-warning-50: #fffbeb;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+
+  /* Error */
+  --color-error-50: #fef2f2;
+  --color-error-500: #ef4444;
+  --color-error-600: #dc2626;
+
+  /* Info */
+  --color-info-50: #eff6ff;
+  --color-info-500: #3b82f6;
+  --color-info-600: #2563eb;
+
+  /* ===== Typography ===== */
+  --font-sans: Geist, Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-mono: GeistMono, "Fira Code", ui-monospace, "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", monospace;
+
+  /* Font Sizes */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+
+  /* Line Heights */
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+
+  /* ===== Spacing & Layout ===== */
+  --spacing-section: 5rem;
+  --spacing-card: 1.5rem;
+  --container-max-width: 80rem;
 
   /* Border Radius */
-  --radius-smoothest: 1.5rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+  --radius-full: 9999px;
 
-  /* Spacing for large padding */
-  --spacing-card-padding: 1.5rem;
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Animation */
   --animate-loop: loop 5s linear infinite;
 }
 
 @layer base {
-  /* Font Face Declarations */
+  /* ===== Font Faces ===== */
   @font-face {
     font-family: 'Geist';
     src: url('/fonts/Geist-Bold.otf') format('opentype');
-    font-weight: bold;
+    font-weight: 700;
     font-style: normal;
     font-display: swap;
   }
@@ -57,7 +131,7 @@
   @font-face {
     font-family: 'Geist';
     src: url('/fonts/Geist-Regular.otf') format('opentype');
-    font-weight: normal;
+    font-weight: 400;
     font-style: normal;
     font-display: swap;
   }
@@ -65,68 +139,272 @@
   @font-face {
     font-family: 'GeistMono';
     src: url('/fonts/GeistMono-Regular.otf') format('opentype');
-    font-weight: normal;
+    font-weight: 400;
     font-style: normal;
     font-display: swap;
   }
-}
 
-@layer components {
-  /* Swiper Customization */
-  .swiper-pagination-bullet {
-    @apply bg-gray-200 dark:bg-gray-700 opacity-100;
+  /* ===== Base Styles ===== */
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
-  .swiper-pagination-bullet-active {
-    @apply bg-gray-950 dark:bg-white;
+  body {
+    @apply bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100;
+    @apply transition-colors duration-300;
   }
 
-  /* Magnify Plugin Styles */
-  .magnify-modal {
-    box-shadow: 0 0 6px 2px rgba(0, 0, 0, .3);
+  /* Smooth scroll */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 
-  .magnify-header .magnify-toolbar {
-    background-color: rgba(0, 0, 0, .5);
+  /* Focus visible for accessibility */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary-600 dark:outline-primary-400;
   }
 
-  .magnify-stage {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    border-width: 0;
-  }
-
-  .magnify-footer .magnify-toolbar {
-    background-color: rgba(0, 0, 0, .5);
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-  }
-
-  .magnify-header,
-  .magnify-footer {
-    pointer-events: none;
-  }
-
-  .magnify-button {
-    pointer-events: auto;
-  }
-
-  .swiper-container {
-    max-width: 100%;
-    overflow: hidden;
-  }
-
-  .swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  /* Selection */
+  ::selection {
+    @apply bg-primary-200 text-primary-900 dark:bg-primary-800 dark:text-primary-100;
   }
 }
 
+/* ===== Custom Component Styles ===== */
+/* Only keeping styles that cannot be easily expressed with Tailwind utilities or are third-party library customizations */
+
+/* Swiper Customization */
+.swiper-pagination-bullet {
+  background-color: #d1d5db !important;
+  opacity: 1 !important;
+  width: 0.5rem !important;
+  height: 0.5rem !important;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+:is(.dark .swiper-pagination-bullet) {
+  background-color: #4b5563 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #2563eb !important;
+  width: 2rem !important;
+}
+
+:is(.dark .swiper-pagination-bullet-active) {
+  background-color: #60a5fa !important;
+}
+
+/* Magnify Plugin */
+.magnify-modal {
+  box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.3);
+}
+
+.magnify-header .magnify-toolbar,
+.magnify-footer .magnify-toolbar {
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+}
+
+.magnify-stage {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-width: 0;
+}
+
+.magnify-footer .magnify-toolbar {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.magnify-header,
+.magnify-footer {
+  pointer-events: none;
+}
+
+.magnify-button {
+  pointer-events: auto;
+}
+
+/* Dark Mode Toggle Button */
+.theme-toggle {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 50;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  background-color: white;
+  border: 2px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #374151;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+:is(.dark .theme-toggle) {
+  background-color: #1f2937;
+  border-color: #374151;
+  color: #d1d5db;
+}
+
+.theme-toggle:hover {
+  background-color: #f9fafb;
+  transform: scale(1.1);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+:is(.dark .theme-toggle:hover) {
+  background-color: #374151;
+}
+
+
+/* ===== Animations ===== */
 @keyframes loop {
   to {
     offset-distance: 100%;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ===== Responsive Images ===== */
+img {
+  @apply max-w-full h-auto;
+}
+
+/* ===== Markdown Content Styling ===== */
+article h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #111827;
+}
+
+:is(.dark article h2) {
+  color: #f9fafb;
+}
+
+article h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #374151;
+}
+
+:is(.dark article h3) {
+  color: #e5e7eb;
+}
+
+article p {
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
+
+article blockquote {
+  padding-left: 1rem;
+  border-left: 4px solid #2563eb;
+  font-style: italic;
+  margin: 1.5rem 0;
+  color: #4b5563;
+  background-color: #f9fafb;
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+}
+
+:is(.dark article blockquote) {
+  color: #9ca3af;
+  background-color: #1f2937;
+  border-left-color: #3b82f6;
+}
+
+article ul,
+article ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
+
+article ul {
+  list-style-type: disc;
+}
+
+article ol {
+  list-style-type: decimal;
+}
+
+article li {
+  margin-bottom: 0.5rem;
+}
+
+article a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+article a:hover {
+  color: #1e40af;
+}
+
+:is(.dark article a) {
+  color: #60a5fa;
+}
+
+:is(.dark article a:hover) {
+  color: #3b82f6;
+}
+
+article strong {
+  font-weight: 600;
+}
+
+article code {
+  background-color: #f3f4f6;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+:is(.dark article code) {
+  background-color: #374151;
+}
+
+/* ===== Print Styles ===== */
+@media print {
+  .no-print {
+    display: none !important;
   }
 }
