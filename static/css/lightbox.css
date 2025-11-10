@@ -78,7 +78,7 @@
 .lightbox-close,
 .lightbox-prev,
 .lightbox-next {
-  position: absolute;
+  position: fixed;
   background: rgba(255, 255, 255, 0.1);
   border: 2px solid rgba(255, 255, 255, 0.3);
   color: white;
@@ -116,11 +116,18 @@
   top: 50%;
   transform: translateY(-50%);
   font-size: 3rem;
-  line-height: 1;
+  line-height: 0;
   padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+}
+
+.lightbox-prev::before {
+  content: '‹';
+  display: block;
+  transform: translateX(-1px);
 }
 
 .lightbox-prev:hover {
@@ -132,11 +139,18 @@
   top: 50%;
   transform: translateY(-50%);
   font-size: 3rem;
-  line-height: 1;
+  line-height: 0;
   padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+}
+
+.lightbox-next::before {
+  content: '›';
+  display: block;
+  transform: translateX(1px);
 }
 
 .lightbox-next:hover {
