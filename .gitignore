@@ -3,3 +3,6 @@ node_modules
 dist
 public
 .hugo_build.lock
+
+# Generated CSS (built by GitHub Actions)
+static/css/main.css
