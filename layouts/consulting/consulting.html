@@ -1,0 +1,131 @@
+{{define "main"}}
+    {{- partial "hero.html" (dict "title" "Consulting" "description" "Layanan konsultasi teknologi untuk membantu bisnis Anda mencapai kesuksesan digital") -}}
+
+    <!-- Main Content -->
+    <section class="py-16 lg:py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+
+            <!-- Introduction -->
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-6">Solusi Konsultasi IT Terpercaya</h2>
+                <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                    Kami menyediakan layanan konsultasi komprehensif untuk membantu organisasi Anda mengoptimalkan infrastruktur teknologi, meningkatkan keamanan, dan mempercepat transformasi digital.
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+                <!-- Architecture -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Arsitektur Aplikasi</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Desain dan perencanaan arsitektur aplikasi yang scalable, maintainable, dan sesuai dengan kebutuhan bisnis Anda.</p>
+                </div>
+
+                <!-- Network -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-600 to-green-700 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Jaringan</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Konsultasi infrastruktur jaringan, optimasi performa, dan perencanaan kapasitas untuk mendukung pertumbuhan bisnis.</p>
+                </div>
+
+                <!-- Security -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700">
+                    <div class="w-16 h-16 bg-gradient-to-br from-red-600 to-red-700 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Security</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Audit keamanan aplikasi, implementasi best practices security, dan penetration testing untuk melindungi aset digital Anda.</p>
+                </div>
+
+                <!-- Operations/SRE -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-600 to-purple-700 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Operation / SRE</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Implementasi DevOps practices, CI/CD pipeline, monitoring, dan automation untuk meningkatkan reliability dan efisiensi operasional.</p>
+                </div>
+
+                <!-- Software Development -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700">
+                    <div class="w-16 h-16 bg-gradient-to-br from-yellow-600 to-yellow-700 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Pengembangan Perangkat Lunak</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Konsultasi metodologi development, code review, technical debt management, dan best practices dalam software engineering.</p>
+                </div>
+
+                <!-- Implementation & Management -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700">
+                    <div class="w-16 h-16 bg-gradient-to-br from-indigo-600 to-indigo-700 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Implementasi & Pengelolaan</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Panduan implementasi sistem, change management, capacity planning, dan strategi pengelolaan aplikasi jangka panjang.</p>
+                </div>
+            </div>
+
+            <!-- Experience -->
+            <div class="bg-white dark:bg-gray-800 rounded-2xl p-12 border border-gray-200 dark:border-gray-700 text-center mb-12 mt-20">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">Pengalaman Lebih dari 15 Tahun</h2>
+                <p class="text-lg text-gray-700 dark:text-gray-300">Melayani berbagai perusahaan terkemuka di Indonesia</p>
+            </div>
+
+            <!-- Client Logos Carousel -->
+            <div class="mb-12">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper items-center">
+                        <div class="swiper-slide flex items-center justify-center p-6">
+                            <img src="/img/clients/pegadaian-1.png" alt="Pegadaian" class="max-h-16 w-auto">
+                        </div>
+                        <div class="swiper-slide flex items-center justify-center p-6">
+                            <img src="/img/clients/kai.png" alt="KAI" class="max-h-16 w-auto">
+                        </div>
+                        <div class="swiper-slide flex items-center justify-center p-6">
+                            <img src="/img/clients/BNI.png" alt="BNI" class="max-h-16 w-auto">
+                        </div>
+                        <div class="swiper-slide flex items-center justify-center p-6">
+                            <img src="/img/clients/telkom.png" alt="Telkom" class="max-h-16 w-auto">
+                        </div>
+                        <div class="swiper-slide flex items-center justify-center p-6">
+                            <img src="/img/clients/teleanjar.png" alt="Tele Anjar" class="max-h-16 w-auto">
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="mt-20 text-center">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-6">Siap Memulai Transformasi Digital?</h2>
+                <p class="text-lg text-gray-700 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+                    Konsultasikan kebutuhan teknologi Anda dengan tim ahli kami dan dapatkan solusi yang tepat untuk bisnis Anda.
+                </p>
+                <a href="/contact_us/" class="inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold bg-primary-600 hover:bg-primary-700 active:bg-primary-800 dark:bg-primary-600 dark:hover:bg-primary-700 dark:active:bg-primary-800 text-white shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-1">
+                    Hubungi Kami
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </a>
+            </div>
+
+        </div>
+    </section>
+{{end}}
