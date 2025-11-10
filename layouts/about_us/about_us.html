@@ -1,22 +1,8 @@
 {{define "main"}}
-    <!-- Hero Section -->
-    <section class="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-950 dark:from-gray-950 dark:via-primary-950 dark:to-gray-900 text-white pt-36 pb-24 lg:pt-48 lg:pb-40">
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
-        </div>
-
-        <div class="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div class="text-center mb-12 pb-8 pt-8">
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">Tentang Kami</h1>
-                <p class="text-xl text-primary-100 max-w-3xl mx-auto">
-                    Mitra teknologi terpercaya untuk transformasi digital bisnis Anda sejak 2008
-                </p>
-            </div>
-        </div>
-    </section>
+    {{- partial "hero.html" (dict "title" "Tentang Kami" "description" "Mitra teknologi terpercaya untuk transformasi digital bisnis Anda sejak 2008") -}}
 
     <!-- Main Content -->
-    <section class="pt-36 pb-24 lg:pt-48 lg:pb-40 bg-gray-50 dark:bg-gray-900">
+    <section class="py-16 lg:py-20 bg-gray-50 dark:bg-gray-900">
         <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <!-- Company Overview -->
             <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center mb-24">
