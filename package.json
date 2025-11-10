@@ -20,8 +20,9 @@
     "tailwindcss": "^4.1.17"
   },
   "dependencies": {
-    "swiper": "^11.0.6",
     "jquery": "^3.7.1",
-    "jquery.magnify": "^1.6.3"
+    "jquery.magnify": "^1.6.3",
+    "playwright": "^1.56.1",
+    "swiper": "^11.0.6"
   }
 }
