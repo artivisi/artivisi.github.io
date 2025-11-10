@@ -4,10 +4,10 @@
     <!-- Projects Grid -->
     <section class="py-16 lg:py-20 bg-gray-50 dark:bg-gray-900">
         <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            {{- $pages := .Pages.ByDate.Reverse -}}
-            {{- if gt (len $pages) 0 -}}
+            {{- $paginator := .Paginate (.Pages.ByDate.Reverse) -}}
+            {{- if gt (len $paginator.Pages) 0 -}}
             <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                {{- range $pages -}}
+                {{- range $paginator.Pages -}}
                 <article class="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden group">
                     {{- if .Params.thumbnail -}}
                     <div class="relative h-56 overflow-hidden">
@@ -46,6 +46,69 @@
                 </article>
                 {{- end -}}
             </div>
+
+            <!-- Pagination -->
+            {{- if gt $paginator.TotalPages 1 -}}
+            <div class="flex justify-center items-center mt-12 gap-2">
+                {{- if $paginator.HasPrev -}}
+                <a href="{{ $paginator.Prev.URL }}" class="inline-flex items-center justify-center w-10 h-10 rounded-lg border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-primary-600 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                </a>
+                {{- end -}}
+
+                {{- $currentPage := $paginator.PageNumber -}}
+                {{- $totalPages := $paginator.TotalPages -}}
+                {{- $showPages := 5 -}}
+                {{- $start := sub $currentPage 2 -}}
+                {{- $end := add $currentPage 2 -}}
+                {{- if lt $start 1 -}}
+                    {{- $start = 1 -}}
+                    {{- $end = $showPages -}}
+                {{- end -}}
+                {{- if gt $end $totalPages -}}
+                    {{- $end = $totalPages -}}
+                    {{- $start = sub $totalPages (sub $showPages 1) -}}
+                    {{- if lt $start 1 -}}
+                        {{- $start = 1 -}}
+                    {{- end -}}
+                {{- end -}}
+
+                {{- if gt $start 1 -}}
+                <a href="{{ $paginator.First.URL }}" class="inline-flex items-center justify-center w-10 h-10 rounded-lg border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-primary-600 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200">1</a>
+                {{- if gt $start 2 -}}
+                <span class="inline-flex items-center justify-center w-10 h-10 text-gray-500 dark:text-gray-400">...</span>
+                {{- end -}}
+                {{- end -}}
+
+                {{- range $paginator.Pagers -}}
+                    {{- if and (ge .PageNumber $start) (le .PageNumber $end) -}}
+                        {{- if eq .PageNumber $currentPage -}}
+                        <span class="inline-flex items-center justify-center w-10 h-10 rounded-lg border-2 border-primary-600 bg-primary-600 text-white font-semibold">{{ .PageNumber }}</span>
+                        {{- else -}}
+                        <a href="{{ .URL }}" class="inline-flex items-center justify-center w-10 h-10 rounded-lg border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-primary-600 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200">{{ .PageNumber }}</a>
+                        {{- end -}}
+                    {{- end -}}
+                {{- end -}}
+
+                {{- if lt $end $totalPages -}}
+                {{- if lt $end (sub $totalPages 1) -}}
+                <span class="inline-flex items-center justify-center w-10 h-10 text-gray-500 dark:text-gray-400">...</span>
+                {{- end -}}
+                <a href="{{ $paginator.Last.URL }}" class="inline-flex items-center justify-center w-10 h-10 rounded-lg border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-primary-600 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200">{{ $totalPages }}</a>
+                {{- end -}}
+
+                {{- if $paginator.HasNext -}}
+                <a href="{{ $paginator.Next.URL }}" class="inline-flex items-center justify-center w-10 h-10 rounded-lg border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-primary-600 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                {{- end -}}
+            </div>
+            {{- end -}}
+
             {{- else -}}
             <div class="text-center py-16">
                 <svg class="w-24 h-24 mx-auto text-gray-300 dark:text-gray-700 mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
