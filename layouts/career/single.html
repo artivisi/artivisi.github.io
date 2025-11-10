@@ -1,15 +1,40 @@
 {{define "main"}}
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-950 dark:from-gray-950 dark:via-primary-950 dark:to-gray-900 text-white py-20 lg:py-32">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+        </div>
 
-<section class="pt-16 pb-16 sm:pt-20 sm:pb-20 lg:pt-24 lg:pb-24">
-    <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div class="max-w-4xl mx-auto">
-            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-8 text-center">{{ .Title }}</h1>
+        <div class="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <div class="text-center">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">{{ .Title }}</h1>
+                <p class="text-xl text-primary-100 max-w-3xl mx-auto">
+                    Bergabunglah dengan tim profesional kami dan kembangkan karier Anda di bidang teknologi
+                </p>
+            </div>
+        </div>
+    </section>
 
-            <article class="text-base text-gray-700 dark:text-gray-300 space-y-6">
+    <!-- Main Content -->
+    <section class="py-20 lg:py-32 bg-gray-50 dark:bg-gray-900">
+        <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+            <article class="bg-white dark:bg-gray-800 rounded-2xl p-8 lg:p-12 shadow-lg border border-gray-200 dark:border-gray-700 prose prose-lg dark:prose-invert max-w-none">
                 {{ .Content }}
             </article>
-        </div>
-    </div>
-</section>
 
+            <!-- CTA Section -->
+            <div class="mt-12 bg-gradient-to-br from-primary-600 to-primary-700 rounded-2xl p-12 text-center text-white shadow-xl">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">Siap Bergabung Dengan Kami?</h2>
+                <p class="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+                    Kirimkan CV dan portfolio Anda untuk memulai perjalanan karier bersama ArtiVisi
+                </p>
+                <a href="/contact_us/" class="inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold bg-white hover:bg-gray-50 text-primary-700 shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-1">
+                    Hubungi Kami
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
 {{end}}
