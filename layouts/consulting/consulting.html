@@ -1,49 +1,175 @@
 {{define "main"}}
-
-<section class="pt-16 pb-16 sm:pt-20 sm:pb-20 lg:pt-24 lg:pb-24">
-    <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div class="max-w-4xl mx-auto py-12 px-6 sm:px-8 lg:px-10">
-            <h2 class="text-center dark:text-white text-4xl font-bold font-manrope mb-8 leading-tight">Training / Consulting</h2>
-            <p class="text-gray-600 dark:text-gray-400 text-lg leading-8 mb-6">
-                Saat ini kami PT. Artivisi Intermedia tidak membuka kelas reguler training, kami hanya melaksanakan training in house dimana materi dan tempat training disesuaikan dengan permintaan dari pelanggan.
-            </p>
-            <p class="text-gray-600 text-lg leading-8 mb-6 font-semibold">Pertanyaan yang sering diajukan adalah:</p>
-            <p class="text-gray-600 dark:text-gray-400 text-lg leading-8 mb-6">Berapa biaya yang harus dikeluarkan untuk training in house ini?</p>
-            <p class="text-gray-600 dark:text-gray-400 text-lg leading-8 mb-6">
-                Yang pertama akan kami jelaskan yaitu metode perhitungan kami untuk training ini adalah berdasarkan durasi training, rumus perhitungannya adalah <span class="font-semibold italic">'rate perjam' x 'durasi jam perhari' x 'banyaknya hari'</span> = harga training.
-            </p>
-            <p class="text-gray-600 dark:text-gray-400 text-lg leading-8 mb-6">
-                Misalkan untuk training Java Web Basic membutuhkan durasi 5 hari dan setiap harinya berdurasi 6 jam maka perkiraan harganya yaitu: <span class="font-bold">Rp 850.000 x 6 jam x 5 hari = Rp 25.500.000</span>.
-            </p>
-            <blockquote class="italic bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-4 py-3 border-l-4 border-primary-600 rounded mb-6">
-                “Waow harganya fantastis sekali” atau “mahal juga ya”,
-            </blockquote>
-            <p class="text-gray-600 dark:text-gray-400 text-lg leading-8 mb-6">
-                begitu kira-kira tanggapan dari para pelanggan perorangan. Memang mahal hitungannya jika untuk harga perorangan, namun di sini kami jelaskan lagi bagaimana spesifikasi atau keterangan dari harga di atas.
-            </p>
-            <p class="text-gray-600 dark:text-gray-400 text-lg leading-8 mb-6">
-                Perkiraan harga di atas adalah biaya pelatihan dengan jumlah peserta maksimal 10 orang. Apabila ada penambahan peserta, dikenakan biaya tambahan per peserta. Jadi jika peserta kurang dari 10 orang, harga yang kami tawarkan sama dengan yang dicontohkan di atas, namun jika peserta lebih dari 10 orang akan ada tambahan biaya.
-            </p>
-            <p class="text-gray-600 dark:text-gray-400 text-lg leading-8 mb-4">Dengan biaya tersebut, masing-masing peserta akan mendapatkan:</p>
-            <ul class="list-decimal list-inside text-gray-600 dark:text-gray-400 text-lg leading-8 mb-6 space-y-2">
-                <li>Materi pelatihan, dalam bentuk hardcopy</li>
-                <li>Sertifikat Training</li>
-                <li>Alat tulis</li>
-            </ul>
-            <p class="text-gray-600 dark:text-gray-400 text-lg leading-8 mb-4">Biaya di atas juga tidak termasuk:</p>
-            <ul class="list-decimal list-inside text-gray-600 dark:text-gray-400 text-lg leading-8 mb-6 space-y-2">
-                <li>PPN 10%</li>
-                <li>Transport dan akomodasi instruktur (bila dilaksanakan di luar DKI Jakarta)</li>
-                <li>Konsumsi training</li>
-                <li>Sewa lokasi</li>
-                <li>Infrastruktur training seperti Server Development dan Database Development</li>
-                <li>Biaya penyelenggaraan training lainnya</li>
-            </ul>
-            <p class="text-gray-600 dark:text-gray-400 text-lg leading-8">
-                Demikian yang bisa kami jelaskan mengenai in house training. Untuk info mengenai <span class="italic">‘rate perjam’</span> atau mengenai hal lainnya, bisa menghubungi kami di nomor telephone <span class="font-bold">021 86611859</span> atau email ke <a href="mailto:info@artivisi.com" class="text-blue-600 underline">info@artivisi.com</a>.
-            </p>
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-950 dark:from-gray-950 dark:via-primary-950 dark:to-gray-900 text-white py-20 lg:py-32">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
         </div>
-    </div>
-</section>
 
+        <div class="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <div class="text-center">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">Training / Consulting</h1>
+                <p class="text-xl text-primary-100 max-w-3xl mx-auto">
+                    Program pelatihan dan konsultasi yang disesuaikan dengan kebutuhan perusahaan Anda
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-20 lg:py-32 bg-gray-50 dark:bg-gray-900">
+        <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+            <!-- Intro Card -->
+            <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 lg:p-12 shadow-lg border border-gray-200 dark:border-gray-700 mb-12">
+                <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+                    Saat ini kami PT. Artivisi Intermedia tidak membuka kelas reguler training, kami hanya melaksanakan training in house dimana materi dan tempat training disesuaikan dengan permintaan dari pelanggan.
+                </p>
+            </div>
+
+            <!-- Pricing Information -->
+            <div class="bg-gradient-to-br from-primary-50 to-primary-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-8 lg:p-12 shadow-lg border border-primary-200 dark:border-gray-700 mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Pertanyaan yang Sering Diajukan</h2>
+
+                <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                    Berapa biaya yang harus dikeluarkan untuk training in house ini?
+                </h3>
+
+                <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+                    Metode perhitungan kami untuk training ini adalah berdasarkan durasi training dengan rumus:
+                </p>
+
+                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 mb-6 border-2 border-primary-600">
+                    <p class="text-xl text-center font-bold text-gray-900 dark:text-white">
+                        Rate perjam × Durasi jam perhari × Banyaknya hari = Harga Training
+                    </p>
+                </div>
+
+                <div class="bg-primary-600 text-white rounded-xl p-6 mb-6">
+                    <h4 class="text-lg font-semibold mb-3">Contoh Perhitungan:</h4>
+                    <p class="mb-2">Training Java Web Basic membutuhkan durasi 5 hari, setiap harinya 6 jam:</p>
+                    <p class="text-2xl font-bold">
+                        Rp 850.000 × 6 jam × 5 hari = Rp 25.500.000
+                    </p>
+                </div>
+
+                <blockquote class="italic bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-6 py-4 border-l-4 border-primary-600 rounded-lg mb-6 text-lg">
+                    "Waow harganya fantastis sekali" atau "mahal juga ya"
+                </blockquote>
+
+                <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                    Memang mahal hitungannya jika untuk harga perorangan, namun di sini kami jelaskan lagi bagaimana spesifikasi dari harga di atas.
+                </p>
+            </div>
+
+            <!-- Details Grid -->
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <!-- Participant Info -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
+                    <div class="w-16 h-16 bg-gradient-to-br from-accent-600 to-accent-700 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Jumlah Peserta</h3>
+                    <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Perkiraan harga di atas adalah biaya pelatihan dengan jumlah peserta <span class="font-bold text-primary-600 dark:text-primary-400">maksimal 10 orang</span>. Apabila ada penambahan peserta, dikenakan biaya tambahan per peserta.
+                    </p>
+                </div>
+
+                <!-- What's Included -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary-600 to-primary-700 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Setiap Peserta Mendapatkan</h3>
+                    <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-accent-600 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Materi pelatihan, dalam bentuk hardcopy</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-accent-600 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Sertifikat Training</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-accent-600 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Alat tulis</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Additional Costs -->
+            <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 lg:p-12 shadow-lg border border-gray-200 dark:border-gray-700 mb-12">
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Biaya Tidak Termasuk</h3>
+                <ul class="grid md:grid-cols-2 gap-4 text-lg text-gray-700 dark:text-gray-300">
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-gray-400 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>PPN 10%</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-gray-400 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Transport dan akomodasi instruktur (bila dilaksanakan di luar DKI Jakarta)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-gray-400 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Konsumsi training</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-gray-400 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Sewa lokasi</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-gray-400 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Infrastruktur training seperti Server Development dan Database Development</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-gray-400 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Biaya penyelenggaraan training lainnya</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="bg-gradient-to-br from-primary-600 to-primary-700 rounded-2xl p-12 text-center text-white shadow-xl">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">Tertarik Dengan Training Kami?</h2>
+                <p class="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+                    Untuk info mengenai rate perjam atau mengenai hal lainnya, silakan hubungi kami
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+                    <a href="tel:02186611859" class="inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold bg-white hover:bg-gray-50 text-primary-700 shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-1">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                        </svg>
+                        021 86611859
+                    </a>
+                    <a href="mailto:info@artivisi.com" class="inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold bg-white hover:bg-gray-50 text-primary-700 shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-1">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        info@artivisi.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 {{end}}
