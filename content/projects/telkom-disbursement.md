@@ -2,7 +2,7 @@
 title: "Telkom Disbursement"
 date: 2024-10-05
 description: "Aplikasi yang dikembangkan untuk memfasilitasi proses pencairan dana dengan cepat dan aman."
-thumbnail: "/src/img/telkom-disburs/Thumbnail.png"
+thumbnail: "/img/projects/telkom-disbursement/thumbnail.png"
 ---
 
 ## Deskripsi Proyek
@@ -49,12 +49,12 @@ Tim menggunakan Spring Boot ecosystem dengan Spring Batch untuk high-volume tran
 
 ## Screenshots
 
-![Screenshot 1](/src/img/telkom-disburs/Screenshot from 2024-10-11 15-04-36.png)
+![Screenshot 1](/img/projects/telkom-disbursement/01-screenshot.png)
 
-![Screenshot 2](/src/img/telkom-disburs/Screenshot from 2024-10-11 15-05-02.png)
+![Screenshot 2](/img/projects/telkom-disbursement/02-screenshot.png)
 
-![Screenshot 3](/src/img/telkom-disburs/Screenshot from 2024-10-11 15-05-19.png)
+![Screenshot 3](/img/projects/telkom-disbursement/03-screenshot.png)
 
-![Screenshot 4](/src/img/telkom-disburs/Screenshot from 2024-10-11 15-05-46.png)
+![Screenshot 4](/img/projects/telkom-disbursement/04-screenshot.png)
 
-![Screenshot 5](/src/img/telkom-disburs/Screenshot from 2024-10-11 15-06-09.png)
+![Screenshot 5](/img/projects/telkom-disbursement/05-screenshot.png)

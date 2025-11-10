@@ -1,7 +1,7 @@
 ---
 title: "Remittance"
 description: "Aplikasi yang memudahkan pengiriman uang secara cepat dan aman, baik domestik maupun internasional dengan biaya kompetitif dan tracking real-time."
-icon: "/src/img/remmitance/logo.png"
+icon: "/img/products/remittance/logo.png"
 weight: 3
 ---
 
@@ -53,12 +53,12 @@ Aplikasi yang memudahkan pengiriman uang secara cepat dan aman, baik domestik ma
 
 ## Screenshots
 
-![Dashboard](/src/img/remmitance/dashboard.png)
+![Dashboard](/img/products/remittance/01-dashboard.png)
 
-![Merchant Login](/src/img/remmitance/log-merchant.png)
+![Merchant Login](/img/products/remittance/02-merchant-login.png)
 
-![Remittance Login](/src/img/remmitance/log-remittance.png)
+![Remittance Login](/img/products/remittance/03-remittance-login.png)
 
-![Merchant Data](/src/img/remmitance/merchant-data.png)
+![Merchant Data](/img/products/remittance/04-merchant-data.png)
 
-![Remittance Report](/src/img/remmitance/report-remittance.png)
+![Remittance Report](/img/products/remittance/05-report.png)

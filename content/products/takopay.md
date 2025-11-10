@@ -1,7 +1,7 @@
 ---
 title: "Takopay"
 description: "Solusi payment gateway yang memungkinkan bisnis menerima pembayaran online secara aman, cepat, dan mudah dengan berbagai metode pembayaran."
-icon: "/src/img/takopay/logo.png"
+icon: "/img/products/takopay/thumbnail.png"
 weight: 2
 ---
 
@@ -51,12 +51,12 @@ Solusi yang memungkinkan bisnis menerima pembayaran secara online dengan aman da
 
 ## Screenshots
 
-![Verification Data](/src/img/takopay/01-ImageVerificationData.png)
+![Verification Data](/img/products/takopay/01-verification.png)
 
-![Report Payout](/src/img/takopay/02-ImageReportPayout.png)
+![Report Payout](/img/products/takopay/02-report-payout.png)
 
-![Account Balance](/src/img/takopay/03-ImageAccountBalance.png)
+![Account Balance](/img/products/takopay/03-account-balance.png)
 
-![Profile Mitra](/src/img/takopay/04-ImageProfileMitra.png)
+![Profile Mitra](/img/products/takopay/04-profile-mitra.png)
 
-![Merchant Gateway Registry](/src/img/takopay/05-ImageMerchantGatewayRegistryList.png)
+![Merchant Gateway Registry](/img/products/takopay/05-merchant-gateway.png)

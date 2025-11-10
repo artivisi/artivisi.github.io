@@ -1,7 +1,7 @@
 ---
 title: "VA Splitter & Disbursement"
 description: "Solusi yang mengoptimalkan pengelolaan keuangan bisnis dengan kemampuan split payment otomatis dan disbursement yang efisien."
-icon: "/src/img/disbursment/logo-va.png"
+icon: "/img/products/va-splitter/thumbnail.png"
 weight: 1
 ---
 
@@ -41,16 +41,16 @@ Sistem ini menyediakan dua kemampuan utama:
 
 ## Screenshots
 
-![Dashboard Kredit](/src/img/disbursment/dashboard-kredit.png)
+![Dashboard Kredit](/img/products/va-splitter/01-dashboard-kredit.png)
 
-![User Admin](/src/img/disbursment/user-admin.png)
+![User Admin](/img/products/va-splitter/02-user-admin.png)
 
-![Role Permission](/src/img/disbursment/role-permission.png)
+![Role Permission](/img/products/va-splitter/03-role-permission.png)
 
-![Report Billing Data](/src/img/disbursment/report-billing-data.png)
+![Report Billing Data](/img/products/va-splitter/04-report-billing.png)
 
-![Kredit Transaksi](/src/img/disbursment/kredit-transaksi.png)
+![Kredit Transaksi](/img/products/va-splitter/05-transaksi.png)
 
-![Konfigurasi Splitter](/src/img/disbursment/konfig-splitter.png)
+![Konfigurasi Splitter](/img/products/va-splitter/06-konfigurasi.png)
 
-![Client Partner](/src/img/disbursment/client-patner-client.png)
+![Client Partner](/img/products/va-splitter/07-client-partner.png)

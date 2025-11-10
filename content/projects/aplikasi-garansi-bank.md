@@ -2,7 +2,7 @@
 title: "Aplikasi Garansi Bank"
 date: 2024-02-15
 description: "Aplikasi yang memudahkan pengelolaan dan penerbitan garansi bank secara digital."
-thumbnail: "/src/img/aplikasi_garansi_bank/Thumbnail.png"
+thumbnail: "/img/projects/aplikasi-garansi-bank/thumbnail.png"
 ---
 
 ## Deskripsi Proyek
@@ -44,10 +44,10 @@ Tim menggunakan Vue CLI untuk pengembangan frontend, Maven untuk build backend, 
 
 ## Screenshots
 
-![Dashboard](/src/img/aplikasi_garansi_bank/01-ImageDashboard.png)
+![Dashboard](/img/projects/aplikasi-garansi-bank/01-dashboard.png)
 
-![Tracking Status](/src/img/aplikasi_garansi_bank/03-ImageTracking.png)
+![Tracking Status](/img/projects/aplikasi-garansi-bank/03-tracking.png)
 
-![Approval Process](/src/img/aplikasi_garansi_bank/04-ImageApproval.png)
+![Approval Process](/img/projects/aplikasi-garansi-bank/04-approval.png)
 
-![List View](/src/img/aplikasi_garansi_bank/05-ImageList.png)
+![List View](/img/projects/aplikasi-garansi-bank/05-list.png)
