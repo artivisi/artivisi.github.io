@@ -235,14 +235,14 @@
 /* Dark Mode Toggle Button */
 .theme-toggle {
   position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
+  bottom: 2rem;
+  right: 2rem;
   z-index: 50;
-  width: 3rem;
-  height: 3rem;
+  width: 3.5rem;
+  height: 3.5rem;
   border-radius: 9999px;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  background-color: white;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.2), 0 4px 6px -4px rgb(0 0 0 / 0.15);
+  background-color: rgb(255, 255, 255);
   border: 2px solid #e5e7eb;
   display: flex;
   align-items: center;
@@ -250,22 +250,23 @@
   color: #374151;
   transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  backdrop-filter: blur(8px);
 }
 
 :is(.dark .theme-toggle) {
-  background-color: #1f2937;
+  background-color: rgb(31, 41, 55);
   border-color: #374151;
   color: #d1d5db;
 }
 
 .theme-toggle:hover {
-  background-color: #f9fafb;
+  background-color: rgb(249, 250, 251);
   transform: scale(1.1);
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.2), 0 8px 10px -6px rgb(0 0 0 / 0.15);
 }
 
 :is(.dark .theme-toggle:hover) {
-  background-color: #374151;
+  background-color: rgb(55, 65, 81);
 }
 
 

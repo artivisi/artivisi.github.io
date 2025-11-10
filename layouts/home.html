@@ -1,130 +1,202 @@
 {{define "main"}}
-<main class="overflow-hidden">
-    <section class="relative">
-        <div class="relative">
-            <div class="mx-auto px-6 md:px-12">
-                <div class="text-center sm:mx-auto sm:w-10/12 lg:mr-auto lg:mt-0 lg:w-4/5">
-                    <div class="mt-8 flex flex-col items-center justify-center gap-4">
-                        <div class="container pt-6 md:pt-36 mx-auto flex flex-wrap flex-col md:flex-row items-center">
-                            <!--Left Col-->
-                            <div class="flex flex-col dark:text-white w-full xl:w-2/5 justify-center lg:items-start overflow-y-hidden">
-                                <h1 class="my-4 text-3xl md:text-5xl font-bold leading-tight text-center md:text-left">
-                                    Pengembangan Aplikasi Kustom untuk Kebutuhan Bisnis Anda.
-                                </h1>
-                                <p class="leading-normal text-base md:text-2xl mb-8 text-center md:text-left">
-                                    Tim kami siap membantu Anda mengembangkan aplikasi yang inovatif dan sesuai
-                                    kebutuhan bisnis Anda. Hubungi kami untuk memulai perjalanan digital Anda!
-                                </p>
-                            </div>
 
-                            <!--Right Col-->
-                            <div class="w-full xl:w-3/5 p-12 overflow-hidden">
-                                <img class="mx-auto w-full md:w-4/5 transform -rotate-6 transition hover:scale-105 duration-700 ease-in-out hover:rotate-6"
-                                     src="/src/img/codes.png"/>
-                            </div>
-                        </div>
-                    </div>
+<!-- Hero Section - Corporate Modern -->
+<section class="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-950 dark:from-gray-950 dark:via-primary-950 dark:to-gray-900 text-white overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-32 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <!-- Left Content -->
+            <div class="text-center lg:text-left">
+                <div class="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-semibold mb-6">
+                    Trusted Since 2008
                 </div>
-                <div class="mx-auto pt-24 px-6 max-w-7xl md:px-12">
-                    <div class="absolute inset-0 -top-8 left-1/2 -z-20 h-56 w-full -translate-x-1/2 dark:opacity-10 [background-image:linear-gradient(to_bottom,transparent_98%,theme(colors.gray.200/75%)_98%),linear-gradient(to_right,transparent_94%,_theme(colors.gray.200/75%)_94%)] [background-size:16px_35px] [mask:radial-gradient(black,transparent_95%)]"></div>
-                    <div class="absolute top-12 inset-x-0 w-2/3 h-1/3 -z-[1] rounded-full bg-primary-300 dark:bg-white/10 mx-auto blur-3xl"></div>
-                    <div class="text-center mb-5">
-                        <h2 class="text-3xl text-gray-950 dark:text-white font-semibold">Layanan Kami</h2>
-                    </div>
-                    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3">
-                        <div class="w-full p-6">
-                            <div class="bg-white shadow-xl shadow-gray-950/5 p-[--card-padding] rounded-[--card-border-radius] border-[--ui-light-border-color] dark:border-[--ui-dark-border-color] dark:bg-[--card-dark-bg] relative border-[length:var(--border-width)] [--anchor:100] [--border-radius:calc(var(--radius)*1px)] [--border-width:calc(var(--border)*1px)] [--border:1] [--glow:60] [--hue:179] [--lightness:55%] dark:[--lightness:14%] [--opacity:1] [--radius:24] [--saturation:78%] dark:[--saturation:97%] [--speed:2]">
-                                <div>
-                                    <img src="/src/img/t-erajaya/WHY00007.jpg">
-                                    <p class="text-lg pt-6 text-gray-950 dark:text-white text-center">Development
-                                        Aplikasi</p>
-                                </div>
-                                <span class="glow absolute inset-[calc(var(--border-width)*-1)] rounded-[--card-border-radius] border-[length:var(--border-width)] border-transparent ![mask-clip:padding-box,_border-box] ![mask-composite:intersect] [mask:linear-gradient(transparent,transparent),linear-gradient(white,white)]">
-                                            <span class="absolute inline-block aspect-square h-20 bg-[radial-gradient(circle_at_right,hsl(0_0%_100%/0),transparent_50%),radial-gradient(circle_at_right,hsl(var(--hue)_var(--saturation)_var(--lightness,50%)/1)_50%,transparent)] dark:bg-[radial-gradient(circle_at_right,hsl(0_0%_100%/0.75),transparent_50%),radial-gradient(circle_at_right,hsl(var(--hue)_var(--saturation)_var(--lightness,50%)/1)_50%,transparent)] opacity-[var(--opacity)] [animation:loop_5s_infinite_linear] [offset-anchor:calc(var(--anchor)*1%)_50%] [offset-path:rect(0_100%_100%_0_round_calc(var(--glow)*1px))]"></span>
-                                        </span>
-                            </div>
-                        </div>
-                        <div class="w-full p-6">
-                            <div class="bg-white shadow-xl shadow-gray-950/5 p-[--card-padding] rounded-[--card-border-radius] border-[--ui-light-border-color] dark:border-[--ui-dark-border-color] dark:bg-[--card-dark-bg] relative border-[length:var(--border-width)] [--anchor:100] [--border-radius:calc(var(--radius)*1px)] [--border-width:calc(var(--border)*1px)] [--border:1] [--glow:60] [--hue:295] [--lightness:63%] [--opacity:1] [--radius:24] [--saturation:100%] [--speed:2]">
-                                <div>
-                                    <img src="/src/img/t-erajaya/WHY00003.jpg">
-                                    <p class="text-lg pt-6 text-gray-950 dark:text-white text-center">Training</p>
-                                </div>
-                                <span class="glow absolute inset-[calc(var(--border-width)*-1)] rounded-[--card-border-radius] border-[length:var(--border-width)] border-transparent ![mask-clip:padding-box,_border-box] ![mask-composite:intersect] [mask:linear-gradient(transparent,transparent),linear-gradient(white,white)]">
-                                            <span class="absolute inline-block aspect-square h-20 bg-[radial-gradient(circle_at_right,hsl(0_0%_100%/0),transparent_50%),radial-gradient(circle_at_right,hsl(var(--hue)_var(--saturation)_var(--lightness,50%)/1)_50%,transparent)] dark:bg-[radial-gradient(circle_at_right,hsl(0_0%_100%/0.75),transparent_50%),radial-gradient(circle_at_right,hsl(var(--hue)_var(--saturation)_var(--lightness,50%)/1)_50%,transparent)] opacity-[var(--opacity)] [animation:loop_5s_infinite_linear] [offset-anchor:calc(var(--anchor)*1%)_50%] [offset-path:rect(0_100%_100%_0_round_calc(var(--glow)*1px))]"></span>
-                                        </span>
-                            </div>
-                        </div>
-                        <div class="w-full p-6">
-                            <div class="bg-white shadow-xl shadow-accent-950/5 p-[--card-padding] rounded-[--card-border-radius] border-[--ui-light-border-color] dark:border-[--ui-dark-border-color] dark:bg-[--card-dark-bg] relative border-[length:var(--border-width)] [--anchor:100] [--border-radius:calc(var(--radius)*1px)] [--border-width:calc(var(--border)*1px)] [--border:1] [--glow:60] [--hue:240] [--lightness:67%] [--opacity:1] [--radius:24] [--saturation:84%] [--speed:2]">
-                                <div>
-                                    <div>
-                                        <img src="/src/img/t-erajaya/WHY00004.jpg">
-                                        <p class="text-lg pt-6 text-gray-950 dark:text-white text-center">Consulting</p>
-                                    </div>
-                                </div>
-                                <span class="glow absolute inset-[calc(var(--border-width)*-1)] rounded-[--card-border-radius] border-[length:var(--border-width)] border-transparent ![mask-clip:padding-box,_border-box] ![mask-composite:intersect] [mask:linear-gradient(transparent,transparent),linear-gradient(white,white)]">
-                                            <span class="absolute inline-block aspect-square h-20 bg-[radial-gradient(circle_at_right,hsl(0_0%_100%/0),transparent_50%),radial-gradient(circle_at_right,hsl(var(--hue)_var(--saturation)_var(--lightness,50%)/1)_50%,transparent)] dark:bg-[radial-gradient(circle_at_right,hsl(0_0%_100%/0.75),transparent_50%),radial-gradient(circle_at_right,hsl(var(--hue)_var(--saturation)_var(--lightness,50%)/1)_50%,transparent)] opacity-[var(--opacity)] [animation:loop_5s_infinite_linear] [offset-anchor:calc(var(--anchor)*1%)_50%] [offset-path:rect(0_100%_100%_0_round_calc(var(--glow)*1px))]"></span>
-                                        </span>
-                            </div>
-                        </div>
-                    </div>
+                <h1 class="text-4xl lg:text-6xl font-bold leading-tight mb-6">
+                    Solusi Digital Enterprise untuk Bisnis Anda
+                </h1>
+                <p class="text-xl lg:text-2xl text-gray-200 mb-8 leading-relaxed">
+                    Kami mengembangkan aplikasi kustom berkualitas tinggi yang mengakselerasi transformasi digital perusahaan Anda.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a href="/contact_us/" class="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-900 font-bold rounded-lg hover:bg-gray-100 transition-all duration-200 shadow-xl hover:shadow-2xl hover:-translate-y-1">
+                        Konsultasi Gratis
+                        <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                        </svg>
+                    </a>
+                    <a href="/about_us/" class="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-lg hover:bg-white hover:text-primary-900 transition-all duration-200">
+                        Tentang Kami
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Visual -->
+            <div class="relative hidden lg:block">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-primary-500/20 to-accent-500/20 blur-3xl"></div>
+                    <img src="/src/img/codes.png" alt="Custom Development" class="relative rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500">
                 </div>
             </div>
         </div>
-    </section>
-    <section>
-        <div class="pt-24 pb-36">
-            <div class="py-12">
-                <div class="container mx-auto px-6 lg:px-8">
-                    <h2 class="text-3xl text-center text-gray-950 dark:text-white font-semibold">Client Kami</h2>
+    </div>
 
-                    <!-- Swiper -->
-                    <div class="swiper mySwiper">
-                        <div class="swiper-wrapper py-6">
-                            <!-- Partner Logo Slide 1 -->
-                            <div class="swiper-slide flex items-center justify-center">
-                                <img src="/src/img/pegadaian-1.png" alt="Partner 1"
-                                     class="w-auto h-auto transform hover:scale-105 transition duration-300 ease-in-out rounded-lg">
-                            </div>
-                            <!-- Partner Logo Slide 2 -->
-                            <div class="swiper-slide flex items-center justify-center">
-                                <img src="/src/img/kai.png" alt="Partner 2"
-                                     class="w-auto h-auto transform hover:scale-105 transition duration-300 ease-in-out rounded-lg">
-                            </div>
-                            <!-- Partner Logo Slide 3 -->
-                            <div class="swiper-slide flex items-center justify-center">
-                                <img src="/src/img/BNI.png" alt="Partner 3"
-                                     class="w-auto h-auto transform hover:scale-105 transition duration-300 ease-in-out rounded-lg">
-                            </div>
-                            <div class="swiper-slide flex items-center justify-center">
-                                <img src="/src/img/telkom.png" alt="Partner 3"
-                                     class="w-auto h-auto transform hover:scale-105 transition duration-300 ease-in-out rounded-lg">
-                            </div>
-                        </div>
+    <!-- Wave Divider -->
+    <div class="absolute bottom-0 left-0 right-0 w-full overflow-hidden">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" class="w-full h-16 lg:h-24">
+            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="currentColor" class="text-gray-50 dark:text-gray-900"/>
+        </svg>
+    </div>
+</section>
 
-                        <!-- Navigasi Bulat di Bawah -->
-                        <div class="swiper-pagination"></div>
+<!-- Services Section - Modern Cards -->
+<section class="py-20 lg:py-32 bg-gray-50 dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">Layanan Kami</h2>
+            <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                Solusi teknologi komprehensif untuk mendukung pertumbuhan bisnis Anda
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Development Card -->
+            <div class="group relative bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-primary-600">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-transparent rounded-bl-full"></div>
+                <div class="relative">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
                     </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Development Aplikasi</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                        Pengembangan aplikasi enterprise custom yang scalable dan sesuai kebutuhan bisnis Anda.
+                    </p>
+                    <a href="/products/" class="inline-flex items-center text-primary-600 dark:text-primary-400 font-semibold hover:gap-3 gap-2 transition-all duration-200">
+                        Lihat Detail
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Training Card -->
+            <div class="group relative bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-purple-600">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-500/10 to-transparent rounded-bl-full"></div>
+                <div class="relative">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-600 to-purple-700 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Training & Workshop</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                        Pelatihan teknologi terkini untuk meningkatkan kompetensi tim development Anda.
+                    </p>
+                    <a href="/training/" class="inline-flex items-center text-purple-600 dark:text-purple-400 font-semibold hover:gap-3 gap-2 transition-all duration-200">
+                        Lihat Detail
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Consulting Card -->
+            <div class="group relative bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-accent-600">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-emerald-500/10 to-transparent rounded-bl-full"></div>
+                <div class="relative">
+                    <div class="w-16 h-16 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">IT Consulting</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                        Konsultasi strategis untuk mengoptimalkan infrastruktur dan proses teknologi perusahaan.
+                    </p>
+                    <a href="/consulting/" class="inline-flex items-center text-emerald-600 dark:text-emerald-400 font-semibold hover:gap-3 gap-2 transition-all duration-200">
+                        Lihat Detail
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section>
-
-        <div class="py-20">
-            <div class="container mx-auto py-20 px-6 lg:px-8">
-                <h2 class="text-3xl text-center text-gray-950 dark:text-white font-semibold">Tech Stack Kami</h2>
-                
-                <div class="flex justify-center items-center h-screen mt-8">
-                    <div class="w-full md:w-2/3 lg:w-1/2" style="height: 600px; width: 900px;">
-                      <iframe class="w-full h-full rounded-lg border border-gray-300 shadow-lg" src="https://www.youtube.com/embed/djc6CFALCxQ?si=XxRv5Bvl7ZN2ifQY" title="Tech Stack ArtiVisi 2024" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                  </div>
-            </div>
+<!-- Clients Section -->
+<section class="py-20 bg-white dark:bg-gray-800 border-y-4 border-primary-600">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Dipercaya Oleh Perusahaan Terkemuka</h2>
+            <p class="text-xl text-gray-600 dark:text-gray-400">Partner strategis dalam transformasi digital Indonesia</p>
         </div>
 
-    </section>
-</main>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+            <div class="flex items-center justify-center p-6 bg-white dark:bg-gray-700 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                <img src="/src/img/pegadaian-1.png" alt="Pegadaian" class="w-full h-auto max-h-20 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+            </div>
+            <div class="flex items-center justify-center p-6 bg-white dark:bg-gray-700 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                <img src="/src/img/kai.png" alt="KAI" class="w-full h-auto max-h-20 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+            </div>
+            <div class="flex items-center justify-center p-6 bg-white dark:bg-gray-700 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                <img src="/src/img/BNI.png" alt="BNI" class="w-full h-auto max-h-20 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+            </div>
+            <div class="flex items-center justify-center p-6 bg-white dark:bg-gray-700 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                <img src="/src/img/telkom.png" alt="Telkom" class="w-full h-auto max-h-20 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tech Stack Section -->
+<section class="py-20 lg:py-32 bg-gray-50 dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">Tech Stack Kami</h2>
+            <p class="text-xl text-gray-600 dark:text-gray-400">Teknologi modern dan terpercaya untuk solusi berkualitas</p>
+        </div>
+
+        <div class="max-w-5xl mx-auto">
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl" style="padding-bottom: 56.25%; height: 0;">
+                <iframe
+                    class="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/djc6CFALCxQ?si=XxRv5Bvl7ZN2ifQY"
+                    title="Tech Stack ArtiVisi 2024"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="relative py-20 bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-800 dark:to-primary-950 text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
+        <h2 class="text-4xl lg:text-5xl font-bold mb-6">Siap Transformasi Digital?</h2>
+        <p class="text-xl lg:text-2xl mb-10 text-gray-100">
+            Konsultasikan kebutuhan teknologi bisnis Anda dengan tim ahli kami
+        </p>
+        <a href="/contact_us/" class="inline-flex items-center justify-center px-10 py-5 bg-white text-primary-900 font-bold text-lg rounded-xl hover:bg-gray-100 transition-all duration-200 shadow-2xl hover:shadow-3xl hover:-translate-y-1">
+            Hubungi Kami Sekarang
+            <svg class="ml-3 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+        </a>
+    </div>
+</section>
+
 {{end}}
