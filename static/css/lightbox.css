@@ -61,15 +61,17 @@
 .lightbox-caption {
   color: white;
   font-size: 1rem;
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
   text-align: center;
   max-width: 800px;
+  margin-bottom: 0.5rem;
 }
 
 .lightbox-counter {
   color: rgba(255, 255, 255, 0.8);
   font-size: 0.875rem;
   padding: 0.5rem 1rem;
+  margin-bottom: 2rem;
 }
 
 /* Navigation Buttons */
@@ -114,7 +116,11 @@
   top: 50%;
   transform: translateY(-50%);
   font-size: 3rem;
-  padding-bottom: 5px;
+  line-height: 1;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .lightbox-prev:hover {
@@ -126,7 +132,11 @@
   top: 50%;
   transform: translateY(-50%);
   font-size: 3rem;
-  padding-bottom: 5px;
+  line-height: 1;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .lightbox-next:hover {
@@ -200,8 +210,8 @@ article img:hover,
 /* Zoom instructions hint */
 .lightbox-content::after {
   content: 'Scroll or double-click to zoom • Arrow keys to navigate • ESC to close';
-  position: absolute;
-  bottom: 10px;
+  position: fixed;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   color: rgba(255, 255, 255, 0.5);
@@ -210,6 +220,7 @@ article img:hover,
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.3s;
+  z-index: 10002;
 }
 
 .lightbox.active .lightbox-content::after {
@@ -221,5 +232,6 @@ article img:hover,
   .lightbox-content::after {
     content: 'Pinch to zoom • Swipe to navigate';
     font-size: 0.625rem;
+    bottom: 15px;
   }
 }
