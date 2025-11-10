@@ -5,9 +5,9 @@
         <div class="max-w-4xl mx-auto">
             <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-8">{{ .Title }}</h1>
 
-            {{- if or .Params.thumbnail .Params.image -}}
+            {{- if or .Params.thumbnail .Params.image .Params.icon -}}
             <div class="mb-8 rounded-lg overflow-hidden">
-                <img src="{{ or .Params.thumbnail .Params.image }}" alt="{{ .Title }}" class="w-full h-auto object-cover">
+                <img src="{{ or .Params.thumbnail .Params.image .Params.icon }}" alt="{{ .Title }}" class="w-full h-auto object-cover">
             </div>
             {{- end -}}
 

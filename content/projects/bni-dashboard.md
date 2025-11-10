@@ -5,3 +5,51 @@ description: "Aplikasi yang menyediakan analisis dan visualisasi data keuangan s
 thumbnail: "/src/img/bni-dashboard/Thumbnail.png"
 ---
 
+## Deskripsi Proyek
+
+Dashboard monitoring dan analitik komprehensif yang dirancang untuk sistem perbankan BNI. Platform ini menyediakan visualisasi data real-time, reporting yang detail, dan kemampuan monitoring untuk berbagai aspek operasional perbankan.
+
+## Kemampuan Utama
+
+Sistem dashboard ini mencakup visualisasi data real-time dengan grafik dan chart interaktif, monitoring transaksi perbankan, analitik mendalam untuk berbagai metrik bisnis, reporting otomatis dengan berbagai format output, dan manajemen user dengan kontrol akses berlapis.
+
+## Arsitektur Teknis
+
+**Backend & Framework:**
+- Spring Boot (2.1.3) framework dengan Java 8
+- Database MySQL dengan migrasi Flyway
+- Spring Security untuk autentikasi dan otorisasi
+- REST API architecture
+- Jasper Reports untuk reporting
+
+**Frontend:**
+- Thymeleaf template engine
+- JavaScript untuk interaktivitas
+- Chart.js untuk visualisasi data
+- Bootstrap untuk responsive design
+
+**Infrastructure:**
+- Containerization Docker
+- Orchestration Kubernetes
+- CI/CD pipeline
+- Git version control
+
+**Libraries Tambahan:**
+- Apache POI untuk Excel processing
+- JasperReports untuk PDF generation
+- Spring Boot Mail untuk notifikasi email
+- Lombok untuk code simplification
+
+## Development Stack
+
+Tim menggunakan Maven untuk build management, Spring Boot DevTools untuk hot reload development, dan comprehensive testing framework untuk quality assurance.
+
+## Screenshots
+
+![Dashboard](/src/img/bni-dashboard/01-Dashboard.png)
+
+![User Management](/src/img/bni-dashboard/02-List User Management.png)
+
+![Wilayah Kerja](/src/img/bni-dashboard/03-Wilayah Kerja.png)
+
+![Informasi Suku Bunga](/src/img/bni-dashboard/04-Informasi Suku Bunga.png)

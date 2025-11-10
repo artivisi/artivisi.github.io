@@ -5,3 +5,37 @@ description: "Program pelatihan yang dirancang untuk meningkatkan keterampilan d
 image: "/src/img/t-nidya-karya/DSC_3486.jpg"
 ---
 
+## Deskripsi Program
+
+Program pelatihan yang dirancang untuk meningkatkan keterampilan dan pemahaman peserta tentang praktik dan alat DevOps.
+
+## Fokus Pelatihan
+
+Pelatihan ini berfokus pada:
+- Praktik DevOps modern
+- Tools dan teknologi DevOps
+- Implementasi CI/CD
+- Automation dan Infrastructure as Code
+- Monitoring dan logging
+- Best practices dalam development dan operations
+
+## Tujuan Pelatihan
+
+- Meningkatkan efisiensi dalam pengembangan dan deployment aplikasi
+- Memahami culture DevOps dan kolaborasi tim
+- Menguasai tools DevOps yang umum digunakan di industri
+- Mampu mengimplementasikan praktik DevOps di lingkungan kerja
+
+## Galeri Foto
+
+![Pelatihan Nindya Karya 1](/src/img/t-nidya-karya/DSC_3488.jpg)
+
+![Pelatihan Nindya Karya 2](/src/img/t-nidya-karya/DSC_3486.jpg)
+
+![Pelatihan Nindya Karya 3](/src/img/t-nidya-karya/DSC_3479.jpg)
+
+![Pelatihan Nindya Karya 4](/src/img/t-nidya-karya/DSC_3480.jpg)
+
+![Pelatihan Nindya Karya 5](/src/img/t-nidya-karya/DSC_3484.jpg)
+
+![Pelatihan Nindya Karya 6](/src/img/t-nidya-karya/DSC_3487.jpg)
