@@ -1,0 +1,225 @@
+/* Lightbox Styles */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.lightbox-content {
+  position: relative;
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.lightbox-image-container {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: default;
+}
+
+.lightbox-image.zoomed {
+  cursor: grab;
+}
+
+.lightbox-caption {
+  color: white;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  text-align: center;
+  max-width: 800px;
+}
+
+.lightbox-counter {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+}
+
+/* Navigation Buttons */
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 2rem;
+  font-weight: 300;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  z-index: 10001;
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+
+.lightbox-close {
+  top: 20px;
+  right: 20px;
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.lightbox-prev {
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  padding-bottom: 5px;
+}
+
+.lightbox-prev:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-next {
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  padding-bottom: 5px;
+}
+
+.lightbox-next:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .lightbox-content {
+    width: 95%;
+    height: 95%;
+  }
+
+  .lightbox-close,
+  .lightbox-prev,
+  .lightbox-next {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+
+  .lightbox-close {
+    top: 10px;
+    right: 10px;
+  }
+
+  .lightbox-prev {
+    left: 10px;
+  }
+
+  .lightbox-next {
+    right: 10px;
+  }
+
+  .lightbox-caption {
+    font-size: 0.875rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .lightbox-counter {
+    font-size: 0.75rem;
+  }
+}
+
+/* Cursor hints */
+article img,
+.gallery img {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+article img:hover,
+.gallery img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+}
+
+/* Loading state */
+.lightbox-image {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Dark mode adjustments */
+:is(.dark .lightbox-caption) {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+:is(.dark .lightbox-counter) {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Zoom instructions hint */
+.lightbox-content::after {
+  content: 'Scroll or double-click to zoom • Arrow keys to navigate • ESC to close';
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.75rem;
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.lightbox.active .lightbox-content::after {
+  opacity: 1;
+  transition-delay: 1s;
+}
+
+@media (max-width: 768px) {
+  .lightbox-content::after {
+    content: 'Pinch to zoom • Swipe to navigate';
+    font-size: 0.625rem;
+  }
+}
