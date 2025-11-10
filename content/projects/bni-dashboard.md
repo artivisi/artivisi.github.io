@@ -2,7 +2,7 @@
 title: "BNI Dashboard"
 date: 2024-05-20
 description: "Aplikasi yang menyediakan analisis dan visualisasi data keuangan secara real-time untuk Kementerian Keuangan."
-thumbnail: "/src/img/bni-dashboard/Thumbnail.png"
+thumbnail: "/img/projects/bni-dashboard/thumbnail.png"
 ---
 
 ## Deskripsi Proyek
@@ -46,10 +46,10 @@ Tim menggunakan Maven untuk build management, Spring Boot DevTools untuk hot rel
 
 ## Screenshots
 
-![Dashboard](/src/img/bni-dashboard/01-Dashboard.png)
+![Dashboard](/img/projects/bni-dashboard/01-dashboard.png)
 
-![User Management](/src/img/bni-dashboard/02-List User Management.png)
+![User Management](/img/projects/bni-dashboard/02-user-management.png)
 
-![Wilayah Kerja](/src/img/bni-dashboard/03-Wilayah Kerja.png)
+![Wilayah Kerja](/img/projects/bni-dashboard/03-wilayah-kerja.png)
 
-![Informasi Suku Bunga](/src/img/bni-dashboard/04-Informasi Suku Bunga.png)
+![Informasi Suku Bunga](/img/projects/bni-dashboard/04-suku-bunga.png)

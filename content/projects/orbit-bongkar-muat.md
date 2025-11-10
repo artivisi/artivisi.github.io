@@ -2,7 +2,7 @@
 title: "Orbit Bongkar Muat"
 date: 2024-07-10
 description: "Aplikasi manajemen logistik yang dirancang untuk meningkatkan efisiensi operasional di pelabuhan."
-thumbnail: "/src/img/orbit-bongkar-muat/Thumbnail.png"
+thumbnail: "/img/projects/orbit-bongkar-muat/thumbnail.png"
 ---
 
 ## Deskripsi Proyek
@@ -46,8 +46,8 @@ Tim menggunakan Spring Boot ecosystem dengan JPA/Hibernate untuk data management
 
 ## Screenshots
 
-![Booking Order](/src/img/orbit-bongkar-muat/02-ImageBookingOrder.png)
+![Booking Order](/img/projects/orbit-bongkar-muat/01-booking-order.png)
 
-![Detail Booking Order](/src/img/orbit-bongkar-muat/03-ImageDetailBookingOrder.png)
+![Detail Booking Order](/img/projects/orbit-bongkar-muat/02-detail-booking.png)
 
-![List Invoice](/src/img/orbit-bongkar-muat/04-ImageListInvoice.png)
+![List Invoice](/img/projects/orbit-bongkar-muat/03-invoice-list.png)

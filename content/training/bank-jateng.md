@@ -2,7 +2,7 @@
 title: "Bank Jateng"
 date: 2024-09-10
 description: "Program pelatihan yang bertujuan untuk memperkenalkan konsep arsitektur microservices kepada peserta."
-image: "/src/img/t-bank-jateng/Thumbnail.jpg"
+image: "/img/training/bank-jateng/thumbnail.jpg"
 ---
 
 ## Deskripsi Program
@@ -30,12 +30,12 @@ Pelatihan ini berfokus pada:
 
 ## Galeri Foto
 
-![Pelatihan Bank Jateng 1](/src/img/t-bank-jateng/01-ImageTrainingBankJateng2024.jpg)
+![Pelatihan Bank Jateng 1](/img/training/bank-jateng/01-photo.jpg)
 
-![Pelatihan Bank Jateng 2](/src/img/t-bank-jateng/02-ImageTrainingBankJateng2024.jpg)
+![Pelatihan Bank Jateng 2](/img/training/bank-jateng/02-photo.jpg)
 
-![Pelatihan Bank Jateng 3](/src/img/t-bank-jateng/03-ImageTrainingBankJateng2024.jpg)
+![Pelatihan Bank Jateng 3](/img/training/bank-jateng/03-photo.jpg)
 
-![Pelatihan Bank Jateng 4](/src/img/t-bank-jateng/04-ImageTrainingBankJateng2024.jpg)
+![Pelatihan Bank Jateng 4](/img/training/bank-jateng/04-photo.jpg)
 
-![Pelatihan Bank Jateng 5](/src/img/t-bank-jateng/05-ImageTrainingBankJateng2024.jpg)
+![Pelatihan Bank Jateng 5](/img/training/bank-jateng/05-photo.jpg)

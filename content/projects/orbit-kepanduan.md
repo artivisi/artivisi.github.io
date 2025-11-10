@@ -2,7 +2,7 @@
 title: "Orbit Kepanduan"
 date: 2024-08-25
 description: "Aplikasi yang dirancang untuk meningkatkan pengalaman kepanduan dengan menyediaan informasi navigasi, pelatihan, dan pemantauan kapal secara real-time."
-thumbnail: "/src/img/orbit-pandu/Thumbnail.png"
+thumbnail: "/img/projects/orbit-kepanduan/thumbnail.png"
 ---
 
 ## Deskripsi Proyek
@@ -46,12 +46,12 @@ Tim menggunakan Spring Boot ecosystem dengan focus pada maritime operations, Pos
 
 ## Screenshots
 
-![Login](/src/img/orbit-pandu/01-ImageLogin.jpeg)
+![Login](/img/projects/orbit-kepanduan/01-login.jpg)
 
-![Input Order](/src/img/orbit-pandu/02-ImageInputOrder.jpeg)
+![Input Order](/img/projects/orbit-kepanduan/02-input-order.jpg)
 
-![Request Order](/src/img/orbit-pandu/03-ImageRequestOrder.jpeg)
+![Request Order](/img/projects/orbit-kepanduan/03-request-order.jpg)
 
-![Invoice](/src/img/orbit-pandu/04-ImageInvoice.jpeg)
+![Invoice](/img/projects/orbit-kepanduan/04-invoice.jpg)
 
-![Report](/src/img/orbit-pandu/05-ImageReport.jpeg)
+![Report](/img/projects/orbit-kepanduan/05-report.jpg)

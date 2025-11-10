@@ -1,7 +1,7 @@
 ---
 title: "Call Center"
 description: "Solusi komunikasi yang mengoptimalkan layanan pelanggan dengan fitur manajemen panggilan, analitik mendalam, dan otomatisasi cerdas."
-icon: "/src/img/call-center/Thumbnail.png"
+icon: "/img/products/call-center/thumbnail.png"
 weight: 4
 ---
 
@@ -44,16 +44,16 @@ Solusi komunikasi yang mengoptimalkan layanan pelanggan dengan fitur manajemen p
 
 ## Screenshots
 
-![Agent Interface](/src/img/call-center/02-ImageAgent.png)
+![Agent Interface](/img/products/call-center/01-agent.png)
 
-![Agent Form](/src/img/call-center/03-ImageAgentForm.png)
+![Agent Form](/img/products/call-center/02-agent-form.png)
 
-![Agent Session](/src/img/call-center/04-ImageAgentSession.png)
+![Agent Session](/img/products/call-center/03-agent-session.png)
 
-![Call Data Form](/src/img/call-center/05-ImageCallDataForm.png)
+![Call Data Form](/img/products/call-center/04-call-data.png)
 
-![Incoming Call](/src/img/call-center/06-ImageIncomingCall.png)
+![Incoming Call](/img/products/call-center/05-incoming-call.png)
 
-![Call History](/src/img/call-center/07-ImageHistory.png)
+![Call History](/img/products/call-center/06-history.png)
 
-![Report Interface](/src/img/call-center/08-ImageReport.png)
+![Report Interface](/img/products/call-center/07-report.png)
