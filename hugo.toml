@@ -3,6 +3,9 @@ languageCode = 'id'
 defaultContentLanguage = 'id'
 title = 'ArtiVisi Intermedia'
 
+[pagination]
+  pagerSize = 9
+
 [params]
   description = 'Pengembangan Aplikasi Kustom untuk Kebutuhan Bisnis Anda. Konsultan IT dan pengembang aplikasi enterprise terpercaya di Indonesia.'
   keywords = ['pengembangan aplikasi', 'konsultan IT', 'enterprise software', 'aplikasi bisnis']
