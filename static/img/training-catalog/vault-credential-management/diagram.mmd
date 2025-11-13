@@ -1,0 +1,15 @@
+graph TD
+    A[HashiCorp Vault] --> B[Secrets Storage]
+    A --> C[Authentication]
+    A --> D[Spring Boot]
+    A --> E[Kubernetes]
+    C --> F[AppRole]
+    C --> G[Token]
+    C --> H[K8s Auth]
+    D --> I[Config Server]
+    E --> J[Sidecar Injection]
+    style A fill:#FFEAA7
+    style B fill:#55EFC4
+    style C fill:#81ECEC
+    style D fill:#6DB33F
+    style E fill:#326CE5
