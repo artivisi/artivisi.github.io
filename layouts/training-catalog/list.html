@@ -1,0 +1,113 @@
+{{define "main"}}
+    {{- partial "hero.html" (dict "title" .Title "description" .Description "content" .Content) -}}
+
+    <!-- Training Catalog Grid -->
+    <section class="py-16 lg:py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            {{- $paginator := .Paginate .Pages.ByWeight -}}
+            {{- if gt (len $paginator.Pages) 0 -}}
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {{- range $paginator.Pages -}}
+                <article class="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden group">
+                    {{- if .Params.icon -}}
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="{{ .Params.icon }}" alt="{{ .Title }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
+                    </div>
+                    {{- end -}}
+
+                    <div class="p-8">
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-2">{{ .Title }}</h2>
+
+                        <div class="text-base text-gray-700 dark:text-gray-300 mb-6 line-clamp-3">
+                            {{- if .Description -}}
+                                <p>{{ .Description }}</p>
+                            {{- else if .Summary -}}
+                                {{ .Summary }}
+                            {{- end -}}
+                        </div>
+
+                        <a href="{{ .RelPermalink }}" class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold bg-primary-600 hover:bg-primary-700 active:bg-primary-800 dark:bg-primary-500 dark:hover:bg-primary-600 dark:active:bg-primary-700 !text-white shadow-md hover:shadow-lg transition-all duration-200 transform group-hover:translate-x-1">
+                            Lihat Detail
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+                {{- end -}}
+            </div>
+
+            <!-- Pagination -->
+            {{- if gt $paginator.TotalPages 1 -}}
+            <div class="flex justify-center items-center mt-12 gap-2">
+                {{- if $paginator.HasPrev -}}
+                <a href="{{ $paginator.Prev.URL }}" class="inline-flex items-center justify-center w-10 h-10 rounded-lg border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-primary-600 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                </a>
+                {{- end -}}
+
+                {{- $currentPage := $paginator.PageNumber -}}
+                {{- $totalPages := $paginator.TotalPages -}}
+                {{- $showPages := 5 -}}
+                {{- $start := sub $currentPage 2 -}}
+                {{- $end := add $currentPage 2 -}}
+                {{- if lt $start 1 -}}
+                    {{- $start = 1 -}}
+                    {{- $end = $showPages -}}
+                {{- end -}}
+                {{- if gt $end $totalPages -}}
+                    {{- $end = $totalPages -}}
+                    {{- $start = sub $totalPages (sub $showPages 1) -}}
+                    {{- if lt $start 1 -}}
+                        {{- $start = 1 -}}
+                    {{- end -}}
+                {{- end -}}
+
+                {{- if gt $start 1 -}}
+                <a href="{{ $paginator.First.URL }}" class="inline-flex items-center justify-center w-10 h-10 rounded-lg border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-primary-600 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200">1</a>
+                {{- if gt $start 2 -}}
+                <span class="inline-flex items-center justify-center w-10 h-10 text-gray-500 dark:text-gray-400">...</span>
+                {{- end -}}
+                {{- end -}}
+
+                {{- range $paginator.Pagers -}}
+                    {{- if and (ge .PageNumber $start) (le .PageNumber $end) -}}
+                        {{- if eq .PageNumber $currentPage -}}
+                        <span class="inline-flex items-center justify-center w-10 h-10 rounded-lg border-2 border-primary-600 bg-primary-600 text-white font-semibold">{{ .PageNumber }}</span>
+                        {{- else -}}
+                        <a href="{{ .URL }}" class="inline-flex items-center justify-center w-10 h-10 rounded-lg border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-primary-600 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200">{{ .PageNumber }}</a>
+                        {{- end -}}
+                    {{- end -}}
+                {{- end -}}
+
+                {{- if lt $end $totalPages -}}
+                {{- if lt $end (sub $totalPages 1) -}}
+                <span class="inline-flex items-center justify-center w-10 h-10 text-gray-500 dark:text-gray-400">...</span>
+                {{- end -}}
+                <a href="{{ $paginator.Last.URL }}" class="inline-flex items-center justify-center w-10 h-10 rounded-lg border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-primary-600 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200">{{ $totalPages }}</a>
+                {{- end -}}
+
+                {{- if $paginator.HasNext -}}
+                <a href="{{ $paginator.Next.URL }}" class="inline-flex items-center justify-center w-10 h-10 rounded-lg border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-primary-600 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                {{- end -}}
+            </div>
+            {{- end -}}
+
+            {{- else -}}
+            <div class="text-center py-16">
+                <svg class="w-24 h-24 mx-auto text-gray-300 dark:text-gray-700 mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                </svg>
+                <p class="text-xl text-gray-500 dark:text-gray-400">Belum ada program pelatihan tersedia</p>
+            </div>
+            {{- end -}}
+        </div>
+    </section>
+{{end}}

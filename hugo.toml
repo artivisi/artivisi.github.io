@@ -40,17 +40,21 @@ title = 'ArtiVisi Intermedia'
     url = '/projects/'
     weight = 3
   [[menu.main]]
+    name = 'Katalog Training'
+    url = '/training-catalog/'
+    weight = 4
+  [[menu.main]]
     name = 'Training'
     url = '/training/'
-    weight = 4
+    weight = 5
   [[menu.main]]
     name = 'Consulting'
     url = '/consulting/'
-    weight = 5
+    weight = 6
   [[menu.main]]
     name = 'Career'
     url = '/content/karir/magang/'
-    weight = 6
+    weight = 7
 
 [outputs]
   home = ['HTML', 'RSS', 'JSON']
