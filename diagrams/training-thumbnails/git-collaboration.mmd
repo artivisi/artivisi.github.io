@@ -1,0 +1,29 @@
+gitGraph
+    commit id: "Initial"
+    commit id: "Setup"
+    branch develop
+    checkout develop
+    commit id: "Base config"
+    branch feature/auth
+    checkout feature/auth
+    commit id: "Add login"
+    commit id: "Add OAuth2"
+    checkout develop
+    merge feature/auth tag: "v1.1.0"
+    branch feature/payment
+    checkout feature/payment
+    commit id: "Payment API"
+    commit id: "Test payment"
+    checkout develop
+    branch release/v2.0
+    checkout release/v2.0
+    commit id: "Prep v2.0"
+    checkout develop
+    merge feature/payment
+    checkout release/v2.0
+    cherry-pick id: "Payment API"
+    commit id: "Fix bug"
+    checkout main
+    merge release/v2.0 tag: "v2.0.0"
+    checkout develop
+    merge release/v2.0
