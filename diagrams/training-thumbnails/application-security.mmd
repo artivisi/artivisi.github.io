@@ -1,0 +1,50 @@
+graph TB
+    subgraph "Application Security Architecture"
+        User[User]
+
+        subgraph "Security Layers"
+            TLS[TLS/HTTPS<br/>Encryption]
+            Auth[Authentication<br/>OAuth2/JWT]
+            AuthZ[Authorization<br/>RBAC/Permissions]
+        end
+
+        subgraph "Application"
+            API[REST API<br/>Input Validation]
+            BL[Business Logic<br/>Security Rules]
+        end
+
+        subgraph "Data Protection"
+            Hash[Password Hash<br/>bcrypt/Argon2]
+            Encrypt[Field Encryption<br/>AES-256]
+            DB[(Encrypted DB<br/>TLS Connection)]
+        end
+
+        subgraph "Security Components"
+            HSM[HSM/KMS<br/>Key Storage]
+            Audit[Audit Logs<br/>SIEM]
+        end
+    end
+
+    User -->|HTTPS| TLS
+    TLS --> Auth
+    Auth --> AuthZ
+    AuthZ --> API
+    API --> BL
+    BL --> Hash
+    BL --> Encrypt
+    Hash --> DB
+    Encrypt --> DB
+    Encrypt -.Keys.-> HSM
+    BL -.Logs.-> Audit
+
+    style User fill:#60a5fa
+    style TLS fill:#34d399
+    style Auth fill:#f59e0b
+    style AuthZ fill:#f59e0b
+    style API fill:#8b5cf6
+    style BL fill:#8b5cf6
+    style Hash fill:#ec4899
+    style Encrypt fill:#ec4899
+    style DB fill:#6366f1
+    style HSM fill:#ef4444
+    style Audit fill:#f97316

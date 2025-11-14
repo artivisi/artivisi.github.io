@@ -1,0 +1,38 @@
+graph TB
+    subgraph "Spring Boot Application Architecture"
+        Browser[Web Browser]
+
+        subgraph "Spring Boot App"
+            MVC[Spring MVC<br/>Thymeleaf UI]
+            REST[REST API<br/>Controllers]
+            Security[Spring Security<br/>OAuth2]
+            Service[Service Layer<br/>Business Logic]
+            JPA[Spring Data JPA<br/>Repository]
+        end
+
+        subgraph "Data Layer"
+            DB[(PostgreSQL<br/>Database)]
+        end
+
+        subgraph "External"
+            Gmail[Gmail API<br/>Email Service]
+        end
+    end
+
+    Browser -->|HTTP/HTTPS| MVC
+    Browser -->|REST API| REST
+    MVC --> Security
+    REST --> Security
+    Security --> Service
+    Service --> JPA
+    JPA --> DB
+    Service --> Gmail
+
+    style Browser fill:#60a5fa
+    style MVC fill:#34d399
+    style REST fill:#34d399
+    style Security fill:#f59e0b
+    style Service fill:#8b5cf6
+    style JPA fill:#ec4899
+    style DB fill:#6366f1
+    style Gmail fill:#ef4444

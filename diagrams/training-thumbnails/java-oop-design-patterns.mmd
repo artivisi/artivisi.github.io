@@ -1,0 +1,60 @@
+graph TB
+    subgraph "Design Patterns & SOLID Principles"
+        subgraph "SOLID"
+            S[Single<br/>Responsibility]
+            O[Open/Closed<br/>Principle]
+            L[Liskov<br/>Substitution]
+            I[Interface<br/>Segregation]
+            D[Dependency<br/>Inversion]
+        end
+
+        subgraph "Creational"
+            Factory[Factory<br/>Pattern]
+            Builder[Builder<br/>Pattern]
+            Singleton[Singleton<br/>Pattern]
+        end
+
+        subgraph "Structural"
+            Bridge[Bridge<br/>Pattern]
+            Decorator[Decorator<br/>Pattern]
+            Facade[Facade<br/>Pattern]
+            Proxy[Proxy<br/>Pattern]
+        end
+
+        subgraph "Behavioral"
+            Command[Command<br/>Pattern]
+            Strategy[Strategy<br/>Pattern]
+            Observer[Observer<br/>Pattern]
+        end
+
+        subgraph "Code Quality"
+            Refactor[Refactoring<br/>Techniques]
+            Smells[Code Smells<br/>Detection]
+        end
+    end
+
+    S -.Guides.-> Factory
+    O -.Guides.-> Strategy
+    D -.Guides.-> Facade
+    Factory --> Refactor
+    Builder --> Refactor
+    Decorator --> Refactor
+    Smells --> Refactor
+
+    style S fill:#ef4444
+    style O fill:#f59e0b
+    style L fill:#fbbf24
+    style I fill:#34d399
+    style D fill:#60a5fa
+    style Factory fill:#8b5cf6
+    style Builder fill:#8b5cf6
+    style Singleton fill:#8b5cf6
+    style Bridge fill:#ec4899
+    style Decorator fill:#ec4899
+    style Facade fill:#ec4899
+    style Proxy fill:#ec4899
+    style Command fill:#6366f1
+    style Strategy fill:#6366f1
+    style Observer fill:#6366f1
+    style Refactor fill:#10b981
+    style Smells fill:#f87171

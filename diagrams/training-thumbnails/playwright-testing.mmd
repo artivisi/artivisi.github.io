@@ -1,0 +1,59 @@
+graph TB
+    subgraph "Playwright Testing Architecture"
+        subgraph "Test Framework"
+            Tests[Test Specs<br/>TypeScript]
+            POM[Page Object<br/>Model]
+            Fixtures[Test Fixtures<br/>Setup/Teardown]
+        end
+
+        subgraph "Playwright"
+            PW[Playwright<br/>Test Runner]
+            Browser[Multi-Browser<br/>Chrome/FF/Safari]
+        end
+
+        subgraph "Application Under Test"
+            Web[Web Application<br/>Frontend]
+            API[REST API<br/>Backend]
+            DB[(Database)]
+        end
+
+        subgraph "Test Data"
+            Faker[Faker.js<br/>Test Data Gen]
+            DBSetup[Database<br/>Test Setup]
+        end
+
+        subgraph "CI/CD"
+            Pipeline[CI Pipeline<br/>GitLab/GitHub]
+            Report[Test Report<br/>HTML/Video]
+            Trace[Trace Viewer<br/>Debug]
+        end
+    end
+
+    Tests --> POM
+    Tests --> Fixtures
+    POM --> PW
+    Fixtures --> DBSetup
+    Fixtures --> Faker
+    PW --> Browser
+    Browser --> Web
+    Browser --> API
+    Web --> API
+    API --> DB
+    DBSetup --> DB
+    PW --> Pipeline
+    Pipeline --> Report
+    Pipeline --> Trace
+
+    style Tests fill:#60a5fa
+    style POM fill:#8b5cf6
+    style Fixtures fill:#8b5cf6
+    style PW fill:#34d399
+    style Browser fill:#34d399
+    style Web fill:#ec4899
+    style API fill:#ec4899
+    style DB fill:#6366f1
+    style Faker fill:#f59e0b
+    style DBSetup fill:#f59e0b
+    style Pipeline fill:#ef4444
+    style Report fill:#fbbf24
+    style Trace fill:#fbbf24
