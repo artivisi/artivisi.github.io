@@ -1,172 +1,255 @@
-# Training Catalog Thumbnail Diagrams
+# ArtiVisi Thumbnail Generator
 
-This directory contains Mermaid diagram source files and scripts to generate thumbnails for the training catalog pages.
+This directory contains Mermaid diagram source files and scripts to generate thumbnails for products, projects, and training catalog pages.
 
 ## Directory Structure
 
 ```
 diagrams/
 ├── README.md                          # This file
-├── render-training-thumbnails.js      # Node.js script to generate PNG thumbnails
-└── training-thumbnails/               # Mermaid diagram source files
-    ├── application-security.mmd
-    ├── git-collaboration.mmd
-    ├── java-oop-design-patterns.mmd
-    ├── playwright-testing.mmd
-    ├── spring-boot-development.mmd
-    └── vault-credential-management.mmd
+├── render-thumbnails.js               # Generic thumbnail generator (NEW)
+├── render-training-thumbnails.js      # Legacy training-only generator (DEPRECATED)
+├── training-thumbnails/               # Mermaid diagrams for training
+│   ├── application-security.mmd
+│   ├── git-collaboration.mmd
+│   ├── java-oop-design-patterns.mmd
+│   ├── playwright-testing.mmd
+│   ├── spring-boot-development.mmd
+│   └── vault-credential-management.mmd
+├── product-thumbnails/                # Mermaid diagrams for products (optional)
+│   └── *.mmd
+└── project-thumbnails/                # Mermaid diagrams for projects (optional)
+    └── *.mmd
+```
+
+## Quick Start
+
+### Generate Thumbnails for Specific Content Type
+
+```bash
+# Generate training thumbnails only
+node diagrams/render-thumbnails.js training
+
+# Generate product thumbnails only
+node diagrams/render-thumbnails.js products
+
+# Generate project thumbnails only
+node diagrams/render-thumbnails.js projects
+
+# Generate ALL thumbnails (products + projects + training)
+node diagrams/render-thumbnails.js all
+```
+
+## Prerequisites
+
+Install Mermaid CLI globally:
+
+```bash
+npm install -g @mermaid-js/mermaid-cli
+```
+
+Or use npx (no installation required):
+
+```bash
+npx -p @mermaid-js/mermaid-cli mmdc --version
+```
+
+## Features
+
+### Auto-Detection
+- Automatically detects `.mmd` files in each content type directory
+- No need to manually update diagram lists in code
+- Gracefully handles missing directories
+
+### Flexible Configuration
+The `render-thumbnails.js` script supports three content types out of the box:
+
+1. **Training** - Reads from `training-thumbnails/`, outputs to `static/img/training-catalog/{name}/thumbnail.png`
+2. **Products** - Reads from `product-thumbnails/`, outputs to `static/img/products/{name}/thumbnail.png`
+3. **Projects** - Reads from `project-thumbnails/`, outputs to `static/img/projects/{name}/thumbnail.png`
+
+### High-Quality Output
+- **3x device scale factor** for crisp Retina/HiDPI displays
+- Transparent background for design flexibility
+- Optimized PNG compression
+
+## Usage Examples
+
+### Adding New Training Diagram
+
+1. Create Mermaid file:
+```bash
+# Create diagram source
+cat > diagrams/training-thumbnails/my-new-training.mmd <<'EOF'
+graph TB
+    A[Student] --> B[Instructor]
+    B --> C[Material]
+EOF
+```
+
+2. Generate thumbnail:
+```bash
+node diagrams/render-thumbnails.js training
+```
+
+3. Reference in content:
+```yaml
+---
+title: "My New Training"
+icon: "/img/training-catalog/my-new-training/thumbnail.png"
+---
+```
+
+### Adding New Product Diagram
+
+1. Create directory (if doesn't exist):
+```bash
+mkdir -p diagrams/product-thumbnails
+```
+
+2. Create Mermaid file:
+```bash
+cat > diagrams/product-thumbnails/my-product.mmd <<'EOF'
+graph LR
+    A[Frontend] --> B[Backend]
+    B --> C[Database]
+EOF
+```
+
+3. Generate thumbnail:
+```bash
+node diagrams/render-thumbnails.js products
+```
+
+4. Reference in content:
+```yaml
+---
+title: "My Product"
+icon: "/img/products/my-product/thumbnail.png"
+---
 ```
 
 ## Diagram Descriptions
 
-### 1. Spring Boot Development (`spring-boot-development.mmd`)
-Architecture diagram showing:
-- Web Browser interaction
-- Spring MVC + Thymeleaf UI
-- REST API Controllers
-- Spring Security + OAuth2
-- Service Layer with Business Logic
-- Spring Data JPA Repository
-- PostgreSQL Database
-- Gmail API for email services
+### Training Diagrams
 
-### 2. Application Security (`application-security.mmd`)
-Security architecture showing:
-- TLS/HTTPS encryption layer
-- Authentication (OAuth2/JWT)
-- Authorization (RBAC/Permissions)
-- REST API with input validation
-- Business logic with security rules
-- Password hashing (bcrypt/Argon2)
-- Field encryption (AES-256)
-- HSM/KMS for key storage
-- Audit logs and SIEM integration
+#### 1. Spring Boot Development
+Architecture diagram showing Web MVC, REST API, Spring Security, JPA Repository, and PostgreSQL integration.
 
-### 3. HashiCorp Vault (`vault-credential-management.mmd`)
-Vault deployment architecture showing:
-- Application clients (Spring Boot, Kubernetes Pod, Legacy App)
-- Vault cluster (Active + Standby nodes)
-- Secrets engines (KV Store, Database, PKI)
-- External integrations (PostgreSQL, Kubernetes Auth, LDAP/AD)
-- Raft storage backend for HA
+#### 2. Application Security
+Security architecture covering TLS, OAuth2/JWT, RBAC, encryption, and audit logging.
 
-### 4. Java OOP & Design Patterns (`java-oop-design-patterns.mmd`)
-Conceptual diagram showing:
-- SOLID principles (S, O, L, I, D)
-- Creational patterns (Factory, Builder, Singleton)
-- Structural patterns (Bridge, Decorator, Facade, Proxy)
-- Behavioral patterns (Command, Strategy, Observer)
-- Code quality practices (Refactoring, Code Smells)
+#### 3. HashiCorp Vault
+Vault cluster architecture with secrets engines, HA setup, and external integrations.
 
-### 5. Git Collaboration (`git-collaboration.mmd`)
-Git workflow diagram showing:
-- Main branch with initial commits
-- Development branch
-- Feature branches (auth, payment)
-- Release branch workflow
-- Merge and cherry-pick operations
-- Version tags (v1.1.0, v2.0.0)
+#### 4. Java OOP & Design Patterns
+Conceptual diagram showing SOLID principles and common design patterns (Factory, Strategy, Observer, etc.).
 
-### 6. Playwright Testing (`playwright-testing.mmd`)
-Testing architecture showing:
-- Test specs in TypeScript
-- Page Object Model pattern
-- Test fixtures for setup/teardown
-- Playwright Test Runner
-- Multi-browser support (Chrome/FF/Safari)
-- Web application and REST API under test
-- Test data generation with Faker.js
-- Database test setup
-- CI/CD pipeline integration
-- Test reporting and trace viewer
+#### 5. Git Collaboration
+Git workflow showing branching strategies, merges, and release management.
 
-## Generating Thumbnails
-
-### Prerequisites
-
-- Node.js installed
-- Playwright installed (`npx playwright install chromium`)
-
-### Generate All Thumbnails
-
-Run the rendering script from the project root:
-
-```bash
-node diagrams/render-training-thumbnails.js
-```
-
-This will:
-1. Read each `.mmd` file from `diagrams/training-thumbnails/`
-2. Render the Mermaid diagram using Playwright + Chromium
-3. Take high-DPI PNG screenshot and save to `static/img/training-catalog/{training-name}/thumbnail.png`
-
-### Output
-
-Generated thumbnails are saved as **high-DPI PNG files** (3x device scale factor for crisp rendering):
-- `static/img/training-catalog/spring-boot-development/thumbnail.png` (18 KB)
-- `static/img/training-catalog/application-security/thumbnail.png` (17 KB)
-- `static/img/training-catalog/vault-credential-management/thumbnail.png` (51 KB)
-- `static/img/training-catalog/java-oop-design-patterns/thumbnail.png` (63 KB)
-- `static/img/training-catalog/git-collaboration/thumbnail.png` (44 KB)
-- `static/img/training-catalog/playwright-testing/thumbnail.png` (22 KB)
-
-**Note**: The following training thumbnails use actual photos from past training sessions and are NOT generated from Mermaid:
-- `static/img/training-catalog/spring-jpos/thumbnail.png` (photo - 344 KB)
-- `static/img/training-catalog/sre-bootcamp/thumbnail.svg` (existing SVG asset - 2.4 MB)
-
-## Modifying Diagrams
-
-To update a diagram:
-
-1. Edit the corresponding `.mmd` file in `diagrams/training-thumbnails/`
-2. Run the rendering script: `node diagrams/render-training-thumbnails.js`
-3. The thumbnail will be regenerated automatically
+#### 6. Playwright Testing
+Testing architecture with Page Object Model, test fixtures, CI/CD integration, and reporting.
 
 ## Diagram Styling
 
-The diagrams use a consistent color scheme defined in the rendering script:
+Consistent color scheme across all diagrams:
 
-- Primary blue: `#60a5fa` (User/Client elements)
-- Green: `#34d399` (Application/Service layers)
-- Orange: `#f59e0b` (Security/Authentication)
-- Purple: `#8b5cf6` (Business Logic/Core)
-- Pink: `#ec4899` (Data Access/Persistence)
-- Indigo: `#6366f1` (Databases)
-- Red: `#ef4444` (External Services/Critical)
+- **Primary Blue** (`#60a5fa`) - User/Client elements
+- **Green** (`#34d399`) - Application/Service layers
+- **Orange** (`#f59e0b`) - Security/Authentication
+- **Purple** (`#8b5cf6`) - Business Logic/Core
+- **Pink** (`#ec4899`) - Data Access/Persistence
+- **Indigo** (`#6366f1`) - Databases
+- **Red** (`#ef4444`) - External Services/Critical
 
-Background colors use light tints for visual hierarchy and grouping.
+## Technical Implementation
 
-## Technical Details
+### Mermaid CLI Options
 
-The rendering script (`render-training-thumbnails.js`):
-- Uses Playwright's Chromium browser in headless mode
-- Loads Mermaid.js v11 from CDN
-- Renders diagrams at 2400x1600 viewport
-- Applies custom theme variables for consistent styling
-- Uses **3x device scale factor** for Retina/HiDPI rendering
-- Exports diagrams as **high-resolution PNG files**
-- Handles errors gracefully with detailed logging
+The generator uses these `mmdc` (Mermaid CLI) options:
 
-**Why high-DPI PNG?**
-- 3x device scale factor ensures crisp rendering on all displays
-- Works reliably in `<img>` tags (unlike SVG with foreignObject elements)
-- Transparent backgrounds for flexible design use
-- Optimized file sizes (17-63 KB for diagrams)
+- `-i` Input Mermaid file (.mmd)
+- `-o` Output PNG file
+- `-s 3` Scale factor 3x for high-DPI
+- `-b transparent` Transparent background
 
-## Maintenance
+### Error Handling
 
-When adding new training programs:
+The script gracefully handles:
+- Missing directories (auto-creates output dirs)
+- Missing .mmd files (skips with warning)
+- Render failures (logs error, continues with next)
 
-1. Create a new `.mmd` file in `diagrams/training-thumbnails/`
-2. Add the training name to the `diagrams` array in `render-training-thumbnails.js`
-3. Run the script to generate the thumbnail
-4. Reference the thumbnail in the training catalog markdown frontmatter:
-   ```yaml
-   icon: "/img/training-catalog/{training-name}/thumbnail.png"
-   ```
+## Migration from Legacy Script
+
+If you're using the old `render-training-thumbnails.js`:
+
+```bash
+# Old way (deprecated)
+node diagrams/render-training-thumbnails.js
+
+# New way (recommended)
+node diagrams/render-thumbnails.js training
+```
+
+The new script is backward compatible and produces identical output for training diagrams.
+
+## Extending for New Content Types
+
+To add support for a new content type (e.g., "services"):
+
+1. Edit `diagrams/render-thumbnails.js`
+2. Add new entry to `CONTENT_TYPES` object:
+
+```javascript
+const CONTENT_TYPES = {
+  // ... existing types ...
+  services: {
+    diagramsDir: 'service-thumbnails',
+    outputDir: path.join('..', 'static', 'img', 'services'),
+    diagrams: [] // Auto-detect
+  }
+};
+```
+
+3. Create diagram directory:
+```bash
+mkdir diagrams/service-thumbnails
+```
+
+4. Add diagrams and generate:
+```bash
+node diagrams/render-thumbnails.js services
+```
+
+## Troubleshooting
+
+### "mmdc: command not found"
+
+Install Mermaid CLI:
+```bash
+npm install -g @mermaid-js/mermaid-cli
+```
+
+### Diagrams Not Rendering
+
+Check for syntax errors in .mmd files:
+```bash
+# Validate Mermaid syntax
+mmdc -i diagrams/training-thumbnails/my-diagram.mmd -o /tmp/test.png
+```
+
+### Low Resolution Output
+
+The script uses `-s 3` for 3x scaling. If output looks blurry, verify:
+1. Mermaid CLI version is up-to-date
+2. No custom CSS overriding image dimensions
 
 ## References
 
 - [Mermaid.js Documentation](https://mermaid.js.org/)
-- [Playwright Documentation](https://playwright.dev/)
+- [Mermaid CLI Documentation](https://github.com/mermaid-js/mermaid-cli)
 - [Training Catalog Content](../content/training-catalog/)
+- [Products Content](../content/products/)
+- [Projects Content](../content/projects/)
