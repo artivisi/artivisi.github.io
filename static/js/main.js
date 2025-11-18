@@ -56,6 +56,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // Mobile dropdown toggles
+  const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+  mobileDropdownToggles.forEach(toggle => {
+    toggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      const content = this.nextElementSibling;
+      const svg = this.querySelector('svg');
+
+      content.classList.toggle('hidden');
+      svg.classList.toggle('rotate-180');
+    });
+  });
+
   // Theme toggle button
   const themeToggles = document.querySelectorAll('.theme-toggle');
   themeToggles.forEach(toggle => {
