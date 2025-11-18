@@ -131,6 +131,11 @@ icon: "/img/products/my-product/thumbnail.png"
 
 ## Diagram Descriptions
 
+### Product Diagrams
+
+#### 1. ATM Banking Solution
+Comprehensive architecture diagram showing three-layer ATM infrastructure: Terminal Layer (ATM/POS), ATM Server (jPOS ISO-8583, authentication, transaction service), and HSM (key ceremony, PIN/MAC operations, key hierarchy). Includes banking backend (PostgreSQL databases) and security infrastructure (AES-256, PBKDF2, Shamir's Secret Sharing).
+
 ### Training Diagrams
 
 #### 1. Spring Boot Development

@@ -1,0 +1,74 @@
+graph TB
+    subgraph "ATM Banking Solution Architecture"
+        subgraph "Terminal Layer"
+            ATM[ATM Terminal<br/>jPOS Client]
+            POS[POS Terminal<br/>ISO-8583]
+        end
+
+        subgraph "ATM Server - Acquirer/Switch"
+            JPOS[jPOS ISO-8583 Server<br/>Port 22222]
+            AuthService[Authentication Service<br/>PIN & MAC Verification]
+            TxnService[Transaction Service<br/>Balance Inquiry & Withdrawal]
+            KeyMgmt[Key Management<br/>Server-Initiated Rotation]
+        end
+
+        subgraph "HSM - Hardware Security Module"
+            HSMWeb[Web Interface<br/>Thymeleaf UI]
+            KeyCeremony[Key Ceremony<br/>2-of-3 Threshold]
+            PINOps[PIN Operations<br/>Encrypt/Verify/Translate]
+            MACOps[MAC Operations<br/>AES-CMAC/HMAC]
+            KeyHierarchy[Key Hierarchy<br/>LMK → TMK/TPK/ZMK/ZPK]
+        end
+
+        subgraph "Banking Backend"
+            AccountDB[(Account Database<br/>PostgreSQL)]
+            TxnDB[(Transaction Log<br/>PostgreSQL)]
+            KeyDB[(Cryptographic Keys<br/>PostgreSQL)]
+        end
+
+        subgraph "Security Infrastructure"
+            AES[AES-256 Encryption]
+            PBKDF2[PBKDF2-SHA256]
+            Shamir[Shamir Secret Sharing<br/>Multi-Custodian]
+        end
+    end
+
+    ATM -->|ISO-8583 Messages| JPOS
+    POS -->|ISO-8583 Messages| JPOS
+    JPOS --> AuthService
+    JPOS --> TxnService
+    JPOS --> KeyMgmt
+
+    AuthService -->|Verify PIN| PINOps
+    AuthService -->|Verify MAC| MACOps
+    TxnService --> AccountDB
+    TxnService --> TxnDB
+
+    KeyMgmt -->|Rotate Keys| KeyHierarchy
+    KeyCeremony --> Shamir
+    KeyHierarchy --> KeyDB
+    PINOps --> AES
+    MACOps --> AES
+
+    HSMWeb --> KeyCeremony
+    HSMWeb --> PINOps
+    HSMWeb --> MACOps
+    HSMWeb --> KeyHierarchy
+
+    style ATM fill:#60a5fa
+    style POS fill:#60a5fa
+    style JPOS fill:#34d399
+    style AuthService fill:#34d399
+    style TxnService fill:#34d399
+    style KeyMgmt fill:#34d399
+    style HSMWeb fill:#8b5cf6
+    style KeyCeremony fill:#f59e0b
+    style PINOps fill:#8b5cf6
+    style MACOps fill:#8b5cf6
+    style KeyHierarchy fill:#8b5cf6
+    style AccountDB fill:#6366f1
+    style TxnDB fill:#6366f1
+    style KeyDB fill:#6366f1
+    style AES fill:#ef4444
+    style PBKDF2 fill:#ef4444
+    style Shamir fill:#ef4444
