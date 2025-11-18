@@ -40,17 +40,24 @@ title = 'ArtiVisi Intermedia'
     url = '/projects/'
     weight = 3
   [[menu.main]]
-    name = 'Katalog Training'
-    url = '/training-catalog/'
+    identifier = 'training'
+    name = 'Training'
+    url = '#'
     weight = 4
   [[menu.main]]
-    name = 'Training'
+    name = 'Katalog Program'
+    url = '/training-catalog/'
+    parent = 'training'
+    weight = 1
+  [[menu.main]]
+    name = 'Portfolio Pelatihan'
     url = '/training/'
-    weight = 5
+    parent = 'training'
+    weight = 2
   [[menu.main]]
     name = 'Consulting'
     url = '/consulting/'
-    weight = 6
+    weight = 5
 
   [[menu.footer]]
     name = 'Internship'
