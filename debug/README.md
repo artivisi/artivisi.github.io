@@ -216,6 +216,54 @@ node debug/screenshots/screenshot-navbar.js
 
 ---
 
+**`screenshots/screenshot-external-app.js`**
+- Generic screenshot tool for external web applications
+- Supports authentication (login with username/password)
+- Multi-page capture with configurable URLs
+- Saves to `static/img/products/{product-name}/`
+
+**Configuration presets:**
+- `atm-solution` - ATM simulator interface
+- `hsm-simulator` - HSM web interface (4 pages: keys list, hierarchy, PIN visualization, key ceremony)
+
+**Usage:**
+```bash
+# Capture ATM simulator screenshots
+node debug/screenshots/screenshot-external-app.js atm-solution
+
+# Capture HSM simulator screenshots (requires login)
+node debug/screenshots/screenshot-external-app.js hsm-simulator
+```
+
+**Adding new configuration:**
+```javascript
+const CONFIGS = {
+  'my-app': {
+    baseUrl: 'http://localhost:3000',
+    outputDir: path.join(__dirname, '../../static/img/products/my-app'),
+    screenshots: [
+      {
+        url: '/dashboard',
+        filename: '01-dashboard.png',
+        description: 'Dashboard View',
+        fullPage: true
+      }
+    ],
+    auth: {
+      loginUrl: '/login',
+      username: 'admin',
+      password: 'password',
+      usernameSelector: 'input[name="username"]',
+      passwordSelector: 'input[name="password"]',
+      submitSelector: 'button[type="submit"]'
+    },
+    viewport: { width: 1920, height: 1080 }
+  }
+};
+```
+
+---
+
 ## Archive
 
 The `archive/` directory contains deprecated scripts that are no longer actively used but kept for reference:

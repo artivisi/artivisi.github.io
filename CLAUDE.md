@@ -32,6 +32,26 @@ npm run build:css
 ```
 Compiles and minifies Tailwind CSS to `static/css/main.css` (ignored in git).
 
+### Generate Diagram Thumbnails
+```bash
+# Generate for specific content type
+node diagrams/render-thumbnails.js products
+node diagrams/render-thumbnails.js projects
+node diagrams/render-thumbnails.js training
+
+# Generate all thumbnails
+node diagrams/render-thumbnails.js all
+```
+Converts Mermaid `.mmd` files to high-DPI PNG thumbnails (3x scale, transparent background).
+
+### Screenshot External Applications
+```bash
+# Capture screenshots from running external apps
+node debug/screenshots/screenshot-external-app.js atm-solution
+node debug/screenshots/screenshot-external-app.js hsm-simulator
+```
+Automated screenshot capture with authentication support for documenting client applications.
+
 ## Architecture
 
 ### Core Stack
@@ -71,6 +91,21 @@ static/
 
 assets/css/
 └── tailwind.css   # Tailwind v4 config with @theme block
+
+diagrams/
+├── render-thumbnails.js            # Generic thumbnail generator
+├── product-thumbnails/             # Mermaid sources for products
+├── project-thumbnails/             # Mermaid sources for projects
+└── training-thumbnails/            # Mermaid sources for training
+
+debug/
+├── screenshots/                    # Screenshot utilities
+│   ├── screenshot-navbar.js        # Local site screenshots
+│   └── screenshot-external-app.js  # External app capture (with auth)
+├── components/                     # Component testing (dropdown, navbar, hero)
+├── css/                           # CSS debugging tools
+├── production/                    # Production validation (check-production.js)
+└── archive/                       # Deprecated scripts
 ```
 
 ### Tailwind CSS v4 Configuration
@@ -135,6 +170,35 @@ image: "/img/training/training-name/thumbnail.png"
 
 All JS/CSS loaded in `layouts/partials/head.html` with `defer`.
 
+### Template Architecture
+
+**Two-Level Menu Hierarchy**: Navbar uses Hugo's `.HasChildren` and `.Children` to render nested menus dynamically. Parent items defined in `hugo.toml` with `identifier` field, children reference parent via `parent` field.
+
+**Desktop vs Mobile Navigation**:
+- Desktop: CSS hover-based dropdowns (`:hover` on parent reveals children)
+- Mobile: JavaScript accordion with toggle buttons and `hidden` class manipulation
+
+**Single.html Flexibility**: Template conditionally renders thumbnail/image/icon (tries all three frontmatter fields), enabling different content types to use different naming conventions.
+
+**Pagination UI**: Shows 5 page numbers with ellipsis, configured for 9 items per page in `hugo.toml`.
+
+### JavaScript Patterns
+
+**Theme Management** (`main.js`):
+- localStorage-based persistence with system preference fallback
+- Initialized before DOM load to prevent flash of wrong theme
+- Toggle button uses fixed positioning with backdrop blur
+
+**Image Lightbox Redundancy**:
+- jQuery Magnify: Activated via `data-magnify` attributes
+- Custom lightbox.js: Auto-attaches to article images via MutationObserver
+- Both implementations coexist (potential consolidation opportunity)
+
+**Swiper Instances**:
+- `.mySwiper`: General carousel with responsive breakpoints (2→3→4 slides)
+- `.swiper-container`: About section carousel
+- Autoplay disabled on user interaction
+
 ## Critical Requirements
 
 ### Case-Sensitive File Naming
@@ -168,6 +232,17 @@ Triggers on push to `main`:
 
 **Important**: CSS must be built in CI before Hugo runs. Local `static/css/main.css` is ignored in git.
 
+### Build Pipeline Critical Constraints
+
+**Build Order Dependency**: CSS compilation MUST complete before Hugo build runs. Hugo templates reference `/css/main.css` which doesn't exist until Tailwind processes `assets/css/tailwind.css`.
+
+**Local vs Production Divergence**:
+- Local development: `static/css/main.css` exists but is git-ignored
+- Production CI: Generates `main.css` fresh from `assets/css/tailwind.css`
+- This prevents CSS drift between environments
+
+**Cache Behavior**: Hugo's `resources/` directory caches processed assets. Clear it (`rm -rf resources/`) if CSS changes aren't reflected after rebuild.
+
 ### Testing Production Builds Locally
 ```bash
 npm run build
@@ -184,6 +259,63 @@ node check-production.js
 ```
 Checks live site for broken images and rendering issues.
 
+## Tooling Ecosystem
+
+### Diagram Generation (`diagrams/`)
+**Purpose**: Generate high-DPI thumbnails from Mermaid diagram sources.
+
+**Workflow**:
+1. Create `.mmd` file in appropriate directory (product-thumbnails/, project-thumbnails/, training-thumbnails/)
+2. Run `node diagrams/render-thumbnails.js {type}` to generate PNG
+3. Output: `static/img/{type}/{name}/thumbnail.png` (3x scale, transparent background)
+
+**Auto-detection**: Script automatically discovers all `.mmd` files in directory, no manual configuration needed.
+
+**Diagram Styling**: Consistent color scheme across all diagrams:
+- Primary Blue (#60a5fa): User/Client elements
+- Green (#34d399): Application/Service layers
+- Orange (#f59e0b): Security/Authentication
+- Purple (#8b5cf6): Business Logic/Core
+- Pink (#ec4899): Data Access/Persistence
+- Indigo (#6366f1): Databases
+- Red (#ef4444): External Services/Critical
+
+### Debug Tools (`debug/`)
+**Purpose**: Playwright-based testing, validation, and screenshot automation.
+
+**Production Validation** (`production/check-production.js`):
+- Checks live site at https://artivisi.com/ for broken images
+- Reports image loading status and dimensions
+- Run before releases to verify production deployment
+
+**Component Testing** (`components/`):
+- `verify-dropdown.js`: Tests dropdown menu hover/click behavior
+- `inspect-navbar.js`: Logs navbar DOM structure for debugging
+- `inspect-hero.js`: Validates hero section spacing and layout
+
+**Screenshot Tools** (`screenshots/`):
+- `screenshot-navbar.js`: Captures local Hugo site screenshots
+- `screenshot-external-app.js`: Captures screenshots from external applications with authentication
+  - Configurable via `CONFIGS` object
+  - Supports login flows (username/password)
+  - Multi-page capture with custom viewport sizes
+  - Example configs: `atm-solution`, `hsm-simulator`
+
+**CSS Debugging** (`css/debug-css.js`):
+- Inspects computed styles and Tailwind class application
+- Validates if CSS classes exist in stylesheets
+- Requires Hugo server on port 1314
+
+### Prerequisites for Tooling
+```bash
+cd debug
+npm install
+npx playwright install chromium
+
+# For diagram generation
+npm install -g @mermaid-js/mermaid-cli
+```
+
 ## Adding New Content
 
 ### Add a Product
@@ -191,6 +323,11 @@ Checks live site for broken images and rendering issues.
 2. Create `static/img/products/product-name/` directory
 3. Add lowercase-named images: `thumbnail.png`, `01-screenshot.png`, etc.
 4. Reference images in markdown: `![Description](/img/products/product-name/01-screenshot.png)`
+
+**With Diagram Thumbnail**:
+1. Create `diagrams/product-thumbnails/product-name.mmd` with Mermaid graph
+2. Run `node diagrams/render-thumbnails.js products`
+3. Use generated thumbnail: `icon: "/img/products/product-name/thumbnail.png"`
 
 ### Add a Project
 1. Create `content/projects/project-name.md` with frontmatter (title, description, client, date, image)

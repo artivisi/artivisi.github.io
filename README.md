@@ -58,6 +58,30 @@ content/
 ├── training/       # Training sessions
 ├── about_us/       # About us pages
 └── career/         # Career opportunities
+
+static/
+├── css/            # Compiled CSS (main.css ignored in git)
+├── js/             # JavaScript (jQuery, Swiper, Magnify, main.js)
+├── img/            # Images organized by section
+│   ├── products/{product-name}/    # Product images
+│   ├── projects/{project-name}/    # Project images
+│   └── training/{training-name}/   # Training images
+└── fonts/          # Geist and GeistMono fonts
+
+diagrams/
+├── render-thumbnails.js            # Generic thumbnail generator
+├── product-thumbnails/             # Product diagram sources
+├── project-thumbnails/             # Project diagram sources
+└── training-thumbnails/            # Training diagram sources
+
+debug/
+├── screenshots/                    # Screenshot utilities
+│   ├── screenshot-navbar.js        # Navbar screenshot tool
+│   └── screenshot-external-app.js  # External app screenshot tool
+├── components/                     # Component testing scripts
+├── css/                           # CSS debugging tools
+├── production/                    # Production validation
+└── archive/                       # Deprecated scripts
 ```
 
 ### Adding New Content
@@ -196,16 +220,44 @@ python3 -m http.server 8000
 
 Visit `http://localhost:8000`
 
-### Debug with Playwright
+### Debug and Testing Tools
 
-The `debug/` folder contains Playwright scripts for testing:
+The `debug/` folder contains Playwright-based testing and debugging utilities.
 
+**Production Validation:**
 ```bash
 cd debug
-node check-production.js
+node production/check-production.js
+```
+Checks production site for broken images and rendering issues.
+
+**Component Testing:**
+```bash
+# Test dropdown menu behavior
+node debug/components/verify-dropdown.js
+
+# Inspect navbar structure
+node debug/components/inspect-navbar.js
 ```
 
-This checks production site for broken images and other issues.
+**CSS Debugging:**
+```bash
+# Debug Tailwind CSS application
+hugo server --noHTTPCache --port 1314
+node debug/css/debug-css.js
+```
+
+**Screenshot Tools:**
+```bash
+# Screenshot local Hugo site
+node debug/screenshots/screenshot-navbar.js
+
+# Screenshot external applications
+node debug/screenshots/screenshot-external-app.js atm-solution
+node debug/screenshots/screenshot-external-app.js hsm-simulator
+```
+
+See `debug/README.md` for complete documentation.
 
 ## Deployment
 
@@ -291,6 +343,131 @@ node check-production.js
 
 This will check all product images on the live site.
 
+## Diagram Generation
+
+The `diagrams/` folder contains Mermaid diagram sources and a generic thumbnail generator.
+
+### Generate Thumbnails
+
+**Prerequisites:**
+```bash
+npm install -g @mermaid-js/mermaid-cli
+```
+
+**Generate thumbnails for specific content type:**
+```bash
+# Products only
+node diagrams/render-thumbnails.js products
+
+# Projects only
+node diagrams/render-thumbnails.js projects
+
+# Training only
+node diagrams/render-thumbnails.js training
+
+# All content types
+node diagrams/render-thumbnails.js all
+```
+
+### Create New Diagram
+
+1. **Create Mermaid file:**
+```bash
+# For products
+cat > diagrams/product-thumbnails/my-product.mmd <<'EOF'
+graph TB
+    A[Frontend] --> B[Backend]
+    B --> C[Database]
+EOF
+```
+
+2. **Generate thumbnail:**
+```bash
+node diagrams/render-thumbnails.js products
+```
+
+3. **Reference in content:**
+```yaml
+---
+title: "My Product"
+icon: "/img/products/my-product/thumbnail.png"
+---
+```
+
+**Features:**
+- Auto-detection of `.mmd` files
+- 3x device scale for HiDPI displays
+- Transparent background
+- Outputs to `static/img/{type}/{name}/thumbnail.png`
+
+See `diagrams/README.md` for complete documentation and diagram styling guide.
+
+## Screenshot External Applications
+
+The `debug/screenshots/screenshot-external-app.js` tool captures screenshots from external web applications for product documentation.
+
+### Prerequisites
+
+```bash
+cd debug
+npm install
+npx playwright install chromium
+```
+
+### Capture Screenshots
+
+**Using existing presets:**
+```bash
+# ATM simulator (requires app running on localhost:7070)
+node debug/screenshots/screenshot-external-app.js atm-solution
+
+# HSM simulator (requires app running on localhost:8080)
+node debug/screenshots/screenshot-external-app.js hsm-simulator
+```
+
+### Add New Application Configuration
+
+Edit `debug/screenshots/screenshot-external-app.js` and add to `CONFIGS`:
+
+```javascript
+'my-app': {
+  baseUrl: 'http://localhost:3000',
+  outputDir: path.join(__dirname, '../../static/img/products/my-app'),
+  screenshots: [
+    {
+      url: '/dashboard',
+      filename: '01-dashboard.png',
+      description: 'Dashboard Overview',
+      fullPage: true
+    },
+    {
+      url: '/settings',
+      filename: '02-settings.png',
+      description: 'Settings Page',
+      fullPage: false
+    }
+  ],
+  auth: {  // Optional authentication
+    loginUrl: '/login',
+    username: 'admin',
+    password: 'password',
+    usernameSelector: 'input[name="username"]',
+    passwordSelector: 'input[name="password"]',
+    submitSelector: 'button[type="submit"]'
+  },
+  viewport: { width: 1920, height: 1080 }
+}
+```
+
+**Features:**
+- Authentication support (username/password)
+- Multi-page capture
+- Full-page or viewport screenshots
+- Configurable viewport sizes
+- Auto-creates output directories
+
+See `debug/README.md` for complete documentation.
+
 ## Common Tasks
 
 ### Update Dependencies
@@ -317,6 +494,14 @@ npm audit
 - Content files: `kebab-case.md`
 - Image files: `lowercase-only.png` (critical for Linux compatibility)
 - Directories: `lowercase_with_underscores` or `kebab-case`
+
+## Documentation
+
+For detailed documentation on specific components:
+
+- **Debug Tools**: See `debug/README.md` for complete Playwright testing and debugging documentation
+- **Diagram Generation**: See `diagrams/README.md` for Mermaid diagram creation and thumbnail generation
+- **Project Guidelines**: See `CLAUDE.md` for development guidelines and architecture details
 
 ## License
 
