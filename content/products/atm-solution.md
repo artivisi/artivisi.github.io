@@ -136,6 +136,12 @@ Interface key ceremony untuk inisialisasi set kunci lengkap menggunakan mekanism
 
 Sistem ini dirancang untuk **tujuan edukasi dan development**, bukan untuk lingkungan produksi. Untuk deployment produksi, gunakan Hardware Security Module (HSM) fisik yang tersertifikasi dan implementasi security tambahan sesuai regulasi perbankan.
 
+Protokol Komunikasi: Sistem ini menggunakan ISO-8583 secara langsung antara 
+ATM Terminal Simulator dan ATM Server untuk tujuan pembelajaran. Dalam lingkungan 
+produksi, ATM umumnya menggunakan protokol device management seperti NDC (NCR), 
+912 (Diebold), atau CCDM (Wincor) untuk komunikasi dengan ATM Gateway, yang 
+kemudian mentranslasikan ke ISO-8583 untuk transaksi finansial.
+
 ## Repository
 
 - [HSM Simulator](https://github.com/artivisi/hsm-simulator)
