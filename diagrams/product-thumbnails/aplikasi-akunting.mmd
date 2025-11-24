@@ -1,0 +1,61 @@
+graph TB
+    subgraph "Aplikasi Akunting Architecture"
+        subgraph "User Interface"
+            Browser[Web Browser<br/>HTMX + Alpine.js]
+        end
+
+        subgraph "Application Layer - Spring Boot 4.0"
+            Thymeleaf[Thymeleaf Templates<br/>Server-Side Rendering]
+            AuthModule[Spring Security<br/>Authentication]
+            TxnModule[Transaction Service<br/>Journal Generation]
+            ReportModule[Report Service<br/>Financial Statements]
+            TaxModule[Tax Service<br/>PPN & PPh Calculation]
+            ProjectModule[Project Accounting<br/>Profitability Tracking]
+        end
+
+        subgraph "Data Layer"
+            JPA[Spring Data JPA<br/>Hibernate ORM]
+            PostgreSQL[(PostgreSQL 17<br/>Financial Data)]
+            MinIO[(MinIO<br/>Document Storage)]
+        end
+
+        subgraph "Business Features"
+            COA[Chart of Accounts<br/>PSAK Compliant]
+            Templates[Journal Templates<br/>Transaction Patterns]
+            Inventory[Inventory<br/>FIFO/Average Cost]
+            DocMgmt[Document Mgmt<br/>10-Year Retention]
+        end
+    end
+
+    Browser -->|HTTP Requests| Thymeleaf
+    Thymeleaf --> AuthModule
+    Thymeleaf --> TxnModule
+    Thymeleaf --> ReportModule
+
+    TxnModule --> TaxModule
+    TxnModule --> ProjectModule
+    TxnModule --> Templates
+    TxnModule --> COA
+
+    ReportModule --> COA
+    ProjectModule --> Inventory
+
+    TxnModule --> JPA
+    ReportModule --> JPA
+    JPA --> PostgreSQL
+    DocMgmt --> MinIO
+
+    style Browser fill:#60a5fa
+    style Thymeleaf fill:#34d399
+    style AuthModule fill:#f59e0b
+    style TxnModule fill:#8b5cf6
+    style ReportModule fill:#8b5cf6
+    style TaxModule fill:#ec4899
+    style ProjectModule fill:#8b5cf6
+    style JPA fill:#34d399
+    style PostgreSQL fill:#6366f1
+    style MinIO fill:#6366f1
+    style COA fill:#34d399
+    style Templates fill:#34d399
+    style Inventory fill:#34d399
+    style DocMgmt fill:#34d399
