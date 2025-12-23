@@ -403,6 +403,85 @@ article code {
   background-color: #374151;
 }
 
+/* Tables */
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+}
+
+article thead {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+:is(.dark article thead) {
+  background-color: #1e40af;
+}
+
+article th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+article td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+:is(.dark article td) {
+  border-bottom-color: #374151;
+}
+
+article tbody tr {
+  background-color: #ffffff;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:is(.dark article tbody tr) {
+  background-color: #111827;
+}
+
+article tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+:is(.dark article tbody tr:nth-child(even)) {
+  background-color: #1f2937;
+}
+
+article tbody tr:hover {
+  background-color: #f3f4f6;
+}
+
+:is(.dark article tbody tr:hover) {
+  background-color: #374151;
+}
+
+/* Last row no border */
+article tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Responsive tables */
+@media (max-width: 768px) {
+  article table {
+    font-size: 0.875rem;
+  }
+
+  article th,
+  article td {
+    padding: 0.5rem 0.75rem;
+  }
+}
+
 /* ===== Print Styles ===== */
 @media print {
   .no-print {
