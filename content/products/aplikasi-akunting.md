@@ -79,6 +79,7 @@ Sistem akunting berbasis web yang dirancang khusus untuk UMKM Indonesia dengan f
 - **RBAC** - 6 roles (SUPERADMIN, OWNER, ACCOUNTANT, BOOKKEEPER, EMPLOYEE, VIEWER) dengan method-level security
 - **Data Protection** - Data masking untuk sensitive fields, GDPR/UU PDP compliance (DSAR export, anonymization)
 - **DevSecOps** - CodeQL static analysis, SonarCloud, OWASP Dependency-Check, ZAP DAST scanning
+- **SpotBugs/FindSecBugs Audit** - ✅ 0 issues (164→0): fixed 33 real vulnerabilities, documented 140 Spring DI false positives
 
 ### Additional Features
 - **Telegram Integration** - Receipt photo upload via bot dengan OCR processing (Google Cloud Vision)
@@ -111,7 +112,7 @@ Tiga status transaksi untuk kontrol yang ketat:
 | Export/Import | OpenPDF (PDF export), Apache POI (Excel export) |
 | Integrations | Google Cloud Vision (OCR), Telegram Bot API |
 | Testing | JUnit 5, Testcontainers, Playwright (115 functional tests) |
-| Security | CodeQL, SonarCloud, OWASP Dependency-Check, ZAP DAST |
+| Security | CodeQL, SonarCloud, OWASP Dependency-Check, ZAP DAST, SpotBugs/FindSecBugs |
 | DevOps | Docker, GitHub Actions, Pulumi (infrastructure), Ansible (configuration) |
 
 Aplikasi menggunakan arsitektur monolitik single-tenant untuk mengurangi kompleksitas, menjaga isolasi data per company, dan menghindari duplikasi validasi antara backend dan frontend.
@@ -160,7 +161,7 @@ Template transaksi yang dapat dikonfigurasi untuk berbagai jenis transaksi berul
 - **Industry-Specific**: 4 industry seed packs siap pakai (IT Services, Online Seller, Manufacturing, Education)
 - **Comprehensive Documentation**: User manual lengkap 15 files dengan 12-section structure
 - **User Friendly**: Desain transaction-centric untuk pengguna non-akuntan
-- **Security-First**: Field-level encryption, audit logging, RBAC dengan 6 roles
+- **Security-First**: Field-level encryption, audit logging, RBAC dengan 6 roles, SpotBugs 0-issue
 - **Audit Trail**: Comprehensive logging untuk semua transaksi dan sensitive operations
 - **Document Retention**: Penyimpanan dokumen dengan encryption sesuai ketentuan pajak 10 tahun
 - **Tested**: 115 functional tests dengan Playwright across 4 industry scenarios
