@@ -165,7 +165,7 @@ Template transaksi yang dapat dikonfigurasi untuk berbagai jenis transaksi berul
 - **Audit Trail**: Comprehensive logging untuk semua transaksi dan sensitive operations
 - **Document Retention**: Penyimpanan dokumen dengan encryption sesuai ketentuan pajak 10 tahun
 - **Tested**: 115 functional tests dengan Playwright across 4 industry scenarios
-- **Open Source**: Lisensi AGPL-3.0
+- **Open Source**: Lisensi Apache 2.0
 
 ## Industry Seed Packs
 
@@ -275,4 +275,4 @@ User manual lengkap dengan 15 files dan 12-section structure:
 
 ## Lisensi
 
-AGPL-3.0 - modifikasi harus dibagikan dengan lisensi yang sama.
+Apache 2.0

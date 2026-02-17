@@ -2,7 +2,8 @@
 title: "Call Center"
 description: "Solusi komunikasi yang mengoptimalkan layanan pelanggan dengan fitur manajemen panggilan, analitik mendalam, dan otomatisasi cerdas."
 icon: "/img/products/call-center/thumbnail.png"
-weight: 4
+weight: 10
+draft: true
 ---
 
 ## Deskripsi Produk

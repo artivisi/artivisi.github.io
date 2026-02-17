@@ -7,8 +7,8 @@ title = 'ArtiVisi Intermedia'
   pagerSize = 9
 
 [params]
-  description = 'Pengembangan Aplikasi Kustom untuk Kebutuhan Bisnis Anda. Konsultan IT dan pengembang aplikasi enterprise terpercaya di Indonesia.'
-  keywords = ['pengembangan aplikasi', 'konsultan IT', 'enterprise software', 'aplikasi bisnis']
+  description = 'Spesialis sistem pembayaran dan infrastruktur keuangan. ISO 8583, SNAP API, payment gateway, HSM, dan integrasi bank di Indonesia.'
+  keywords = ['sistem pembayaran', 'ISO 8583', 'SNAP API', 'payment gateway', 'HSM', 'disbursement', 'integrasi bank', 'BI-FAST', 'QRIS', 'payment switch']
   author = 'ArtiVisi Intermedia'
 
   [params.branding]
@@ -28,22 +28,14 @@ title = 'ArtiVisi Intermedia'
 
 [menu]
   [[menu.main]]
-    name = 'About Us'
-    url = '/about_us/'
-    weight = 1
-  [[menu.main]]
     name = 'Product'
     url = '/products/'
-    weight = 2
-  [[menu.main]]
-    name = 'Project'
-    url = '/projects/'
-    weight = 3
+    weight = 1
   [[menu.main]]
     identifier = 'training'
     name = 'Training'
     url = '#'
-    weight = 4
+    weight = 2
   [[menu.main]]
     name = 'Katalog Program'
     url = '/training-catalog/'
@@ -57,6 +49,14 @@ title = 'ArtiVisi Intermedia'
   [[menu.main]]
     name = 'Consulting'
     url = '/consulting/'
+    weight = 3
+  [[menu.main]]
+    name = 'Project'
+    url = '/projects/'
+    weight = 4
+  [[menu.main]]
+    name = 'About Us'
+    url = '/about_us/'
     weight = 5
 
   [[menu.footer]]

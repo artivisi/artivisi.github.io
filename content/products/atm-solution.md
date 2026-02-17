@@ -2,7 +2,7 @@
 title: "ATM Banking Solution"
 description: "Solusi perbankan ATM lengkap dengan HSM simulator, ISO-8583 server, dan terminal simulator untuk operasi perbankan yang aman dan compliance."
 icon: "/img/products/atm-solution/thumbnail.png"
-weight: 4
+weight: 2
 ---
 
 ## Deskripsi Produk

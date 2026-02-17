@@ -1,26 +1,32 @@
 ---
 title: "VA Splitter & Disbursement"
-description: "Solusi yang mengoptimalkan pengelolaan keuangan bisnis dengan kemampuan split payment otomatis dan disbursement yang efisien."
+description: "Platform split payment otomatis dari Virtual Account dan bulk disbursement multi-bank via SNAP API untuk payroll, beasiswa, dan vendor payment."
 icon: "/img/products/va-splitter/thumbnail.png"
 weight: 1
 ---
 
 ## Deskripsi Produk
 
-Solusi yang mengoptimalkan pengelolaan keuangan bisnis dengan otomatisasi alokasi dana dari Virtual Account ke berbagai tujuan berdasarkan aturan yang telah dikonfigurasi.
+Platform pengelolaan dana yang mengotomatisasi alokasi pembayaran masuk dari Virtual Account ke berbagai rekening tujuan, serta pemrosesan disbursement massal ke multi-bank via SNAP API dan BI-FAST.
 
 ## Fitur Utama
 
-Sistem ini menyediakan dua kemampuan utama:
+### VA Splitter
+- Distribusi dana otomatis dari Virtual Account berdasarkan aturan yang dikonfigurasi
+- Rule-based splitting untuk multi-pihak (universitas: SPP → fakultas, rektorat, yayasan)
+- Real-time notification saat dana masuk dan terdistribusi
 
-- **VA Splitter**: Membagi dana secara otomatis dari Virtual Account sesuai dengan aturan distribusi yang telah ditentukan
-- **Disbursement**: Memungkinkan pemrosesan pembayaran massal, termasuk payroll dan pembayaran vendor dengan workflow otomatis
+### Bulk Disbursement
+- **Batch Transfer** — Upload massal via CSV/API ke berbagai bank
+- **Multi-Bank Support** — Transfer via SNAP API dan BI-FAST
+- **Scheduling** — Penjadwalan disbursement berkala (payroll bulanan, beasiswa per semester)
+- **Maker-Checker Workflow** — Multi-level approval sebelum eksekusi transfer
 
-## Keunggulan
-
-- Pemrosesan transaksi otomatis yang memastikan transfer dana yang aman dan efisien
-- Mekanisme tracking terintegrasi untuk monitoring transaksi yang komprehensif
-- Manajemen yang disederhanakan di berbagai skenario pembayaran
+### Monitoring & Reconciliation
+- Real-time status tracking per transaksi
+- Automatic retry untuk transaksi gagal
+- Reconciliation report harian
+- Audit trail lengkap untuk setiap disbursement
 
 ## Teknologi yang Digunakan
 

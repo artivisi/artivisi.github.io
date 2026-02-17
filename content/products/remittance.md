@@ -2,7 +2,7 @@
 title: "Remittance"
 description: "Aplikasi yang memudahkan pengiriman uang secara cepat dan aman, baik domestik maupun internasional dengan biaya kompetitif dan tracking real-time."
 icon: "/img/products/remittance/thumbnail.png"
-weight: 3
+weight: 4
 ---
 
 ## Deskripsi Produk

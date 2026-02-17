@@ -1,4 +1,4 @@
 ---
 title: "Produk Kami"
-description: "Jelajahi beragam produk unggulan kami yang dirancang untuk memenuhi kebutuhan Anda."
+description: "Solusi payment gateway, disbursement, integrasi bank, dan software institusional untuk infrastruktur keuangan Indonesia."
 ---
