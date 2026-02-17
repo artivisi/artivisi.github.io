@@ -1,5 +1,16 @@
 {{define "main"}}
-    {{- partial "hero.html" (dict "title" .Title "description" .Description "content" .Content) -}}
+    {{- partial "hero.html" (dict "title" .Title "description" .Description) -}}
+
+    {{- if .Content -}}
+    <!-- Product Strategy Overview -->
+    <section class="py-16 lg:py-20 bg-white dark:bg-gray-800">
+        <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+            <article class="text-base text-gray-700 dark:text-gray-300 space-y-6">
+                {{ .Content }}
+            </article>
+        </div>
+    </section>
+    {{- end -}}
 
     <!-- Products Grid -->
     <section class="py-16 lg:py-20 bg-gray-50 dark:bg-gray-900">

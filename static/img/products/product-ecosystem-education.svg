@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480">
+  <defs>
+    <marker id="arr-ind" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 3, 0 6" fill="#4f46e5"/>
+    </marker>
+    <marker id="arr-amb" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 3, 0 6" fill="#d97706"/>
+    </marker>
+    <filter id="sh">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="480" fill="#f8fafc" rx="8"/>
+
+  <!-- ==================== Monitoring Dashboard (top) ==================== -->
+  <rect x="60" y="28" width="840" height="40" rx="8" fill="#fff" stroke="#6366f1" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="60" y="28" width="840" height="22" rx="8" fill="#6366f1"/>
+  <rect x="60" y="40" width="840" height="10" fill="#6366f1"/>
+  <text x="480" y="44" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#fff">Monitoring Dashboard</text>
+  <text x="480" y="62" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6366f1">Network map, transaction feed, message inspector — observes all via WebSocket</text>
+
+  <!-- Dotted lines from Dashboard to components -->
+  <line x1="120" y1="68" x2="120" y2="96" stroke="#a5b4fc" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="365" y1="68" x2="365" y2="96" stroke="#a5b4fc" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="600" y1="68" x2="600" y2="96" stroke="#a5b4fc" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="835" y1="68" x2="835" y2="96" stroke="#a5b4fc" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- ==================== Transaction flow (horizontal, 4 components) ==================== -->
+
+  <!-- ATM Simulator (Terminal) -->
+  <rect x="30" y="96" width="180" height="100" rx="10" fill="#fff" stroke="#4f46e5" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="30" y="96" width="180" height="26" rx="10" fill="#4f46e5"/>
+  <rect x="30" y="110" width="180" height="12" fill="#4f46e5"/>
+  <text x="120" y="114" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#fff">ATM Simulator</text>
+  <text x="120" y="136" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#4f46e5" font-weight="600">TERMINAL</text>
+  <text x="44" y="154" font-family="sans-serif" font-size="8" fill="#475569">Customer interface</text>
+  <text x="44" y="166" font-family="sans-serif" font-size="8" fill="#475569">PIN entry</text>
+  <text x="44" y="178" font-family="sans-serif" font-size="8" fill="#475569">Balance / withdrawal</text>
+
+  <!-- ATM Server (Acquirer) -->
+  <rect x="270" y="96" width="190" height="100" rx="10" fill="#fff" stroke="#4f46e5" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="270" y="96" width="190" height="26" rx="10" fill="#4f46e5"/>
+  <rect x="270" y="110" width="190" height="12" fill="#4f46e5"/>
+  <text x="365" y="114" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#fff">ATM Server</text>
+  <text x="365" y="136" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#4f46e5" font-weight="600">ACQUIRER BANK</text>
+  <text x="284" y="154" font-family="sans-serif" font-size="8" fill="#475569">Terminal management</text>
+  <text x="284" y="166" font-family="sans-serif" font-size="8" fill="#475569">On-us authorization</text>
+  <text x="284" y="178" font-family="sans-serif" font-size="8" fill="#475569">Forward not-on-us to switch</text>
+
+  <!-- Payment Switch -->
+  <rect x="505" y="96" width="190" height="100" rx="10" fill="#fff" stroke="#4f46e5" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="505" y="96" width="190" height="26" rx="10" fill="#4f46e5"/>
+  <rect x="505" y="110" width="190" height="12" fill="#4f46e5"/>
+  <text x="600" y="114" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#fff">Payment Switch</text>
+  <text x="600" y="136" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#4f46e5" font-weight="600">INTERBANK ROUTING</text>
+  <text x="519" y="154" font-family="sans-serif" font-size="8" fill="#475569">BIN-based routing</text>
+  <text x="519" y="166" font-family="sans-serif" font-size="8" fill="#475569">MAC validation</text>
+  <text x="519" y="178" font-family="sans-serif" font-size="8" fill="#475569">Transaction logging</text>
+
+  <!-- ATM Server (Issuer) -->
+  <rect x="740" y="96" width="190" height="100" rx="10" fill="#fff" stroke="#4f46e5" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="740" y="96" width="190" height="26" rx="10" fill="#4f46e5"/>
+  <rect x="740" y="110" width="190" height="12" fill="#4f46e5"/>
+  <text x="835" y="114" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#fff">ATM Server</text>
+  <text x="835" y="136" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#4f46e5" font-weight="600">ISSUER BANK</text>
+  <text x="754" y="154" font-family="sans-serif" font-size="8" fill="#475569">PIN verify via HSM</text>
+  <text x="754" y="166" font-family="sans-serif" font-size="8" fill="#475569">Balance check</text>
+  <text x="754" y="178" font-family="sans-serif" font-size="8" fill="#475569">Authorization decision</text>
+
+  <!-- ==================== Horizontal arrows between components ==================== -->
+
+  <!-- ATM Sim → Acquirer (request, top line) -->
+  <line x1="210" y1="130" x2="270" y2="130" stroke="#4f46e5" stroke-width="1.5" marker-end="url(#arr-ind)"/>
+  <text x="240" y="126" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#4f46e5" font-weight="600">0200</text>
+
+  <!-- Acquirer → ATM Sim (response, bottom line) -->
+  <line x1="270" y1="146" x2="210" y2="146" stroke="#4f46e5" stroke-width="1.5" marker-end="url(#arr-ind)"/>
+  <text x="240" y="158" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#4f46e5">0210</text>
+
+  <!-- Acquirer → Switch (request) -->
+  <line x1="460" y1="130" x2="505" y2="130" stroke="#4f46e5" stroke-width="1.5" marker-end="url(#arr-ind)"/>
+  <text x="482" y="126" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#4f46e5" font-weight="600">0200</text>
+
+  <!-- Switch → Acquirer (response) -->
+  <line x1="505" y1="146" x2="460" y2="146" stroke="#4f46e5" stroke-width="1.5" marker-end="url(#arr-ind)"/>
+  <text x="482" y="158" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#4f46e5">0210</text>
+
+  <!-- Switch → Issuer (request) -->
+  <line x1="695" y1="130" x2="740" y2="130" stroke="#4f46e5" stroke-width="1.5" marker-end="url(#arr-ind)"/>
+  <text x="717" y="126" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#4f46e5" font-weight="600">0200</text>
+
+  <!-- Issuer → Switch (response) -->
+  <line x1="740" y1="146" x2="695" y2="146" stroke="#4f46e5" stroke-width="1.5" marker-end="url(#arr-ind)"/>
+  <text x="717" y="158" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#4f46e5">0210</text>
+
+  <!-- ==================== HSM Simulator (below issuer) ==================== -->
+  <rect x="740" y="230" width="190" height="72" rx="10" fill="#fff" stroke="#d97706" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="740" y="230" width="190" height="26" rx="10" fill="#d97706"/>
+  <rect x="740" y="244" width="190" height="12" fill="#d97706"/>
+  <text x="835" y="248" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#fff">HSM Simulator</text>
+  <text x="835" y="270" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#d97706" font-weight="600">KRIPTOGRAFI</text>
+  <text x="754" y="288" font-family="sans-serif" font-size="8" fill="#475569">PIN verification, MAC generation</text>
+
+  <!-- Arrow: Issuer → HSM (down) -->
+  <line x1="810" y1="196" x2="810" y2="230" stroke="#d97706" stroke-width="1.5" marker-end="url(#arr-amb)"/>
+  <text x="796" y="216" font-family="sans-serif" font-size="7" fill="#d97706">HSM Cmd</text>
+
+  <!-- Arrow: HSM → Issuer (up) -->
+  <line x1="860" y1="230" x2="860" y2="196" stroke="#d97706" stroke-width="1.5" marker-end="url(#arr-amb)"/>
+  <text x="880" y="216" font-family="sans-serif" font-size="7" fill="#d97706">Response</text>
+
+  <!-- ==================== Flow description ==================== -->
+  <rect x="30" y="230" width="680" height="72" rx="8" fill="#fff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="50" y="250" font-family="sans-serif" font-size="9" font-weight="600" fill="#475569">Skenario: Tarik Tunai di ATM Bank Lain (Not-On-Us)</text>
+  <text x="50" y="268" font-family="sans-serif" font-size="8" fill="#64748b">1. Nasabah Bank B masukkan kartu di ATM Bank A → ATM kirim ISO 8583 (0200) ke ATM Server Bank A</text>
+  <text x="50" y="280" font-family="sans-serif" font-size="8" fill="#64748b">2. ATM Server Bank A cek BIN → bukan kartu sendiri → forward ke Payment Switch</text>
+  <text x="50" y="292" font-family="sans-serif" font-size="8" fill="#64748b">3. Payment Switch routing berdasarkan BIN → kirim ke ATM Server Bank B (issuer) → verifikasi PIN via HSM → response balik</text>
+
+  <!-- ==================== Protocol Legend ==================== -->
+  <rect x="30" y="326" width="900" height="44" rx="8" fill="none" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="50" y="344" font-family="sans-serif" font-size="9" font-weight="600" fill="#475569">Protokol:</text>
+  <rect x="50" y="352" width="60" height="14" rx="4" fill="#eef2ff" stroke="#c7d2fe" stroke-width="0.5"/>
+  <text x="80" y="362" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="600" fill="#4f46e5">ISO 8583</text>
+  <text x="118" y="362" font-family="sans-serif" font-size="8" fill="#475569">0200 = Financial Request, 0210 = Financial Response</text>
+
+  <rect x="410" y="352" width="80" height="14" rx="4" fill="#fef3c7" stroke="#fde68a" stroke-width="0.5"/>
+  <text x="450" y="362" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="600" fill="#d97706">HSM Protocol</text>
+  <text x="498" y="362" font-family="sans-serif" font-size="8" fill="#475569">PIN block translation, MAC generation, key management</text>
+
+  <!-- ==================== Repos ==================== -->
+  <text x="50" y="396" font-family="sans-serif" font-size="8" fill="#94a3b8">Repositories: artivisi/payment-simulator · artivisi/hsm-simulator · artivisi/atm-server · artivisi/atm-simulator</text>
+  <text x="480" y="412" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#94a3b8">Semua komponen di-orchestrate via Docker Compose — satu perintah untuk menjalankan seluruh ekosistem</text>
+</svg>

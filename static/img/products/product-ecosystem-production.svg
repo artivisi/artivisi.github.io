@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 650">
+  <defs>
+    <marker id="arr-blue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 3, 0 6" fill="#2563eb"/>
+    </marker>
+    <marker id="arr-green" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 3, 0 6" fill="#16a34a"/>
+    </marker>
+    <marker id="arr-amber" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 3, 0 6" fill="#d97706"/>
+    </marker>
+    <marker id="arr-purple" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 3, 0 6" fill="#7c3aed"/>
+    </marker>
+    <marker id="arr-slate" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 3, 0 6" fill="#475569"/>
+    </marker>
+    <filter id="sh">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+    <filter id="sh-lg">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="650" fill="#f8fafc" rx="8"/>
+
+  <!-- ==================== ROW 0: Akunting + Tawqi ==================== -->
+
+  <!-- Aplikasi Akunting -->
+  <rect x="60" y="30" width="250" height="115" rx="10" fill="#fff" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="60" y="30" width="250" height="28" rx="10" fill="#f59e0b"/>
+  <rect x="60" y="44" width="250" height="14" fill="#f59e0b"/>
+  <text x="185" y="49" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#fff">Aplikasi Akunting</text>
+  <text x="185" y="72" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#d97706" font-weight="600">PENCATATAN KEUANGAN</text>
+  <text x="76" y="90" font-family="sans-serif" font-size="9" fill="#475569">Jurnal &amp; Buku Besar</text>
+  <text x="76" y="104" font-family="sans-serif" font-size="9" fill="#475569">Laporan Keuangan</text>
+  <text x="76" y="118" font-family="sans-serif" font-size="9" fill="#475569">Pajak, Payroll, BPJS</text>
+  <text x="76" y="132" font-family="sans-serif" font-size="9" fill="#475569">Aset Tetap, Inventory</text>
+
+  <!-- Tawqi -->
+  <rect x="650" y="30" width="250" height="115" rx="10" fill="#fff" stroke="#7c3aed" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="650" y="30" width="250" height="28" rx="10" fill="#7c3aed"/>
+  <rect x="650" y="44" width="250" height="14" fill="#7c3aed"/>
+  <text x="775" y="49" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#fff">Tawqi</text>
+  <text x="775" y="72" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#7c3aed" font-weight="600">TANDA TANGAN DIGITAL</text>
+  <text x="666" y="90" font-family="sans-serif" font-size="9" fill="#475569">PDF Signing (PAdES-B-B)</text>
+  <text x="666" y="104" font-family="sans-serif" font-size="9" fill="#475569">Multi-Signer Workflow</text>
+  <text x="666" y="118" font-family="sans-serif" font-size="9" fill="#475569">Batch Signing</text>
+  <text x="666" y="132" font-family="sans-serif" font-size="9" fill="#475569">PKI via HashiCorp Vault</text>
+
+  <!-- ==================== CLIENT APP (center, prominent) ==================== -->
+  <rect x="200" y="220" width="560" height="60" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2" filter="url(#sh-lg)"/>
+  <text x="480" y="249" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#fff">APLIKASI KLIEN</text>
+  <text x="480" y="269" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#94a3b8">University SIS / Hospital HIS / ERP / Government App / HR System</text>
+
+  <!-- ==================== Curved arrows: Client ↔ Akunting/Tawqi ==================== -->
+  <!-- Client → Akunting (cubic bezier: leave client vertically, sweep into akunting) -->
+  <path d="M 340,220 C 340,170 185,190 185,145" stroke="#d97706" stroke-width="1.5" fill="none" marker-end="url(#arr-amber)"/>
+  <text x="235" y="175" font-family="sans-serif" font-size="8" fill="#d97706" font-weight="600">Accounting API</text>
+
+  <!-- Client → Tawqi (cubic bezier: symmetric curve to the right) -->
+  <path d="M 620,220 C 620,170 775,190 775,145" stroke="#7c3aed" stroke-width="1.5" fill="none" marker-end="url(#arr-purple)"/>
+  <text x="725" y="175" font-family="sans-serif" font-size="8" fill="#7c3aed" font-weight="600">Signing API</text>
+
+  <!-- ==================== Curved arrows: Client → Gateway/Disbursement ==================== -->
+  <!-- Client → Gateway (cubic bezier: leave client vertically, sweep into gateway) -->
+  <path d="M 340,280 C 340,330 185,310 185,355" stroke="#2563eb" stroke-width="1.5" fill="none" marker-end="url(#arr-blue)"/>
+  <text x="235" y="325" font-family="sans-serif" font-size="8" fill="#2563eb" font-weight="600">Payment API</text>
+
+  <!-- Client → Disbursement (cubic bezier: symmetric curve to the right) -->
+  <path d="M 620,280 C 620,330 775,310 775,355" stroke="#16a34a" stroke-width="1.5" fill="none" marker-end="url(#arr-green)"/>
+  <text x="725" y="325" font-family="sans-serif" font-size="8" fill="#16a34a" font-weight="600">Disbursement API</text>
+
+  <!-- ==================== ROW 2: Gateway + Disbursement ==================== -->
+
+  <!-- SNAP Payment Gateway -->
+  <rect x="60" y="355" width="250" height="115" rx="10" fill="#fff" stroke="#2563eb" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="60" y="355" width="250" height="28" rx="10" fill="#2563eb"/>
+  <rect x="60" y="369" width="250" height="14" fill="#2563eb"/>
+  <text x="185" y="374" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#fff">SNAP Payment Gateway</text>
+  <text x="185" y="397" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#2563eb" font-weight="600">UANG MASUK</text>
+  <text x="76" y="415" font-family="sans-serif" font-size="9" fill="#475569">Virtual Account (multi-bank)</text>
+  <text x="76" y="429" font-family="sans-serif" font-size="9" fill="#475569">QRIS MPM</text>
+  <text x="76" y="443" font-family="sans-serif" font-size="9" fill="#475569">Rekonsiliasi Otomatis</text>
+  <text x="76" y="457" font-family="sans-serif" font-size="9" fill="#475569">Notification Handler</text>
+
+  <!-- Disbursement Platform -->
+  <rect x="650" y="355" width="250" height="115" rx="10" fill="#fff" stroke="#16a34a" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="650" y="355" width="250" height="28" rx="10" fill="#16a34a"/>
+  <rect x="650" y="369" width="250" height="14" fill="#16a34a"/>
+  <text x="775" y="374" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#fff">Disbursement Platform</text>
+  <text x="775" y="397" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#16a34a" font-weight="600">UANG KELUAR</text>
+  <text x="666" y="415" font-family="sans-serif" font-size="9" fill="#475569">Batch Transfer</text>
+  <text x="666" y="429" font-family="sans-serif" font-size="9" fill="#475569">Maker-Checker Approval</text>
+  <text x="666" y="443" font-family="sans-serif" font-size="9" fill="#475569">Retry &amp; Partial Failure</text>
+  <text x="666" y="457" font-family="sans-serif" font-size="9" fill="#475569">Execution Engine</text>
+
+  <!-- ==================== SNAP API Layer ==================== -->
+  <rect x="60" y="505" width="840" height="30" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="480" y="525" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="600" fill="#475569">SNAP API Layer — OAuth 2.0 + mTLS + Asymmetric / Symmetric Signature</text>
+
+  <!-- Arrows: Gateway → SNAP -->
+  <line x1="185" y1="470" x2="185" y2="505" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arr-blue)"/>
+
+  <!-- Arrows: Disbursement → SNAP -->
+  <line x1="775" y1="470" x2="775" y2="505" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arr-green)"/>
+
+  <!-- ==================== Banks + SP Simulator ==================== -->
+  <rect x="80" y="565" width="80" height="28" rx="6" fill="#fff" stroke="#94a3b8" stroke-width="1" filter="url(#sh)"/>
+  <text x="120" y="583" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="600" fill="#1e293b">BNI</text>
+
+  <rect x="178" y="565" width="80" height="28" rx="6" fill="#fff" stroke="#94a3b8" stroke-width="1" filter="url(#sh)"/>
+  <text x="218" y="583" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="600" fill="#1e293b">BCA</text>
+
+  <rect x="276" y="565" width="80" height="28" rx="6" fill="#fff" stroke="#94a3b8" stroke-width="1" filter="url(#sh)"/>
+  <text x="316" y="583" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="600" fill="#1e293b">Mandiri</text>
+
+  <rect x="374" y="565" width="80" height="28" rx="6" fill="#fff" stroke="#94a3b8" stroke-width="1" filter="url(#sh)"/>
+  <text x="414" y="583" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="600" fill="#1e293b">BRI</text>
+
+  <rect x="472" y="565" width="80" height="28" rx="6" fill="#fff" stroke="#94a3b8" stroke-width="1" filter="url(#sh)"/>
+  <text x="512" y="583" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="600" fill="#1e293b">BSI</text>
+
+  <!-- SP Simulator (in line with banks, dashed border) -->
+  <rect x="680" y="565" width="200" height="28" rx="6" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5" stroke-dasharray="5,3" filter="url(#sh)"/>
+  <text x="780" y="583" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="600" fill="#2563eb">SP Simulator (dev/test)</text>
+
+  <!-- Arrows: SNAP → Banks -->
+  <line x1="120" y1="535" x2="120" y2="565" stroke="#475569" stroke-width="1" marker-end="url(#arr-slate)"/>
+  <line x1="218" y1="535" x2="218" y2="565" stroke="#475569" stroke-width="1" marker-end="url(#arr-slate)"/>
+  <line x1="316" y1="535" x2="316" y2="565" stroke="#475569" stroke-width="1" marker-end="url(#arr-slate)"/>
+  <line x1="414" y1="535" x2="414" y2="565" stroke="#475569" stroke-width="1" marker-end="url(#arr-slate)"/>
+  <line x1="512" y1="535" x2="512" y2="565" stroke="#475569" stroke-width="1" marker-end="url(#arr-slate)"/>
+  <line x1="780" y1="535" x2="780" y2="565" stroke="#93c5fd" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arr-blue)"/>
+
+  <!-- ==================== Footer ==================== -->
+  <text x="480" y="628" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#94a3b8">Semua produk open source (Apache 2.0) — on-premise di infrastruktur klien</text>
+</svg>
