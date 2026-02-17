@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1095 1005">
+  <defs>
+    <marker id="arrow-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#7c3aed"/>
+    </marker>
+    <marker id="arrow-purple-r" markerWidth="10" markerHeight="7" refX="1" refY="3.5" orient="auto" markerUnits="strokeWidth">
+      <polygon points="10 0, 0 3.5, 10 7" fill="#7c3aed"/>
+    </marker>
+    <marker id="arrow-purple-light" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#c4b5fd"/>
+    </marker>
+    <linearGradient id="bg-p" x1="0" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#f5f3ff"/>
+    </linearGradient>
+    <linearGradient id="purple-header" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#581c87"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <filter id="sp-sm">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+    <filter id="sp-md">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.1"/>
+    </filter>
+    <pattern id="cross" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M12 0v24M0 12h24" stroke="#e2e8f0" stroke-width="0.3" opacity="0.4"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1095" height="1005" rx="12" fill="url(#bg-p)"/>
+  <rect width="1095" height="1005" rx="12" fill="url(#cross)"/>
+
+  <!-- Title Bar -->
+  <rect x="0" y="0" width="1095" height="56" rx="12" fill="url(#purple-header)"/>
+  <rect x="0" y="20" width="1095" height="36" fill="url(#purple-header)"/>
+  <text x="547" y="36" text-anchor="middle" fill="white" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="1">TAWQI — DIGITAL DOCUMENT SIGNING ARCHITECTURE</text>
+
+  <!-- ============ CLIENT LAYER ============ -->
+  <text x="55" y="90" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="2">CLIENT LAYER</text>
+  <line x1="55" y1="96" x2="190" y2="96" stroke="#cbd5e1" stroke-width="1"/>
+
+  <g filter="url(#sp-sm)">
+    <rect x="100" y="108" width="220" height="55" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1.5"/>
+    <text x="210" y="133" text-anchor="middle" fill="#1e293b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="600">Web Browser</text>
+    <text x="210" y="150" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">Users / Signers / Admin</text>
+  </g>
+  <g filter="url(#sp-sm)">
+    <rect x="370" y="108" width="260" height="55" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1.5"/>
+    <text x="500" y="133" text-anchor="middle" fill="#1e293b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="600">Client Application</text>
+    <text x="500" y="150" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">SIAKAD / HRM / ERP</text>
+  </g>
+  <g filter="url(#sp-sm)">
+    <rect x="680" y="108" width="220" height="55" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1.5"/>
+    <text x="790" y="133" text-anchor="middle" fill="#1e293b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="600">Batch Client</text>
+    <text x="790" y="150" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">Bulk signing automation</text>
+  </g>
+
+  <!-- Arrows from clients -->
+  <line x1="210" y1="163" x2="210" y2="205" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrow-purple)"/>
+  <text x="210" y="192" text-anchor="middle" fill="#7c3aed" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="600">Web UI</text>
+  <line x1="500" y1="163" x2="500" y2="205" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrow-purple)"/>
+  <text x="500" y="192" text-anchor="middle" fill="#7c3aed" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="600">REST API</text>
+  <line x1="790" y1="163" x2="790" y2="205" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrow-purple)"/>
+  <text x="790" y="192" text-anchor="middle" fill="#7c3aed" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="600">REST API</text>
+
+  <!-- ============ TAWQI PLATFORM ============ -->
+  <rect x="40" y="215" width="1015" height="540" rx="10" fill="white" stroke="#7c3aed" stroke-width="2" filter="url(#sp-md)"/>
+  <rect x="40" y="215" width="1015" height="44" rx="10" fill="url(#purple-header)"/>
+  <rect x="40" y="239" width="1015" height="20" fill="url(#purple-header)"/>
+  <text x="547" y="243" text-anchor="middle" fill="white" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="0.5">TAWQI PLATFORM</text>
+
+  <!-- Document Management Row -->
+  <text x="65" y="284" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" letter-spacing="1.5">DOCUMENT FLOW</text>
+  <line x1="65" y1="289" x2="180" y2="289" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- Document flow: horizontal chain with arrows -->
+  <rect x="65" y="298" width="215" height="52" rx="6" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1"/>
+  <text x="172" y="320" text-anchor="middle" fill="#581c87" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600">Document Upload</text>
+  <text x="172" y="340" text-anchor="middle" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">PDF ingestion &amp; preview</text>
+
+  <line x1="280" y1="324" x2="310" y2="324" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrow-purple)"/>
+
+  <rect x="315" y="298" width="215" height="52" rx="6" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1"/>
+  <text x="422" y="320" text-anchor="middle" fill="#581c87" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600">Signing Workflow</text>
+  <text x="422" y="340" text-anchor="middle" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">sequential | parallel | multi-signer</text>
+
+  <line x1="530" y1="324" x2="560" y2="324" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrow-purple)"/>
+
+  <rect x="565" y="298" width="215" height="52" rx="6" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1"/>
+  <text x="672" y="320" text-anchor="middle" fill="#581c87" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600">PDF Signing</text>
+  <text x="672" y="340" text-anchor="middle" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">PAdES-B-B via PDFBox</text>
+
+  <line x1="780" y1="324" x2="810" y2="324" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrow-purple)"/>
+
+  <rect x="815" y="298" width="215" height="52" rx="6" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1"/>
+  <text x="922" y="320" text-anchor="middle" fill="#581c87" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600">QR Verification</text>
+  <text x="922" y="340" text-anchor="middle" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">Document authenticity</text>
+
+  <!-- Batch signing module - connects to workflow -->
+  <rect x="315" y="365" width="215" height="42" rx="6" fill="#faf5ff" stroke="#c4b5fd" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="422" y="390" text-anchor="middle" fill="#581c87" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600">Batch Signing Module</text>
+  <line x1="422" y1="350" x2="422" y2="365" stroke="#c4b5fd" stroke-width="1.5" stroke-dasharray="3,2"/>
+
+  <!-- PKI Subsystem (distinct sub-container) -->
+  <text x="65" y="432" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" letter-spacing="1.5">CRYPTOGRAPHIC LAYER</text>
+  <line x1="65" y1="437" x2="210" y2="437" stroke="#e2e8f0" stroke-width="1"/>
+
+  <rect x="65" y="445" width="610" height="110" rx="8" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.5"/>
+  <text x="75" y="463" fill="#7c3aed" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1">PKI ENGINE</text>
+
+  <rect x="85" y="472" width="220" height="45" rx="5" fill="#7c3aed"/>
+  <text x="195" y="494" text-anchor="middle" fill="white" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600">HashiCorp Vault</text>
+  <text x="195" y="509" text-anchor="middle" fill="#e9d5ff" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9">Root CA + Intermediate CA + Transit</text>
+
+  <!-- Bidirectional arrow between Vault and BouncyCastle -->
+  <line x1="305" y1="494" x2="355" y2="494" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrow-purple)"/>
+  <line x1="355" y1="500" x2="305" y2="500" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrow-purple)"/>
+
+  <rect x="360" y="472" width="220" height="45" rx="5" fill="#7c3aed"/>
+  <text x="470" y="494" text-anchor="middle" fill="white" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600">BouncyCastle</text>
+  <text x="470" y="509" text-anchor="middle" fill="#e9d5ff" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9">Certificate operations</text>
+
+  <!-- Arrow from PKI up to PDF Signing -->
+  <line x1="470" y1="445" x2="470" y2="420" stroke="#c4b5fd" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="470" y1="420" x2="672" y2="420" stroke="#c4b5fd" stroke-width="1.5"/>
+  <line x1="672" y1="420" x2="672" y2="350" stroke="#c4b5fd" stroke-width="1.5" marker-end="url(#arrow-purple-light)"/>
+  <text x="570" y="414" fill="#7c3aed" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="600">signing keys</text>
+
+  <!-- Audit Trail -->
+  <text x="65" y="580" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" letter-spacing="1.5">COMPLIANCE</text>
+  <line x1="65" y1="585" x2="160" y2="585" stroke="#e2e8f0" stroke-width="1"/>
+
+  <rect x="65" y="593" width="980" height="40" rx="6" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1"/>
+  <text x="547" y="612" text-anchor="middle" fill="#581c87" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600">Audit Trail</text>
+  <text x="547" y="627" text-anchor="middle" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">Signer identity · Timestamp · Document hash · IP address · Certificate serial · Workflow state transitions</text>
+
+  <!-- Admin dashboard bar -->
+  <rect x="65" y="645" width="980" height="30" rx="4" fill="#f5f3ff" stroke="#e9d5ff" stroke-width="1"/>
+  <text x="547" y="664" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">Admin Dashboard · User management · Certificate lifecycle · Signing statistics · Template management</text>
+
+  <!-- Tech bar -->
+  <rect x="65" y="685" width="980" height="26" rx="4" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="547" y="702" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">Tech: Java 25 · Spring Boot 4.0 · PostgreSQL 17 · BouncyCastle · Apache PDFBox · HashiCorp Vault</text>
+
+  <!-- ============ ARROWS TO INFRASTRUCTURE ============ -->
+  <line x1="200" y1="755" x2="200" y2="800" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrow-purple)"/>
+  <text x="200" y="785" text-anchor="middle" fill="#7c3aed" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="600">LDAPS</text>
+  <line x1="547" y1="755" x2="547" y2="800" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrow-purple)"/>
+  <text x="547" y="785" text-anchor="middle" fill="#7c3aed" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="600">JDBC</text>
+  <line x1="890" y1="755" x2="890" y2="800" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrow-purple)"/>
+  <text x="890" y="785" text-anchor="middle" fill="#7c3aed" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="600">Vault API</text>
+
+  <!-- ============ INFRASTRUCTURE LAYER ============ -->
+  <text x="55" y="825" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="2">INFRASTRUCTURE</text>
+  <line x1="55" y1="831" x2="200" y2="831" stroke="#cbd5e1" stroke-width="1"/>
+
+  <g filter="url(#sp-sm)">
+    <rect x="90" y="842" width="220" height="55" rx="8" fill="white" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="200" y="867" text-anchor="middle" fill="#581c87" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="700">LDAP / AD</text>
+    <text x="200" y="886" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">User directory</text>
+  </g>
+  <g filter="url(#sp-sm)">
+    <rect x="437" y="842" width="220" height="55" rx="8" fill="white" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="547" y="867" text-anchor="middle" fill="#581c87" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="700">PostgreSQL</text>
+    <text x="547" y="886" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">Documents &amp; audit data</text>
+  </g>
+  <g filter="url(#sp-sm)">
+    <rect x="780" y="842" width="220" height="55" rx="8" fill="white" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="890" y="867" text-anchor="middle" fill="#581c87" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="700">Vault PKI</text>
+    <text x="890" y="886" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">Certificate authority</text>
+  </g>
+
+  <!-- Badge -->
+  <rect x="420" y="920" width="255" height="38" rx="19" fill="#faf5ff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="547" y="944" text-anchor="middle" fill="#581c87" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="1.5">COMING Q2 2026</text>
+
+  <rect x="0" y="970" width="1095" height="4" fill="#7c3aed" opacity="0.3"/>
+  <text x="547" y="995" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11">artivisi.com · Self-hosted PKI-based digital document signing with PAdES compliance</text>
+</svg>

@@ -1,0 +1,220 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1095 1005">
+  <defs>
+    <marker id="arrow-indigo" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4f46e5"/>
+    </marker>
+    <marker id="arrow-indigo-left" markerWidth="10" markerHeight="7" refX="1" refY="3.5" orient="auto-start-reverse" markerUnits="strokeWidth">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4f46e5"/>
+    </marker>
+    <marker id="arrow-amber" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#d97706"/>
+    </marker>
+    <marker id="arrow-amber-up" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto-start-reverse" markerUnits="strokeWidth">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#d97706"/>
+    </marker>
+    <linearGradient id="bg-i" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8f9fc"/>
+      <stop offset="100%" stop-color="#eef2ff"/>
+    </linearGradient>
+    <linearGradient id="indigo-header" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#312e81"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
+    </linearGradient>
+    <filter id="si-sm">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+    <filter id="si-md">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.12"/>
+    </filter>
+    <pattern id="diag" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="12" stroke="#e2e8f0" stroke-width="0.4" opacity="0.3"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1095" height="1005" rx="12" fill="url(#bg-i)"/>
+  <rect width="1095" height="1005" rx="12" fill="url(#diag)"/>
+
+  <!-- Title Bar -->
+  <rect x="0" y="0" width="1095" height="56" rx="12" fill="url(#indigo-header)"/>
+  <rect x="0" y="20" width="1095" height="36" fill="url(#indigo-header)"/>
+  <text x="547" y="36" text-anchor="middle" fill="white" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="1">PAYMENT ECOSYSTEM SIMULATOR — SYSTEM ARCHITECTURE</text>
+
+  <!-- ============ MONITORING LAYER (TOP) ============ -->
+  <text x="55" y="90" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="2">MONITORING LAYER</text>
+  <line x1="55" y1="96" x2="210" y2="96" stroke="#cbd5e1" stroke-width="1"/>
+
+  <!-- Monitoring Dashboard - spans full width -->
+  <g filter="url(#si-md)">
+    <rect x="120" y="108" width="855" height="100" rx="10" fill="white" stroke="#4f46e5" stroke-width="2"/>
+    <rect x="120" y="108" width="855" height="34" rx="10" fill="#4f46e5"/>
+    <rect x="120" y="128" width="855" height="14" fill="#4f46e5"/>
+    <text x="547" y="130" text-anchor="middle" fill="white" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" font-weight="700">Monitoring Dashboard</text>
+    <text x="547" y="168" text-anchor="middle" fill="#4f46e5" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600">Real-time Transaction Visualization · Message Trace · Flow Diagram · Performance Metrics</text>
+    <text x="547" y="190" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">Thymeleaf + HTMX + WebSocket | Live ISO 8583 decode | Latency histograms</text>
+  </g>
+
+  <!-- WebSocket dotted lines from Dashboard down to components -->
+  <line x1="240" y1="208" x2="240" y2="290" stroke="#a5b4fc" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <text x="252" y="250" fill="#818cf8" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="600">WebSocket</text>
+  <line x1="547" y1="208" x2="547" y2="290" stroke="#a5b4fc" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <text x="559" y="250" fill="#818cf8" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="600">WebSocket</text>
+  <line x1="855" y1="208" x2="855" y2="290" stroke="#a5b4fc" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <text x="867" y="250" fill="#818cf8" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="600">WebSocket</text>
+
+  <!-- ============ TRANSACTION FLOW (HORIZONTAL) ============ -->
+  <text x="55" y="310" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="2">TRANSACTION FLOW</text>
+  <line x1="55" y1="316" x2="210" y2="316" stroke="#cbd5e1" stroke-width="1"/>
+
+  <!-- ATM Simulator (LEFT) -->
+  <g filter="url(#si-md)">
+    <rect x="55" y="330" width="250" height="200" rx="10" fill="white" stroke="#4f46e5" stroke-width="2"/>
+    <rect x="55" y="330" width="250" height="34" rx="10" fill="#4f46e5"/>
+    <rect x="55" y="350" width="250" height="14" fill="#4f46e5"/>
+    <text x="180" y="352" text-anchor="middle" fill="white" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="700">ATM Simulator</text>
+    <text x="180" y="385" text-anchor="middle" fill="#4f46e5" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600">Terminal Emulator</text>
+
+    <text x="75" y="410" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">Card number input</text>
+    <text x="75" y="428" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">PIN entry (encrypted)</text>
+    <text x="75" y="446" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">Withdrawal / Balance</text>
+    <text x="75" y="464" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">Transfer / Mini-statement</text>
+
+    <rect x="68" y="480" width="224" height="22" rx="3" fill="#eef2ff"/>
+    <text x="180" y="496" text-anchor="middle" fill="#6366f1" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="600">Generates ISO 8583 messages</text>
+
+    <!-- EXISTS badge -->
+    <rect x="68" y="510" width="55" height="14" rx="3" fill="#dcfce7" stroke="#86efac" stroke-width="0.5"/>
+    <text x="95" y="520" text-anchor="middle" fill="#166534" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="8" font-weight="700">EXISTS</text>
+  </g>
+
+  <!-- Payment Switch (CENTER) -->
+  <g filter="url(#si-md)">
+    <rect x="400" y="330" width="295" height="200" rx="10" fill="white" stroke="#4f46e5" stroke-width="2.5"/>
+    <rect x="400" y="330" width="295" height="34" rx="10" fill="#312e81"/>
+    <rect x="400" y="350" width="295" height="14" fill="#312e81"/>
+    <text x="547" y="352" text-anchor="middle" fill="white" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" font-weight="700">Payment Switch</text>
+    <text x="547" y="385" text-anchor="middle" fill="#312e81" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="700">Core Routing Engine</text>
+
+    <text x="420" y="410" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">ISO 8583 message parsing</text>
+    <text x="420" y="428" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">BIN-based routing</text>
+    <text x="420" y="446" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">Transaction state machine</text>
+    <text x="420" y="464" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">MAC validation</text>
+    <text x="420" y="482" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">Fee calculation</text>
+    <text x="420" y="500" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">Stand-in processing</text>
+
+    <!-- NEW badge -->
+    <rect x="413" y="510" width="42" height="14" rx="3" fill="#fef3c7" stroke="#fbbf24" stroke-width="0.5"/>
+    <text x="434" y="520" text-anchor="middle" fill="#92400e" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="8" font-weight="700">NEW</text>
+
+    <rect x="540" y="486" width="140" height="24" rx="4" fill="#eef2ff"/>
+    <text x="610" y="502" text-anchor="middle" fill="#4f46e5" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="600">jPOS 3.0 | TCP/IP</text>
+  </g>
+
+  <!-- ATM Server (RIGHT) -->
+  <g filter="url(#si-md)">
+    <rect x="790" y="330" width="250" height="200" rx="10" fill="white" stroke="#4f46e5" stroke-width="2"/>
+    <rect x="790" y="330" width="250" height="34" rx="10" fill="#4f46e5"/>
+    <rect x="790" y="350" width="250" height="14" fill="#4f46e5"/>
+    <text x="915" y="352" text-anchor="middle" fill="white" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="700">ATM Server</text>
+    <text x="915" y="385" text-anchor="middle" fill="#4f46e5" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600">Issuer / Bank Host</text>
+
+    <text x="810" y="410" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">Account lookup</text>
+    <text x="810" y="428" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">Balance check</text>
+    <text x="810" y="446" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">Debit/credit posting</text>
+    <text x="810" y="464" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">PIN verification</text>
+
+    <rect x="803" y="480" width="224" height="22" rx="3" fill="#eef2ff"/>
+    <text x="915" y="496" text-anchor="middle" fill="#6366f1" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="600">Configurable response codes</text>
+
+    <!-- EXISTS badge -->
+    <rect x="803" y="510" width="55" height="14" rx="3" fill="#dcfce7" stroke="#86efac" stroke-width="0.5"/>
+    <text x="830" y="520" text-anchor="middle" fill="#166534" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="8" font-weight="700">EXISTS</text>
+  </g>
+
+  <!-- ============ HORIZONTAL ARROWS (ISO 8583) ============ -->
+  <!-- ATM Simulator → Switch (request) -->
+  <line x1="305" y1="405" x2="400" y2="405" stroke="#4f46e5" stroke-width="2.5" marker-end="url(#arrow-indigo)"/>
+  <rect x="318" y="392" width="68" height="16" rx="3" fill="#eef2ff" stroke="#c7d2fe" stroke-width="0.5"/>
+  <text x="352" y="403" text-anchor="middle" fill="#4338ca" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="700">ISO 8583</text>
+  <text x="352" y="420" text-anchor="middle" fill="#4f46e5" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="8">0200 Request</text>
+
+  <!-- Switch → ATM Simulator (response) -->
+  <line x1="400" y1="445" x2="305" y2="445" stroke="#4f46e5" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrow-indigo)"/>
+  <text x="352" y="460" text-anchor="middle" fill="#818cf8" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="8">0210 Response</text>
+
+  <!-- Switch → ATM Server (request) -->
+  <line x1="695" y1="405" x2="790" y2="405" stroke="#4f46e5" stroke-width="2.5" marker-end="url(#arrow-indigo)"/>
+  <rect x="707" y="392" width="68" height="16" rx="3" fill="#eef2ff" stroke="#c7d2fe" stroke-width="0.5"/>
+  <text x="741" y="403" text-anchor="middle" fill="#4338ca" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="700">ISO 8583</text>
+  <text x="741" y="420" text-anchor="middle" fill="#4f46e5" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="8">0200 Request</text>
+
+  <!-- ATM Server → Switch (response) -->
+  <line x1="790" y1="445" x2="695" y2="445" stroke="#4f46e5" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrow-indigo)"/>
+  <text x="741" y="460" text-anchor="middle" fill="#818cf8" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="8">0210 Response</text>
+
+  <!-- ============ HSM SIMULATOR (BELOW SWITCH) ============ -->
+  <!-- Arrow from Switch down to HSM -->
+  <line x1="520" y1="530" x2="520" y2="590" stroke="#d97706" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <text x="507" y="565" text-anchor="end" fill="#d97706" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="600">HSM Command</text>
+
+  <!-- Arrow from HSM up to Switch -->
+  <line x1="575" y1="590" x2="575" y2="530" stroke="#d97706" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <text x="588" y="565" fill="#d97706" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="600">Response</text>
+
+  <g filter="url(#si-md)">
+    <rect x="310" y="600" width="475" height="150" rx="10" fill="white" stroke="#d97706" stroke-width="2"/>
+    <rect x="310" y="600" width="475" height="34" rx="10" fill="#d97706"/>
+    <rect x="310" y="620" width="475" height="14" fill="#d97706"/>
+    <text x="547" y="622" text-anchor="middle" fill="white" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" font-weight="700">HSM Simulator</text>
+    <text x="547" y="658" text-anchor="middle" fill="#92400e" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600">Hardware Security Module Emulator</text>
+
+    <!-- HSM capabilities in 2 columns -->
+    <text x="340" y="685" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">Key management (ZMK/ZPK/TMK)</text>
+    <text x="340" y="703" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">PIN block translation</text>
+    <text x="340" y="721" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">PIN verification (IBM/VISA PVV)</text>
+
+    <text x="570" y="685" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">MAC generation/verification</text>
+    <text x="570" y="703" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">CVV/CVC generation</text>
+    <text x="570" y="721" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">3DES / AES encryption</text>
+
+    <!-- EXISTS badge -->
+    <rect x="323" y="733" width="55" height="14" rx="3" fill="#dcfce7" stroke="#86efac" stroke-width="0.5"/>
+    <text x="350" y="743" text-anchor="middle" fill="#166534" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="8" font-weight="700">EXISTS</text>
+  </g>
+
+  <!-- ============ PROTOCOL LEGEND ============ -->
+  <text x="55" y="800" fill="#64748b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="2">PROTOCOLS &amp; STANDARDS</text>
+  <line x1="55" y1="806" x2="245" y2="806" stroke="#cbd5e1" stroke-width="1"/>
+
+  <g transform="translate(55, 820)">
+    <!-- ISO 8583 -->
+    <line x1="0" y1="10" x2="30" y2="10" stroke="#4f46e5" stroke-width="2.5"/>
+    <text x="38" y="14" fill="#475569" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">ISO 8583 (Financial messages)</text>
+
+    <!-- HSM -->
+    <line x1="260" y1="10" x2="290" y2="10" stroke="#d97706" stroke-width="2"/>
+    <text x="298" y="14" fill="#475569" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">HSM Commands (Thales/Atalla)</text>
+
+    <!-- WebSocket -->
+    <line x1="520" y1="10" x2="550" y2="10" stroke="#a5b4fc" stroke-width="1.5" stroke-dasharray="5,4"/>
+    <text x="558" y="14" fill="#475569" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">WebSocket (monitoring feed)</text>
+
+    <!-- Component status -->
+    <rect x="770" y="2" width="14" height="14" rx="3" fill="#dcfce7" stroke="#86efac" stroke-width="0.5"/>
+    <text x="792" y="14" fill="#475569" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">Existing component</text>
+
+    <rect x="910" y="2" width="14" height="14" rx="3" fill="#fef3c7" stroke="#fbbf24" stroke-width="0.5"/>
+    <text x="932" y="14" fill="#475569" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">New build</text>
+  </g>
+
+  <!-- Tech stack bar -->
+  <rect x="55" y="860" width="985" height="26" rx="4" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="547" y="878" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10">Tech: Java 25 · Spring Boot 4.0 · jPOS 3.0 · PostgreSQL 17 · Thymeleaf + HTMX · WebSocket · Docker Compose</text>
+
+  <!-- Badge -->
+  <rect x="420" y="905" width="255" height="38" rx="19" fill="#eef2ff" stroke="#4f46e5" stroke-width="1.5"/>
+  <text x="547" y="929" text-anchor="middle" fill="#312e81" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="1.5">COMING Q2 2026</text>
+
+  <rect x="0" y="960" width="1095" height="4" fill="#4f46e5" opacity="0.3"/>
+  <text x="547" y="988" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11">artivisi.com · Full ISO 8583 payment switch with ATM simulation and HSM for training labs</text>
+</svg>

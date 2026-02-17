@@ -1,21 +1,27 @@
 ---
 title: "Takopay"
-description: "Solusi payment gateway yang memungkinkan bisnis menerima pembayaran online secara aman, cepat, dan mudah dengan berbagai metode pembayaran."
+description: "Payment gateway on-premise dengan dukungan Virtual Account, QRIS, SNAP API, kartu kredit/debit, dan e-wallet untuk institusi yang membutuhkan kontrol penuh atas infrastruktur pembayaran."
 icon: "/img/products/takopay/thumbnail.png"
 weight: 2
 ---
 
 ## Deskripsi Produk
 
-Solusi yang memungkinkan bisnis menerima pembayaran secara online dengan aman dan cepat. Payment gateway ini mendukung berbagai metode transaksi termasuk kartu kredit, kartu debit, dan dompet digital, yang mempermudah transaksi bisnis dan meningkatkan pengalaman pelanggan.
+Payment gateway on-premise yang memberikan kontrol penuh kepada institusi atas infrastruktur pembayaran mereka. Mendukung penerimaan pembayaran melalui Virtual Account, QRIS, kartu kredit/debit, dan e-wallet dengan integrasi SNAP API ke berbagai bank.
 
 ## Fitur Utama
 
-- Disbursement
-- Remittance
-- Multiple payment methods (credit cards, debit cards, digital wallets)
-- Secure payment processing
-- Real-time transaction monitoring
+### Payment Channels
+- **Virtual Account** — Multi-bank VA generation dan reconciliation
+- **QRIS** — QR code payment sesuai standar Bank Indonesia
+- **Kartu Kredit/Debit** — Pemrosesan kartu dengan BouncyCastle encryption
+- **E-Wallet** — Integrasi dompet digital
+
+### Payment Operations
+- **Disbursement** — Pemrosesan pembayaran keluar (payroll, vendor)
+- **Remittance** — Transfer dana domestik dan internasional
+- **SNAP API Integration** — Koneksi langsung ke bank via Standar Nasional Open API Pembayaran
+- **Real-time monitoring** — Dashboard transaksi dan reconciliation
 
 ## Teknologi yang Digunakan
 
