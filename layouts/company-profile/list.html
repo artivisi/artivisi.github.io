@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="{{ site.LanguageCode }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }} | {{ site.Title }}</title>
+    <meta name="description" content="{{ .Description }}">
+    <link rel="icon" href="{{ "favicon.ico" | relURL }}">
+    <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { overflow: hidden; height: 100vh; width: 100vw; }
+      body { font-family: 'Geist', system-ui, -apple-system, sans-serif; }
+
+      /* Slide viewport */
+      .deck { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
+      .deck-track {
+        display: flex;
+        height: 100%;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: transform;
+      }
+      .slide {
+        flex: 0 0 100vw;
+        width: 100vw;
+        height: 100vh;
+        overflow-y: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 3rem 4rem;
+        position: relative;
+      }
+      .slide-inner { max-width: 72rem; width: 100%; }
+
+      /* Navigation arrows */
+      .nav-btn {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 50;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(37, 99, 235, 0.85);
+        color: white;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.2s, background 0.2s;
+        backdrop-filter: blur(4px);
+      }
+      .nav-btn:hover { background: rgba(37, 99, 235, 1); }
+      .nav-btn:disabled { opacity: 0; pointer-events: none; }
+      .nav-prev { left: 1.25rem; }
+      .nav-next { right: 1.25rem; }
+
+      /* Slide counter */
+      .slide-counter {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        z-index: 50;
+        font-family: 'GeistMono', ui-monospace, monospace;
+        font-size: 0.875rem;
+        padding: 0.375rem 0.75rem;
+        border-radius: 0.5rem;
+        background: rgba(0,0,0,0.5);
+        color: white;
+        backdrop-filter: blur(4px);
+      }
+
+      /* Progress bar */
+      .progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        background: #2563eb;
+        z-index: 60;
+        transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Slide backgrounds */
+      .slide-dark {
+        background: linear-gradient(135deg, #0f172a, #1e3a5f, #0f172a);
+        color: white;
+      }
+      .slide-light {
+        background: #ffffff;
+        color: #1e293b;
+      }
+      .slide-gray {
+        background: #f8fafc;
+        color: #1e293b;
+      }
+      .slide-brand {
+        background: linear-gradient(135deg, #1d4ed8, #2563eb, #1e40af);
+        color: white;
+      }
+
+      /* Tag chips */
+      .tag {
+        display: inline-block;
+        padding: 0.25rem 0.625rem;
+        border-radius: 0.375rem;
+        font-size: 0.75rem;
+        font-family: 'GeistMono', ui-monospace, monospace;
+      }
+      .tag-dark {
+        background: rgba(255,255,255,0.1);
+        color: rgba(255,255,255,0.9);
+      }
+      .tag-blue {
+        background: #dbeafe;
+        color: #1e40af;
+      }
+      .tag-green {
+        background: #dcfce7;
+        color: #166534;
+      }
+      .tag-amber {
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      /* Grids */
+      .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+      .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+      .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+      .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.75rem; }
+
+      /* Cards */
+      .card {
+        border-radius: 1rem;
+        padding: 1.5rem;
+        border: 1px solid #e2e8f0;
+        background: white;
+      }
+      .card-dark {
+        border: 1px solid rgba(255,255,255,0.1);
+        background: rgba(255,255,255,0.05);
+        backdrop-filter: blur(4px);
+      }
+
+      /* Section label */
+      .section-label {
+        display: inline-block;
+        padding: 0.25rem 0.625rem;
+        border-radius: 0.375rem;
+        font-size: 0.6875rem;
+        font-family: 'GeistMono', ui-monospace, monospace;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 1rem;
+      }
+
+      /* Dot pattern overlay */
+      .dot-pattern {
+        position: absolute;
+        inset: 0;
+        opacity: 0.06;
+        background-image: radial-gradient(circle at 1.5px 1.5px, currentColor 1px, transparent 0);
+        background-size: 32px 32px;
+        pointer-events: none;
+      }
+
+      /* Client logo cards on dark slide */
+      .client-logo-card {
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 0.75rem;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 4.5rem;
+      }
+      .client-logo-card img {
+        max-height: 3rem;
+        max-width: 100%;
+        object-fit: contain;
+        filter: brightness(0) invert(1);
+        opacity: 0.85;
+      }
+
+      /* Client name chip */
+      .client-name {
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 0.5rem;
+        padding: 0.5rem 0.75rem;
+        text-align: center;
+        font-size: 0.8125rem;
+        color: rgba(255,255,255,0.85);
+      }
+
+      /* Accent dot */
+      .dot { display: inline-block; width: 0.5rem; height: 0.5rem; border-radius: 50%; flex-shrink: 0; }
+
+      /* Icon circle */
+      .icon-circle {
+        width: 2.75rem;
+        height: 2.75rem;
+        border-radius: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .icon-circle svg { width: 1.375rem; height: 1.375rem; color: white; }
+
+      /* Project row */
+      .project-row {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 1.25rem;
+        border-radius: 0.75rem;
+        border: 1px solid #e2e8f0;
+        background: white;
+      }
+      .project-logo {
+        width: 2.75rem;
+        height: 2.75rem;
+        border-radius: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .project-logo img { width: 2rem; height: 2rem; object-fit: contain; }
+
+      /* Competency card icon */
+      .comp-card { display: flex; gap: 1rem; align-items: flex-start; }
+
+      /* Differentiator item */
+      .diff-item { display: flex; gap: 0.75rem; align-items: flex-start; }
+      .diff-dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; margin-top: 0.5rem; flex-shrink: 0; }
+
+      /* Training card */
+      .training-card {
+        border-radius: 0.75rem;
+        padding: 1rem 1.25rem;
+        border: 1px solid #e2e8f0;
+        background: white;
+      }
+
+      /* Stat block on cover */
+      .stat-block {
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 1rem;
+        padding: 1.25rem 1.5rem;
+        text-align: center;
+      }
+      .stat-num {
+        font-size: 2.25rem;
+        font-weight: 700;
+        font-family: 'GeistMono', ui-monospace, monospace;
+        color: #4ade80;
+      }
+      .stat-label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: rgba(255,255,255,0.6);
+        margin-top: 0.25rem;
+      }
+
+      /* Contact item */
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 0.625rem;
+        color: rgba(255,255,255,0.8);
+        font-size: 0.9375rem;
+      }
+      .contact-item svg { width: 1.25rem; height: 1.25rem; flex-shrink: 0; }
+
+      /* Responsive: smaller screens get tighter padding */
+      @media (max-width: 1024px) {
+        .slide { padding: 2rem 2.5rem; }
+        .grid-3 { grid-template-columns: repeat(2, 1fr); }
+        .grid-4 { grid-template-columns: repeat(2, 1fr); }
+        .grid-5 { grid-template-columns: repeat(3, 1fr); }
+      }
+
+      /* Print: stack all slides */
+      @media print {
+        html, body { overflow: visible; height: auto; }
+        .deck { overflow: visible; height: auto; }
+        .deck-track { display: block; transform: none !important; }
+        .slide {
+          height: auto;
+          min-height: 100vh;
+          page-break-after: always;
+          break-after: page;
+        }
+        .nav-btn, .slide-counter, .progress-bar { display: none !important; }
+      }
+    </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+
+<!-- Navigation arrows -->
+<button class="nav-btn nav-prev" id="prevBtn" aria-label="Previous slide">
+  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+</button>
+<button class="nav-btn nav-next" id="nextBtn" aria-label="Next slide">
+  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+</button>
+
+<!-- Slide counter -->
+<div class="slide-counter" id="counter">1 / 10</div>
+
+<!-- ============================== -->
+<!-- SLIDE DECK                      -->
+<!-- ============================== -->
+<div class="deck">
+  <div class="deck-track" id="track">
+
+    <!-- ========== SLIDE 1: COVER ========== -->
+    <section class="slide slide-dark">
+      <div class="dot-pattern"></div>
+      <div class="slide-inner" style="position:relative; z-index:1;">
+        <div style="display:grid; grid-template-columns: 1.2fr 0.8fr; gap:3rem; align-items:center;">
+          <div>
+            <div style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.375rem 0.875rem; background:rgba(255,255,255,0.1); border-radius:9999px; font-size:0.8125rem; font-family:'GeistMono',monospace; margin-bottom:2rem;">
+              <span style="width:0.5rem;height:0.5rem;background:#4ade80;border-radius:50%;"></span>
+              COMPANY PROFILE 2026
+            </div>
+            <h1 style="font-size:3.5rem; font-weight:700; line-height:1.1; margin-bottom:1.25rem;">
+              ArtiVisi<br>
+              <span style="background:linear-gradient(to right,#93c5fd,#4ade80);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Intermedia</span>
+            </h1>
+            <p style="font-size:1.125rem; color:rgba(255,255,255,0.75); line-height:1.6; max-width:32rem; margin-bottom:2rem;">
+              Spesialis sistem pembayaran dan infrastruktur keuangan untuk institusi perbankan, pemerintah, dan enterprise di Indonesia.
+            </p>
+            <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+              <span class="tag tag-dark">ISO 8583</span>
+              <span class="tag tag-dark">SNAP API</span>
+              <span class="tag tag-dark">Payment Gateway</span>
+              <span class="tag tag-dark">HSM</span>
+              <span class="tag tag-dark">BI-FAST</span>
+              <span class="tag tag-dark">QRIS</span>
+            </div>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+            <div class="stat-block">
+              <div class="stat-num">20+</div>
+              <div class="stat-label">Tahun Pengalaman</div>
+            </div>
+            <div class="stat-block">
+              <div class="stat-num">40+</div>
+              <div class="stat-label">Corporate Training</div>
+            </div>
+            <div class="stat-block">
+              <div class="stat-num">16+</div>
+              <div class="stat-label">Produk & Proyek</div>
+            </div>
+            <div class="stat-block">
+              <div class="stat-num">8</div>
+              <div class="stat-label">Program Pelatihan</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SLIDE 2: ABOUT ========== -->
+    <section class="slide slide-light">
+      <div class="slide-inner">
+        <div style="display:grid; grid-template-columns: 2fr 3fr; gap:3rem; align-items:start;">
+          <div>
+            <div class="section-label" style="background:#dbeafe; color:#1e40af;">Tentang Kami</div>
+            <h2 style="font-size:2.25rem; font-weight:700; line-height:1.2; color:#0f172a;">
+              Membangun Infrastruktur Pembayaran Indonesia Sejak 2008
+            </h2>
+          </div>
+          <div>
+            <p style="font-size:1.0625rem; color:#475569; line-height:1.7; margin-bottom:1rem;">
+              ArtiVisi Intermedia adalah konsultan IT dan pengembang perangkat lunak yang berfokus pada
+              <strong style="color:#0f172a;">sistem pembayaran</strong>,
+              <strong style="color:#0f172a;">infrastruktur keuangan</strong>, dan
+              <strong style="color:#0f172a;">integrasi perbankan</strong>.
+              Kami menyediakan solusi end-to-end mulai dari pengembangan produk, konsultasi arsitektur, hingga pelatihan teknis.
+            </p>
+            <p style="font-size:1.0625rem; color:#475569; line-height:1.7; margin-bottom:2rem;">
+              Dipimpin oleh Endy Muhardin dengan pengalaman 20+ tahun di industri IT, dari core banking hingga microservices modern.
+              Spesialisasi kami mencakup ISO 8583, SNAP API Bank Indonesia, HSM integration, dan payment gateway on-premise.
+            </p>
+            <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem;">
+              <div style="border-left:3px solid #2563eb; padding-left:1rem;">
+                <div style="font-size:1.5rem; font-weight:700; font-family:'GeistMono',monospace; color:#0f172a;">2008</div>
+                <div style="font-size:0.8125rem; color:#64748b;">Beroperasi sejak</div>
+              </div>
+              <div style="border-left:3px solid #22c55e; padding-left:1rem;">
+                <div style="font-size:1.5rem; font-weight:700; font-family:'GeistMono',monospace; color:#0f172a;">Bogor</div>
+                <div style="font-size:0.8125rem; color:#64748b;">Jawa Barat, Indonesia</div>
+              </div>
+              <div style="border-left:3px solid #2563eb; padding-left:1rem;">
+                <div style="font-size:1.5rem; font-weight:700; font-family:'GeistMono',monospace; color:#0f172a;">Apache 2.0</div>
+                <div style="font-size:0.8125rem; color:#64748b;">Open Source License</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SLIDE 3: CORE COMPETENCIES ========== -->
+    <section class="slide slide-gray">
+      <div class="slide-inner">
+        <div style="text-align:center; margin-bottom:2rem;">
+          <div class="section-label" style="background:#dbeafe; color:#1e40af;">Kompetensi Inti</div>
+          <h2 style="font-size:2.25rem; font-weight:700; color:#0f172a;">Keahlian Spesialis Kami</h2>
+        </div>
+        <div class="grid-3">
+          <!-- Payment Systems -->
+          <div class="card">
+            <div class="comp-card">
+              <div class="icon-circle" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8);">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+              </div>
+              <div>
+                <h3 style="font-weight:700; font-size:1rem; color:#0f172a; margin-bottom:0.375rem;">Sistem Pembayaran</h3>
+                <p style="font-size:0.8125rem; color:#64748b; line-height:1.5; margin-bottom:0.625rem;">ISO 8583, SNAP API, payment gateway, HSM key management, PIN block encryption.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:0.25rem;">
+                  <span class="tag tag-blue">ISO-8583</span>
+                  <span class="tag tag-blue">SNAP API</span>
+                  <span class="tag tag-blue">HSM</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Banking Integration -->
+          <div class="card">
+            <div class="comp-card">
+              <div class="icon-circle" style="background:linear-gradient(135deg,#10b981,#059669);">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/></svg>
+              </div>
+              <div>
+                <h3 style="font-weight:700; font-size:1rem; color:#0f172a; margin-bottom:0.375rem;">Integrasi Perbankan</h3>
+                <p style="font-size:0.8125rem; color:#64748b; line-height:1.5; margin-bottom:0.625rem;">ATM/EDC, Virtual Account, BI-FAST, QRIS, multi-bank connectivity.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:0.25rem;">
+                  <span class="tag tag-green">ATM/EDC</span>
+                  <span class="tag tag-green">BI-FAST</span>
+                  <span class="tag tag-green">QRIS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Financial Software -->
+          <div class="card">
+            <div class="comp-card">
+              <div class="icon-circle" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9);">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+              </div>
+              <div>
+                <h3 style="font-weight:700; font-size:1rem; color:#0f172a; margin-bottom:0.375rem;">Software Keuangan</h3>
+                <p style="font-size:0.8125rem; color:#64748b; line-height:1.5; margin-bottom:0.625rem;">Akunting, disbursement, remittance, VA splitter, e-Faktur compliance.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:0.25rem;">
+                  <span class="tag tag-blue">Akunting</span>
+                  <span class="tag tag-blue">Disbursement</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Security -->
+          <div class="card">
+            <div class="comp-card">
+              <div class="icon-circle" style="background:linear-gradient(135deg,#f59e0b,#d97706);">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+              </div>
+              <div>
+                <h3 style="font-weight:700; font-size:1rem; color:#0f172a; margin-bottom:0.375rem;">Keamanan & Compliance</h3>
+                <p style="font-size:0.8125rem; color:#64748b; line-height:1.5; margin-bottom:0.625rem;">PKI digital signatures, HSM, PIN encryption, SAST/DAST audit.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:0.25rem;">
+                  <span class="tag tag-amber">PKI</span>
+                  <span class="tag tag-amber">SpotBugs</span>
+                  <span class="tag tag-amber">OWASP</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Architecture -->
+          <div class="card">
+            <div class="comp-card">
+              <div class="icon-circle" style="background:linear-gradient(135deg,#f43f5e,#be123c);">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+              </div>
+              <div>
+                <h3 style="font-weight:700; font-size:1rem; color:#0f172a; margin-bottom:0.375rem;">Arsitektur Enterprise</h3>
+                <p style="font-size:0.8125rem; color:#64748b; line-height:1.5; margin-bottom:0.625rem;">Microservices, Kafka event-driven, REST API, OAuth 2.0 / SSO.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:0.25rem;">
+                  <span class="tag tag-blue">Microservices</span>
+                  <span class="tag tag-blue">Kafka</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- DevSecOps -->
+          <div class="card">
+            <div class="comp-card">
+              <div class="icon-circle" style="background:linear-gradient(135deg,#06b6d4,#0891b2);">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+              </div>
+              <div>
+                <h3 style="font-weight:700; font-size:1rem; color:#0f172a; margin-bottom:0.375rem;">DevSecOps</h3>
+                <p style="font-size:0.8125rem; color:#64748b; line-height:1.5; margin-bottom:0.625rem;">Docker, Kubernetes, CI/CD, SAST (SpotBugs, CodeQL), DAST (ZAP).</p>
+                <div style="display:flex; flex-wrap:wrap; gap:0.25rem;">
+                  <span class="tag tag-blue">Docker</span>
+                  <span class="tag tag-blue">K8s</span>
+                  <span class="tag tag-blue">CI/CD</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SLIDE 4: PRODUCTS 1/2 ========== -->
+    <section class="slide slide-light">
+      <div class="slide-inner">
+        <div style="text-align:center; margin-bottom:2rem;">
+          <div class="section-label" style="background:#dbeafe; color:#1e40af;">Portfolio Produk</div>
+          <h2 style="font-size:2.25rem; font-weight:700; color:#0f172a;">Produk & Solusi <span style="font-weight:400; font-size:1.125rem; color:#64748b;">(1/2)</span></h2>
+          <p style="font-size:0.9375rem; color:#64748b; margin-top:0.5rem;">Open source (Apache 2.0), on-premise deployment, tanpa biaya per transaksi.</p>
+        </div>
+        <div class="grid-2">
+          <!-- SNAP Gateway -->
+          <div class="card" style="border-color:#bfdbfe; background:linear-gradient(135deg,#eff6ff,#ffffff); position:relative;">
+            <div style="position:absolute; top:1.25rem; right:1.25rem;">
+              <span style="padding:0.25rem 0.625rem; background:#2563eb; color:white; font-size:0.6875rem; font-weight:700; border-radius:9999px; text-transform:uppercase; letter-spacing:0.05em;">Flagship</span>
+            </div>
+            <div class="icon-circle" style="background:#2563eb; margin-bottom:1rem;">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <h3 style="font-weight:700; font-size:1.125rem; color:#0f172a; margin-bottom:0.375rem;">SNAP Payment Gateway</h3>
+            <p style="font-size:0.8125rem; color:#64748b; line-height:1.5; margin-bottom:0.75rem;">Payment gateway on-premise via SNAP API Bank Indonesia. Multi-bank Virtual Account, QRIS, rekonsiliasi otomatis.</p>
+            <div style="font-size:0.75rem; font-family:'GeistMono',monospace; color:#94a3b8;">Java 25 &middot; Spring Boot 4.0 &middot; PostgreSQL &middot; BouncyCastle</div>
+          </div>
+          <!-- ATM Banking Solution -->
+          <div class="card">
+            <div class="icon-circle" style="background:#059669; margin-bottom:1rem;">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+            </div>
+            <h3 style="font-weight:700; font-size:1.125rem; color:#0f172a; margin-bottom:0.375rem;">ATM Banking Solution</h3>
+            <p style="font-size:0.8125rem; color:#64748b; line-height:1.5; margin-bottom:0.75rem;">HSM Simulator, ISO-8583 jPOS server, ATM Terminal Simulator. Key management dengan Shamir's Secret Sharing (2-of-3).</p>
+            <div style="font-size:0.75rem; font-family:'GeistMono',monospace; color:#94a3b8;">Spring Boot &middot; jPOS 3.0 &middot; Java 25 &middot; PostgreSQL</div>
+          </div>
+          <!-- Disbursement Platform -->
+          <div class="card">
+            <div class="icon-circle" style="background:#7c3aed; margin-bottom:1rem;">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            </div>
+            <h3 style="font-weight:700; font-size:1.125rem; color:#0f172a; margin-bottom:0.375rem;">Disbursement Platform</h3>
+            <p style="font-size:0.8125rem; color:#64748b; line-height:1.5; margin-bottom:0.75rem;">Batch transfer ke multi-recipient via SNAP API dan BI-FAST. Maker-checker approval, idempotency, rate limiting.</p>
+            <div style="font-size:0.75rem; font-family:'GeistMono',monospace; color:#94a3b8;">Java 25 &middot; Spring Boot 4.0 &middot; PostgreSQL &middot; BI-FAST</div>
+          </div>
+          <!-- VA Splitter -->
+          <div class="card">
+            <div class="icon-circle" style="background:#d97706; margin-bottom:1rem;">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+            </div>
+            <h3 style="font-weight:700; font-size:1.125rem; color:#0f172a; margin-bottom:0.375rem;">VA Splitter & Disbursement</h3>
+            <p style="font-size:0.8125rem; color:#64748b; line-height:1.5; margin-bottom:0.75rem;">Alokasi dana otomatis dari Virtual Account. Rule-based splitting untuk universitas, yayasan, dan enterprise.</p>
+            <div style="font-size:0.75rem; font-family:'GeistMono',monospace; color:#94a3b8;">Java 21 &middot; Spring Boot 3.3 &middot; PostgreSQL &middot; OAuth 2.0</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SLIDE 5: PRODUCTS 2/2 ========== -->
+    <section class="slide slide-light">
+      <div class="slide-inner">
+        <div style="text-align:center; margin-bottom:2rem;">
+          <div class="section-label" style="background:#dbeafe; color:#1e40af;">Portfolio Produk</div>
+          <h2 style="font-size:2.25rem; font-weight:700; color:#0f172a;">Produk & Solusi <span style="font-weight:400; font-size:1.125rem; color:#64748b;">(2/2)</span></h2>
+        </div>
+        <div class="grid-2">
+          <!-- Aplikasi Akunting -->
+          <div class="card">
+            <div class="icon-circle" style="background:#e11d48; margin-bottom:1rem;">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            </div>
+            <h3 style="font-weight:700; font-size:1.125rem; color:#0f172a; margin-bottom:0.375rem;">Aplikasi Akunting</h3>
+            <p style="font-size:0.8125rem; color:#64748b; line-height:1.5; margin-bottom:0.75rem;">Sistem akunting UMKM dengan compliance pajak Indonesia (PPN, PPh, e-Faktur). Double-entry bookkeeping, payroll, inventory.</p>
+            <div style="font-size:0.75rem; font-family:'GeistMono',monospace; color:#94a3b8;">Java 25 &middot; Spring Boot 4.0 &middot; HTMX &middot; Alpine.js</div>
+          </div>
+          <!-- Tawqi -->
+          <div class="card">
+            <div class="icon-circle" style="background:#0891b2; margin-bottom:1rem;">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <h3 style="font-weight:700; font-size:1.125rem; color:#0f172a; margin-bottom:0.375rem;">Tawqi - Digital Signing</h3>
+            <p style="font-size:0.8125rem; color:#64748b; line-height:1.5; margin-bottom:0.75rem;">Tanda tangan digital berbasis PKI untuk kontrak, sertifikat, dan dokumen resmi. Multi-signer workflow, bulk signing.</p>
+            <div style="font-size:0.75rem; font-family:'GeistMono',monospace; color:#94a3b8;">Java 25 &middot; Spring Boot 4.0 &middot; BouncyCastle &middot; PostgreSQL</div>
+          </div>
+          <!-- Remittance -->
+          <div class="card">
+            <div class="icon-circle" style="background:#0d9488; margin-bottom:1rem;">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3 style="font-weight:700; font-size:1.125rem; color:#0f172a; margin-bottom:0.375rem;">Remittance System</h3>
+            <p style="font-size:0.8125rem; color:#64748b; line-height:1.5; margin-bottom:0.75rem;">Transfer uang domestik dan internasional. Integrasi payment gateway, real-time tracking, JWT authentication.</p>
+            <div style="font-size:0.75rem; font-family:'GeistMono',monospace; color:#94a3b8;">Spring Boot 3.2 &middot; Java 21 &middot; PostgreSQL &middot; Thymeleaf</div>
+          </div>
+          <!-- Payment Ecosystem Simulator -->
+          <div class="card" style="border-color:#bbf7d0; background:linear-gradient(135deg,#f0fdf4,#ffffff); position:relative;">
+            <div style="position:absolute; top:1.25rem; right:1.25rem;">
+              <span style="padding:0.25rem 0.625rem; background:#16a34a; color:white; font-size:0.6875rem; font-weight:700; border-radius:9999px; text-transform:uppercase; letter-spacing:0.05em;">Training</span>
+            </div>
+            <div class="icon-circle" style="background:#16a34a; margin-bottom:1rem;">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+            </div>
+            <h3 style="font-weight:700; font-size:1.125rem; color:#0f172a; margin-bottom:0.375rem;">Payment Ecosystem Simulator</h3>
+            <p style="font-size:0.8125rem; color:#64748b; line-height:1.5; margin-bottom:0.75rem;">Simulator lengkap: ATM, POS, payment switch, issuer, acquirer, HSM. Untuk training dan edukasi sistem pembayaran.</p>
+            <div style="font-size:0.75rem; font-family:'GeistMono',monospace; color:#94a3b8;">Spring Boot 4.0 &middot; jPOS &middot; Docker Compose &middot; PostgreSQL</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SLIDE 6: TRACK RECORD ========== -->
+    <section class="slide slide-gray">
+      <div class="slide-inner">
+        <div style="text-align:center; margin-bottom:2rem;">
+          <div class="section-label" style="background:#dbeafe; color:#1e40af;">Track Record</div>
+          <h2 style="font-size:2.25rem; font-weight:700; color:#0f172a;">Proyek & Implementasi</h2>
+          <p style="font-size:0.9375rem; color:#64748b; margin-top:0.5rem;">Perbankan, telekomunikasi, logistik, pemerintah, dan asuransi.</p>
+        </div>
+        <div class="grid-2" style="gap:1rem;">
+          <div class="project-row">
+            <div class="project-logo" style="background:#fef2f2;">
+              <img src="/img/clients/telkom.png" alt="Telkom">
+            </div>
+            <div style="flex:1; min-width:0;">
+              <h3 style="font-weight:700; font-size:0.9375rem; color:#0f172a;">Telkom Disbursement System</h3>
+              <p style="font-size:0.75rem; color:#64748b; margin-top:0.125rem;">High-volume transaction processing, multi-channel integration, auto-reconciliation.</p>
+            </div>
+            <div style="font-size:0.6875rem; font-family:'GeistMono',monospace; color:#94a3b8; white-space:nowrap;">Spring Boot &middot; K8s</div>
+          </div>
+          <div class="project-row">
+            <div class="project-logo" style="background:#eff6ff;">
+              <img src="/img/clients/kai.png" alt="KAI">
+            </div>
+            <div style="flex:1; min-width:0;">
+              <h3 style="font-weight:700; font-size:0.9375rem; color:#0f172a;">HA SSO Infrastructure - PT KAI</h3>
+              <p style="font-size:0.75rem; color:#64748b; margin-top:0.125rem;">Keycloak cluster, OpenLDAP replication, HAProxy load balancing, Ansible automation.</p>
+            </div>
+            <div style="font-size:0.6875rem; font-family:'GeistMono',monospace; color:#94a3b8; white-space:nowrap;">Keycloak &middot; HAProxy</div>
+          </div>
+          <div class="project-row">
+            <div class="project-logo" style="background:#fff7ed;">
+              <img src="/img/clients/BNI.png" alt="BNI">
+            </div>
+            <div style="flex:1; min-width:0;">
+              <h3 style="font-weight:700; font-size:0.9375rem; color:#0f172a;">BNI Dashboard - Kementerian Keuangan</h3>
+              <p style="font-size:0.75rem; color:#64748b; margin-top:0.125rem;">Real-time financial data visualization, transaction monitoring, detailed reporting.</p>
+            </div>
+            <div style="font-size:0.6875rem; font-family:'GeistMono',monospace; color:#94a3b8; white-space:nowrap;">Chart.js &middot; Jasper</div>
+          </div>
+          <div class="project-row">
+            <div class="project-logo" style="background:#eef2ff;">
+              <svg style="width:1.5rem;height:1.5rem;color:#4f46e5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+            </div>
+            <div style="flex:1; min-width:0;">
+              <h3 style="font-weight:700; font-size:0.9375rem; color:#0f172a;">Orbit Bongkar Muat - Logistik Pelabuhan</h3>
+              <p style="font-size:0.75rem; color:#64748b; margin-top:0.125rem;">752K+ baris kode. Vessel scheduling, container tracking, billing, EDI integration.</p>
+            </div>
+            <div style="font-size:0.6875rem; font-family:'GeistMono',monospace; color:#94a3b8; white-space:nowrap;">Microservices &middot; K8s</div>
+          </div>
+          <div class="project-row">
+            <div class="project-logo" style="background:#f0f9ff;">
+              <svg style="width:1.5rem;height:1.5rem;color:#0284c7;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+            </div>
+            <div style="flex:1; min-width:0;">
+              <h3 style="font-weight:700; font-size:0.9375rem; color:#0f172a;">Orbit Kepanduan - Ship Pilot Services</h3>
+              <p style="font-size:0.75rem; color:#64748b; margin-top:0.125rem;">292K+ baris kode. Automated pilot scheduling, real-time tracking, VTMS integration.</p>
+            </div>
+            <div style="font-size:0.6875rem; font-family:'GeistMono',monospace; color:#94a3b8; white-space:nowrap;">Event-driven &middot; PG</div>
+          </div>
+          <div class="project-row">
+            <div class="project-logo" style="background:#ecfdf5;">
+              <svg style="width:1.5rem;height:1.5rem;color:#059669;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <div style="flex:1; min-width:0;">
+              <h3 style="font-weight:700; font-size:0.9375rem; color:#0f172a;">Aplikasi Garansi Bank</h3>
+              <p style="font-size:0.75rem; color:#64748b; margin-top:0.125rem;">Bank guarantee digital. Multi-level admin, document workflow approval, audit trail.</p>
+            </div>
+            <div style="font-size:0.6875rem; font-family:'GeistMono',monospace; color:#94a3b8; white-space:nowrap;">Vue.js &middot; K8s</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SLIDE 7: CLIENTS ========== -->
+    <section class="slide slide-dark">
+      <div class="dot-pattern"></div>
+      <div class="slide-inner" style="position:relative; z-index:1;">
+        <div style="text-align:center; margin-bottom:2.5rem;">
+          <div class="section-label" style="background:rgba(255,255,255,0.1); color:rgba(255,255,255,0.7);">Klien Kami</div>
+          <h2 style="font-size:2.25rem; font-weight:700;">Dipercaya Oleh</h2>
+          <p style="font-size:0.9375rem; color:rgba(255,255,255,0.6); margin-top:0.5rem;">Perbankan, telekomunikasi, pemerintah, asuransi, dan enterprise terkemuka di Indonesia.</p>
+        </div>
+
+        <!-- Logo row -->
+        <div style="display:flex; justify-content:center; gap:1.5rem; margin-bottom:2rem;">
+          <div class="client-logo-card" style="width:9rem;">
+            <img src="/img/clients/BNI.png" alt="BNI">
+          </div>
+          <div class="client-logo-card" style="width:9rem;">
+            <img src="/img/clients/kai.png" alt="KAI">
+          </div>
+          <div class="client-logo-card" style="width:9rem;">
+            <img src="/img/clients/telkom.png" alt="Telkom">
+          </div>
+          <div class="client-logo-card" style="width:9rem;">
+            <img src="/img/clients/pegadaian-1.png" alt="Pegadaian">
+          </div>
+        </div>
+
+        <!-- Names grid -->
+        <div class="grid-5">
+          <div class="client-name">Bank BCA</div>
+          <div class="client-name">PT Telkomsel</div>
+          <div class="client-name">Bank Jateng</div>
+          <div class="client-name">Generali Insurance</div>
+          <div class="client-name">Chubb Insurance</div>
+          <div class="client-name">Ditjen Pajak</div>
+          <div class="client-name">Ditjen Bea Cukai</div>
+          <div class="client-name">Kemenkominfo</div>
+          <div class="client-name">ArtaJasa</div>
+          <div class="client-name">ICON+</div>
+          <div class="client-name">Lembaga Admin Negara</div>
+          <div class="client-name">Kementerian Keuangan</div>
+          <div class="client-name">PT Nindya Karya</div>
+          <div class="client-name">PT Erajaya</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SLIDE 8: TRAINING ========== -->
+    <section class="slide slide-light">
+      <div class="slide-inner">
+        <div style="text-align:center; margin-bottom:2rem;">
+          <div class="section-label" style="background:#dbeafe; color:#1e40af;">Corporate Training</div>
+          <h2 style="font-size:2.25rem; font-weight:700; color:#0f172a;">Program Pelatihan</h2>
+          <p style="font-size:0.9375rem; color:#64748b; margin-top:0.5rem;">40+ corporate training telah dilaksanakan untuk perbankan, asuransi, dan pemerintah.</p>
+        </div>
+        <div class="grid-4" style="gap:1rem;">
+          <div class="training-card">
+            <div style="margin-bottom:0.5rem;"><span class="tag tag-blue">5 HARI</span></div>
+            <h4 style="font-weight:700; font-size:0.875rem; color:#0f172a; margin-bottom:0.25rem;">Spring Boot & jPOS untuk Aplikasi Perbankan</h4>
+            <p style="font-size:0.75rem; color:#94a3b8;">Payment processing, ISO-8583, HSM integration</p>
+          </div>
+          <div class="training-card">
+            <div style="margin-bottom:0.5rem;"><span class="tag tag-blue">5 HARI</span></div>
+            <h4 style="font-weight:700; font-size:0.875rem; color:#0f172a; margin-bottom:0.25rem;">SRE Bootcamp: From Zero to Production</h4>
+            <p style="font-size:0.75rem; color:#94a3b8;">Containers, HA, Prometheus, Grafana, Terraform</p>
+          </div>
+          <div class="training-card">
+            <div style="margin-bottom:0.5rem;"><span class="tag tag-blue">5 HARI</span></div>
+            <h4 style="font-weight:700; font-size:0.875rem; color:#0f172a; margin-bottom:0.25rem;">Spring Boot Full-Stack Web Development</h4>
+            <p style="font-size:0.75rem; color:#94a3b8;">Database, REST API, OAuth2, MVC Thymeleaf</p>
+          </div>
+          <div class="training-card">
+            <div style="margin-bottom:0.5rem;"><span class="tag tag-amber">5 HARI</span></div>
+            <h4 style="font-weight:700; font-size:0.875rem; color:#0f172a; margin-bottom:0.25rem;">Application Security: Pengamanan Aplikasi Web</h4>
+            <p style="font-size:0.75rem; color:#94a3b8;">OWASP Top 10, WebGoat, Spring Security MFA</p>
+          </div>
+          <div class="training-card">
+            <div style="margin-bottom:0.5rem;"><span class="tag tag-amber">5 HARI</span></div>
+            <h4 style="font-weight:700; font-size:0.875rem; color:#0f172a; margin-bottom:0.25rem;">HashiCorp Vault: Credential & Secrets Management</h4>
+            <p style="font-size:0.75rem; color:#94a3b8;">Authentication, secrets engines, K8s integration</p>
+          </div>
+          <div class="training-card">
+            <div style="margin-bottom:0.5rem;"><span class="tag tag-green">3 HARI</span></div>
+            <h4 style="font-weight:700; font-size:0.875rem; color:#0f172a; margin-bottom:0.25rem;">Java OOP & Design Patterns</h4>
+            <p style="font-size:0.75rem; color:#94a3b8;">SOLID, 23 design patterns, refactoring</p>
+          </div>
+          <div class="training-card">
+            <div style="margin-bottom:0.5rem;"><span class="tag tag-green">2 HARI</span></div>
+            <h4 style="font-weight:700; font-size:0.875rem; color:#0f172a; margin-bottom:0.25rem;">Git & CI/CD: Version Control & Collaboration</h4>
+            <p style="font-size:0.75rem; color:#94a3b8;">Advanced Git, branching, GitLab CI/CD pipeline</p>
+          </div>
+          <div class="training-card">
+            <div style="margin-bottom:0.5rem;"><span class="tag tag-green">2 HARI</span></div>
+            <h4 style="font-weight:700; font-size:0.875rem; color:#0f172a; margin-bottom:0.25rem;">Automated Testing dengan Playwright</h4>
+            <p style="font-size:0.75rem; color:#94a3b8;">Functional testing, Page Object, visual regression</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SLIDE 9: TECH STACK + DIFFERENTIATORS ========== -->
+    <section class="slide slide-gray">
+      <div class="slide-inner">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem;">
+          <!-- Left: Tech Stack -->
+          <div>
+            <div class="section-label" style="background:#dbeafe; color:#1e40af;">Technology</div>
+            <h2 style="font-size:1.75rem; font-weight:700; color:#0f172a; margin-bottom:1.5rem;">Technology Stack</h2>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+              <div>
+                <h4 style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#64748b; border-bottom:1px solid #e2e8f0; padding-bottom:0.5rem; margin-bottom:0.75rem;">Backend</h4>
+                <div style="display:flex; flex-direction:column; gap:0.375rem;">
+                  <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.8125rem; color:#334155;"><span class="dot" style="background:#2563eb;"></span> Java 21 - 25</div>
+                  <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.8125rem; color:#334155;"><span class="dot" style="background:#2563eb;"></span> Spring Boot 3.x - 4.0</div>
+                  <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.8125rem; color:#334155;"><span class="dot" style="background:#2563eb;"></span> jPOS 3.0</div>
+                  <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.8125rem; color:#334155;"><span class="dot" style="background:#2563eb;"></span> Go</div>
+                  <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.8125rem; color:#334155;"><span class="dot" style="background:#2563eb;"></span> Hibernate / JPA</div>
+                </div>
+              </div>
+              <div>
+                <h4 style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#64748b; border-bottom:1px solid #e2e8f0; padding-bottom:0.5rem; margin-bottom:0.75rem;">Data & Messaging</h4>
+                <div style="display:flex; flex-direction:column; gap:0.375rem;">
+                  <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.8125rem; color:#334155;"><span class="dot" style="background:#22c55e;"></span> PostgreSQL 17 - 18</div>
+                  <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.8125rem; color:#334155;"><span class="dot" style="background:#22c55e;"></span> Apache Kafka</div>
+                  <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.8125rem; color:#334155;"><span class="dot" style="background:#22c55e;"></span> Spring Batch</div>
+                </div>
+              </div>
+              <div>
+                <h4 style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#64748b; border-bottom:1px solid #e2e8f0; padding-bottom:0.5rem; margin-bottom:0.75rem;">Security</h4>
+                <div style="display:flex; flex-direction:column; gap:0.375rem;">
+                  <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.8125rem; color:#334155;"><span class="dot" style="background:#f59e0b;"></span> BouncyCastle</div>
+                  <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.8125rem; color:#334155;"><span class="dot" style="background:#f59e0b;"></span> Spring Security / OAuth 2.0</div>
+                  <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.8125rem; color:#334155;"><span class="dot" style="background:#f59e0b;"></span> Keycloak SSO</div>
+                  <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.8125rem; color:#334155;"><span class="dot" style="background:#f59e0b;"></span> HashiCorp Vault</div>
+                </div>
+              </div>
+              <div>
+                <h4 style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#64748b; border-bottom:1px solid #e2e8f0; padding-bottom:0.5rem; margin-bottom:0.75rem;">Infrastructure</h4>
+                <div style="display:flex; flex-direction:column; gap:0.375rem;">
+                  <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.8125rem; color:#334155;"><span class="dot" style="background:#06b6d4;"></span> Docker</div>
+                  <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.8125rem; color:#334155;"><span class="dot" style="background:#06b6d4;"></span> Kubernetes</div>
+                  <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.8125rem; color:#334155;"><span class="dot" style="background:#06b6d4;"></span> Ansible / Terraform</div>
+                  <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.8125rem; color:#334155;"><span class="dot" style="background:#06b6d4;"></span> HAProxy</div>
+                  <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.8125rem; color:#334155;"><span class="dot" style="background:#06b6d4;"></span> Prometheus / Grafana</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Right: Differentiators -->
+          <div>
+            <div class="section-label" style="background:#dcfce7; color:#166534;">Mengapa ArtiVisi</div>
+            <h2 style="font-size:1.75rem; font-weight:700; color:#0f172a; margin-bottom:1.5rem;">Keunggulan Kami</h2>
+            <div style="display:flex; flex-direction:column; gap:1.25rem;">
+              <div class="diff-item">
+                <div class="diff-dot" style="background:#2563eb;"></div>
+                <div>
+                  <h4 style="font-weight:700; font-size:0.9375rem; color:#0f172a; margin-bottom:0.125rem;">Spesialis Pembayaran Indonesia</h4>
+                  <p style="font-size:0.8125rem; color:#64748b; line-height:1.5;">ISO 8583, SNAP API, BI-FAST, QRIS. Deep expert di domain payment.</p>
+                </div>
+              </div>
+              <div class="diff-item">
+                <div class="diff-dot" style="background:#22c55e;"></div>
+                <div>
+                  <h4 style="font-weight:700; font-size:0.9375rem; color:#0f172a; margin-bottom:0.125rem;">Open Source, On-Premise</h4>
+                  <p style="font-size:0.8125rem; color:#64748b; line-height:1.5;">Apache 2.0. Data di server Anda. Tanpa vendor lock-in, tanpa biaya per transaksi.</p>
+                </div>
+              </div>
+              <div class="diff-item">
+                <div class="diff-dot" style="background:#8b5cf6;"></div>
+                <div>
+                  <h4 style="font-weight:700; font-size:0.9375rem; color:#0f172a; margin-bottom:0.125rem;">Build + Train</h4>
+                  <p style="font-size:0.8125rem; color:#64748b; line-height:1.5;">Membangun produk DAN melatih tim Anda. 40+ corporate training.</p>
+                </div>
+              </div>
+              <div class="diff-item">
+                <div class="diff-dot" style="background:#f59e0b;"></div>
+                <div>
+                  <h4 style="font-weight:700; font-size:0.9375rem; color:#0f172a; margin-bottom:0.125rem;">20+ Tahun Hands-On</h4>
+                  <p style="font-size:0.8125rem; color:#64748b; line-height:1.5;">Core banking 2003, ATM integration 2008, microservices 2026.</p>
+                </div>
+              </div>
+              <div class="diff-item">
+                <div class="diff-dot" style="background:#e11d48;"></div>
+                <div>
+                  <h4 style="font-weight:700; font-size:0.9375rem; color:#0f172a; margin-bottom:0.125rem;">CMMI Level 3</h4>
+                  <p style="font-size:0.8125rem; color:#64748b; line-height:1.5;">Membantu organisasi mencapai CMMI Level 3. Best practices software engineering.</p>
+                </div>
+              </div>
+              <div class="diff-item">
+                <div class="diff-dot" style="background:#06b6d4;"></div>
+                <div>
+                  <h4 style="font-weight:700; font-size:0.9375rem; color:#0f172a; margin-bottom:0.125rem;">Klien Enterprise Terkemuka</h4>
+                  <p style="font-size:0.8125rem; color:#64748b; line-height:1.5;">BCA, BNI, Telkom, KAI, Pegadaian, Kementerian Keuangan, dan lainnya.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SLIDE 10: CONTACT / CTA ========== -->
+    <section class="slide slide-brand">
+      <div class="dot-pattern"></div>
+      <div class="slide-inner" style="position:relative; z-index:1; text-align:center;">
+        <h2 style="font-size:3rem; font-weight:700; margin-bottom:1rem;">Diskusikan Kebutuhan Anda</h2>
+        <p style="font-size:1.25rem; color:rgba(255,255,255,0.8); max-width:36rem; margin:0 auto 3rem;">
+          Sistem pembayaran, integrasi bank, pelatihan teknis, atau konsultasi arsitektur.
+        </p>
+
+        <div style="display:flex; justify-content:center; gap:2.5rem; margin-bottom:3rem;">
+          <div class="contact-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <span>endy@artivisi.com</span>
+          </div>
+          <div class="contact-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            <span>+62 812 98000 468</span>
+          </div>
+          <div class="contact-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+            <span>artivisi.com</span>
+          </div>
+          <div class="contact-item">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            <span>@artivisi</span>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid rgba(255,255,255,0.2); padding-top:2rem;">
+          <p style="font-size:0.875rem; color:rgba(255,255,255,0.5);">
+            &copy; 2008 &ndash; 2026 ArtiVisi Intermedia &middot; Bogor, Jawa Barat, Indonesia
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /deck-track -->
+</div><!-- /deck -->
+
+<script>
+(function() {
+  var track = document.getElementById('track');
+  var counter = document.getElementById('counter');
+  var progress = document.getElementById('progress');
+  var prevBtn = document.getElementById('prevBtn');
+  var nextBtn = document.getElementById('nextBtn');
+  var slides = track.querySelectorAll('.slide');
+  var total = slides.length;
+  var current = 0;
+
+  function go(idx) {
+    if (idx < 0 || idx >= total) return;
+    current = idx;
+    track.style.transform = 'translateX(-' + (current * 100) + 'vw)';
+    counter.textContent = (current + 1) + ' / ' + total;
+    progress.style.width = ((current + 1) / total * 100) + '%';
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === total - 1;
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); go(current + 1); }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); go(current - 1); }
+    if (e.key === 'Home') { e.preventDefault(); go(0); }
+    if (e.key === 'End') { e.preventDefault(); go(total - 1); }
+  });
+
+  prevBtn.addEventListener('click', function() { go(current - 1); });
+  nextBtn.addEventListener('click', function() { go(current + 1); });
+
+  // Touch support
+  var touchStartX = 0;
+  track.addEventListener('touchstart', function(e) { touchStartX = e.changedTouches[0].screenX; }, {passive: true});
+  track.addEventListener('touchend', function(e) {
+    var dx = e.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(dx) > 50) { dx > 0 ? go(current - 1) : go(current + 1); }
+  }, {passive: true});
+
+  go(0);
+})();
+</script>
+
+</body>
+</html>
