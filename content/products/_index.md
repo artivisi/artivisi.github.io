@@ -21,7 +21,7 @@ Empat produk untuk operasional institusi. Semua open source (Apache 2.0), berjal
 
 | Produk | Fungsi |
 |---|---|
-| [Aplikasi Akunting](/products/aplikasi-akunting/) | Jurnal, buku besar, laporan keuangan, pajak (PPN, PPh), payroll, BPJS |
+| [Balaka](/products/aplikasi-akunting/) | Akunting, pajak (PPN, PPh, Coretax), payroll, inventori, produksi, rekonsiliasi bank, faktur |
 | [Tawqi](/products/tawqi/) | Tanda tangan digital PDF berbasis PKI — kontrak, sertifikat, SK, ijazah |
 
 Gateway dan Disbursement berbagi SNAP API client layer dan bank adapter. Akunting dan Tawqi terhubung langsung ke aplikasi klien — tidak bergantung pada produk pembayaran.
@@ -45,7 +45,7 @@ Simulator ekosistem pembayaran untuk keperluan training dan pengembangan. Merepl
 
 | Produk | Status | Target |
 |---|---|---|
-| Aplikasi Akunting | **Aktif** — security hardening phase, 115+ functional tests | Tersedia sekarang |
+| Balaka (Aplikasi Akunting) | **Production** — 20+ fase selesai, 3500+ tests, rilis 2026.03.3 | [balaka.id](https://balaka.id) |
 | Payment Simulator | Dalam pengembangan | Q2 2026 |
 | Tawqi | Dalam pengembangan | Q2 2026 |
 | SNAP Payment Gateway | Repo initialized, README complete | Q3 2026 |
