@@ -5,7 +5,7 @@ icon: "/img/products/snap-payment-gateway/thumbnail.png"
 weight: 1
 ---
 
-> **Coming Q3 2026** — Produk ini sedang dalam pengembangan. Repository: [artivisi/snap-payment-gateway](https://github.com/artivisi/snap-payment-gateway)
+> **Pengembangan aktif — pendaftaran pilot deployment terbuka.** Hubungi kami untuk diskusi pilot Q2-Q3 2026 di institusi Anda. Repository: [artivisi/snap-payment-gateway](https://github.com/artivisi/snap-payment-gateway)
 
 ## Deskripsi Produk
 

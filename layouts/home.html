@@ -15,10 +15,10 @@
                     Trusted Since 2008
                 </div>
                 <h1 class="text-3xl lg:text-5xl font-bold leading-tight mb-6">
-                    Spesialis Sistem Pembayaran & Infrastruktur Keuangan
+                    Sistem Pembayaran On-Premise untuk Institusi Swasta Menengah
                 </h1>
                 <p class="text-lg lg:text-xl text-gray-200 mb-8 leading-relaxed">
-                    ISO 8583, SNAP API, payment gateway on-premise, disbursement, HSM integration, dan integrasi multi-bank untuk institusi keuangan Indonesia.
+                    Koleksi dan pencairan dana SNAP-compliant multi-bank — untuk kampus, rumah sakit swasta, BPRS, koperasi syariah, fintech, dan korporasi swasta yang ingin lepas dari biaya per-transaksi aggregator. Spring Boot, Java, on-premise.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                     <a href="/products/" class="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-900 font-bold rounded-lg hover:bg-gray-100 transition-all duration-200 shadow-xl hover:shadow-2xl hover:-translate-y-1">
@@ -71,9 +71,9 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Integrasi Sistem Pembayaran</h3>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Koleksi & Pencairan Dana</h3>
                     <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                        BI-FAST, QRIS, ISO 8583 middleware, SNAP API bank integration, dan payment switch untuk konektivitas multi-bank.
+                        Virtual Account multi-bank, QRIS, dan SNAP API untuk koleksi SPP kampus, ZIS, kontribusi anggota, sewa, dan pembayaran jasa. Disbursement bulk untuk gaji, beasiswa, dan vendor payout. On-premise, tanpa biaya per-transaksi.
                     </p>
                     <a href="/products/" class="inline-flex items-center text-primary-600 dark:text-primary-400 font-semibold hover:gap-3 gap-2 transition-all duration-200">
                         Lihat Detail
@@ -115,9 +115,9 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Konsultasi Keamanan Transaksi</h3>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Audit & Arsitektur</h3>
                     <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                        Payment security audit, HSM implementation, enkripsi PIN block, dan konsultasi PCI DSS compliance.
+                        Audit keamanan integrasi SNAP, key management, signature compliance, dan reviu arsitektur untuk institusi yang mengelola pembayaran sendiri. Termasuk pendampingan konversi konvensional → syariah.
                     </p>
                     <a href="/consulting/" class="inline-flex items-center text-emerald-600 dark:text-emerald-400 font-semibold hover:gap-3 gap-2 transition-all duration-200">
                         Lihat Detail
@@ -131,26 +131,34 @@
     </div>
 </section>
 
-<!-- Clients Section -->
+<!-- Track Record Section -->
 <section class="py-20 bg-white dark:bg-gray-800 border-y-4 border-primary-600">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="text-center mb-12">
-            <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Dipercaya Oleh Perusahaan Terkemuka</h2>
-            <p class="text-xl text-gray-600 dark:text-gray-400">Partner strategis dalam infrastruktur pembayaran Indonesia</p>
+            <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Track Record Lintas Sektor</h2>
+            <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">Penerapan integrasi SNAP BI, ISO 8583, dan payment infrastructure di institusi swasta menengah dan skala enterprise — sejak 2008.</p>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
-            <div class="flex items-center justify-center p-6 bg-white dark:bg-gray-700 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
-                <img src="/img/clients/BNI.png" alt="BNI" class="w-full h-auto max-h-20 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-gray-50 dark:bg-gray-700 rounded-xl p-6 border border-gray-200 dark:border-gray-600">
+                <div class="text-sm font-semibold text-primary-600 dark:text-primary-400 mb-2">Mid-Market Swasta</div>
+                <div class="text-lg font-bold text-gray-900 dark:text-white mb-2">Operator Logistik Nasional</div>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Multi-bank Virtual Account collection (BCA + dua bank besar lainnya). SNAP BI v1.0 compliance: RSA-2048 OAuth, signature stack, idempotency, audit log, payment notification webhook. Live di production.</p>
             </div>
-            <div class="flex items-center justify-center p-6 bg-white dark:bg-gray-700 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
-                <img src="/img/clients/pegadaian-1.png" alt="Pegadaian" class="w-full h-auto max-h-20 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+            <div class="bg-gray-50 dark:bg-gray-700 rounded-xl p-6 border border-gray-200 dark:border-gray-600">
+                <div class="text-sm font-semibold text-primary-600 dark:text-primary-400 mb-2">Enterprise Banking</div>
+                <div class="text-lg font-bold text-gray-900 dark:text-white mb-2">Disbursement Multi-Tahun</div>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Production disbursement infrastructure untuk transfer terjadwal massal — gaji, beasiswa, vendor payout. Engagement multi-tahun, transaksi berskala ratusan ribu per bulan.</p>
             </div>
-            <div class="flex items-center justify-center p-6 bg-white dark:bg-gray-700 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
-                <img src="/img/clients/kai.png" alt="KAI" class="w-full h-auto max-h-20 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+            <div class="bg-gray-50 dark:bg-gray-700 rounded-xl p-6 border border-gray-200 dark:border-gray-600">
+                <div class="text-sm font-semibold text-primary-600 dark:text-primary-400 mb-2">Enterprise Identity</div>
+                <div class="text-lg font-bold text-gray-900 dark:text-white mb-2">SSO Skala Nasional</div>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Keycloak HA cluster (33,000+ users), OTP via WhatsApp, captive portal VPN bridge, sinkronisasi HR → directory. Migrasi dari single-instance ke clustered architecture.</p>
             </div>
-            <div class="flex items-center justify-center p-6 bg-white dark:bg-gray-700 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
-                <img src="/img/clients/telkom.png" alt="Telkom" class="w-full h-auto max-h-20 object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+            <div class="bg-gray-50 dark:bg-gray-700 rounded-xl p-6 border border-gray-200 dark:border-gray-600">
+                <div class="text-sm font-semibold text-primary-600 dark:text-primary-400 mb-2">Enterprise Disbursement</div>
+                <div class="text-lg font-bold text-gray-900 dark:text-white mb-2">Telco Nasional</div>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Sistem pencairan dana enterprise-grade untuk kebutuhan multi-channel. Spring Boot + Kubernetes + integrasi multi-bank.</p>
             </div>
         </div>
     </div>
@@ -186,9 +194,9 @@
     </div>
 
     <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
-        <h2 class="text-4xl lg:text-5xl font-bold mb-6">Butuh Infrastruktur Pembayaran?</h2>
+        <h2 class="text-4xl lg:text-5xl font-bold mb-6">Lepas dari Biaya Per-Transaksi Aggregator?</h2>
         <p class="text-xl lg:text-2xl mb-10 text-gray-100">
-            Diskusikan kebutuhan sistem pembayaran dan integrasi bank Anda
+            Diskusikan integrasi SNAP, koleksi multi-bank, dan disbursement on-premise untuk institusi Anda.
         </p>
         <a href="/contact_us/" class="inline-flex items-center justify-center px-10 py-5 bg-white text-primary-900 font-bold text-lg rounded-xl hover:bg-gray-100 transition-all duration-200 shadow-2xl hover:shadow-3xl hover:-translate-y-1">
             Hubungi Kami

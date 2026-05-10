@@ -5,7 +5,7 @@ icon: "/img/products/disbursement-platform/thumbnail.png"
 weight: 3
 ---
 
-> **Coming Q3 2026** — Produk ini sedang dalam pengembangan. Dibangun dari pengalaman production app disbursement BNI yang sudah berjalan.
+> **Pengembangan aktif — pendaftaran pilot deployment terbuka.** Hubungi kami untuk diskusi pilot Q2-Q3 2026. Dibangun dari pengalaman production app disbursement bank BUMN nasional yang sudah berjalan multi-tahun.
 
 ## Deskripsi Produk
 
