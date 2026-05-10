@@ -13,6 +13,20 @@ Sistem manajemen operasional pelabuhan yang komprehensif untuk mengelola seluruh
 
 Sistem ini mencakup manajemen vessel dan kapal, scheduling bongkar muat container, tracking posisi dan status container, manajemen alat berat dan resources pelabuhan, koordinasi antara berbagai stakeholder, billing dan invoicing otomatis, serta reporting dan analitik operasional yang mendalam.
 
+## Integrasi Pembayaran SNAP BI Multi-Bank
+
+Modul billing terintegrasi dengan tiga bank besar nasional via Virtual Account, dengan SNAP BI v1.0 sebagai standar wajib di sisi perbankan. Implementasi mencakup:
+
+- **OAuth client-credentials dengan signature RSA-2048** (SHA256withRSA) untuk akses access-token
+- **Signature transaksional HMAC-SHA512** dengan validasi header X-SIGNATURE / X-TIMESTAMP / X-CLIENT-KEY skema SNAP v1.0
+- **Validasi timestamp ISO-8601** dengan toleransi ±5 menit untuk mencegah replay
+- **Idempotency dedup** — tabel external-ID per service untuk menjamin tagihan yang sama tidak diproses ganda
+- **Inquiry status VA** sebagai sumber tunggal kebenaran ke bank (bukan polling DB lokal)
+- **Webhook payment notification** dari bank, dengan validasi signature ulang sebelum status billing diubah
+- **Audit log lengkap** — request, response, kode error, deskripsi, timestamp, user agent — untuk setiap call ke bank
+
+Stack: Spring Boot, Spring WebFlux RestTemplate, REST API integration. Live di production.
+
 ## Arsitektur Teknis
 
 **Backend & Framework:**
