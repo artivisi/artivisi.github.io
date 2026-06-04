@@ -23,6 +23,7 @@ Dirancang untuk biaya operasional serendah mungkin: berjalan di shared hosting
 cPanel biasa (PHP-FPM + MySQL + cron), tanpa proses long-running, tanpa WebSockets.
 Jalur upgrade ke VPS/Octane terbuka tanpa perombakan kode.
 
+- **Website Produk**: [sawala.artivisi.id](https://sawala.artivisi.id)
 - **Demo SDIT kecil**: [sdit.demo.sawala.artivisi.id](https://sdit.demo.sawala.artivisi.id) — 6 kelas, 120 siswa
 - **Demo yayasan SDIT+SMPIT**: [terpadu.demo.sawala.artivisi.id](https://terpadu.demo.sawala.artivisi.id) — 18 kelas, 360 siswa
 - **Panduan Pengguna**: [artivisi.com/sawala](https://artivisi.com/sawala/) — 23 bab dengan screenshot
@@ -155,8 +156,27 @@ Status tagihan per anak; wali unggah bukti transfer langsung dari sini.
 
 Antrian verifikasi bukti transfer di panel Filament — satu klik verifikasi/tolak.
 
+## Harga
+
+Semua fitur di setiap paket. Harga per sekolah, bukan per pengguna — seluruh
+guru, wali, dan siswa termasuk. Lisensi software Rp 0 (Apache 2.0); biaya
+mencakup hosting, implementasi, dan support.
+
+| Paket | Ukuran | Harga |
+|---|---|---|
+| Tunas | ≤ 150 siswa | Rp 199.000/bulan |
+| Madya | ≤ 400 siswa | Rp 399.000/bulan |
+| Utama | > 400 siswa, VPS dedicated | Rp 799.000/bulan |
+
+- Diskon tahunan: bayar 10 bulan, dapat 12.
+- Setup & implementasi (import data, pelatihan, go-live): Rp 2,5–7,5 juta sekali bayar.
+- **Self-host**: gratis selamanya — berjalan di shared hosting cPanel biasa.
+- **Paket Yayasan** (≥ 2 unit + Balaka) dan **jaringan sekolah**: lihat [sawala.artivisi.id/mitra](https://sawala.artivisi.id/mitra.html).
+- **Program Sekolah Binaan**: gratis untuk sekolah dengan SPP ≤ Rp 150 ribu/bulan atau yang beroperasi dari dana BOS — kuota terbatas, seleksi via WhatsApp.
+
 ## Dokumentasi
 
+- **[Website Produk](https://sawala.artivisi.id)** — fitur, harga, pitch deck
 - **[Panduan Pengguna](https://artivisi.com/sawala/)** — 23 bab per peran (TU, guru, wali, siswa), auto-generated dengan screenshot
 - **[Source Code](https://github.com/artivisi/sawala)** — Repository GitHub (Apache 2.0)
 - **[Demo SDIT](https://sdit.demo.sawala.artivisi.id)** / **[Demo Terpadu](https://terpadu.demo.sawala.artivisi.id)** — reset otomatis tiap malam
