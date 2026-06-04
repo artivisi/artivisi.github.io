@@ -5,7 +5,7 @@ description: "Platform keuangan institusional open source — payment gateway, d
 
 ## Aplikasi Production
 
-Empat produk untuk operasional institusi. Semua open source (Apache 2.0), berjalan on-premise di infrastruktur klien. Setiap produk bisa di-deploy terpisah atau dikombinasikan.
+Lima produk untuk operasional institusi. Semua open source (Apache 2.0), berjalan on-premise di infrastruktur klien. Setiap produk bisa di-deploy terpisah atau dikombinasikan.
 
 ![Ekosistem Aplikasi Production](/img/products/product-ecosystem-production.svg)
 
@@ -22,9 +22,10 @@ Empat produk untuk operasional institusi. Semua open source (Apache 2.0), berjal
 | Produk | Fungsi |
 |---|---|
 | [Balaka](/products/aplikasi-akunting/) | Akunting, pajak (PPN, PPh, Coretax), payroll, inventori, produksi, rekonsiliasi bank, faktur |
+| [Sawala](/products/sawala/) | Aplikasi sekolah Islam terpadu (SDIT/SMPIT) — akademik, ibadah harian, hafalan Quran, SPP |
 | [Tawqi](/products/tawqi/) | Tanda tangan digital PDF berbasis PKI — kontrak, sertifikat, SK, ijazah |
 
-Gateway dan Disbursement berbagi SNAP API client layer dan bank adapter. Akunting dan Tawqi terhubung langsung ke aplikasi klien — tidak bergantung pada produk pembayaran.
+Gateway dan Disbursement berbagi SNAP API client layer dan bank adapter. Akunting dan Tawqi terhubung langsung ke aplikasi klien — tidak bergantung pada produk pembayaran. Sawala adalah wedge vertikal segmen sekolah: billing SPP di Sawala, pembukuan di Balaka (posting jurnal via REST), penerimaan VA/QRIS via SNAP Payment Gateway.
 
 ---
 
@@ -46,6 +47,7 @@ Simulator ekosistem pembayaran untuk keperluan training dan pengembangan. Merepl
 | Produk | Status | Target |
 |---|---|---|
 | Balaka (Aplikasi Akunting) | **Production** — 20+ fase selesai, 3500+ tests, rilis 2026.03.3 | [balaka.id](https://balaka.id) |
+| Sawala (Aplikasi Sekolah) | **Demo live** — Phase 0–3 selesai, 2 instance demo | [sdit.demo.sawala.artivisi.id](https://sdit.demo.sawala.artivisi.id) |
 | Payment Simulator | Dalam pengembangan | Q2 2026 |
 | Tawqi | Dalam pengembangan | Q2 2026 |
 | SNAP Payment Gateway | Repo initialized, README complete | Q3 2026 |
@@ -53,6 +55,7 @@ Simulator ekosistem pembayaran untuk keperluan training dan pengembangan. Merepl
 
 ### Target Pengguna
 
+- **Sekolah Islam & pesantren** — SDIT/SMPIT: akademik, ibadah harian, hafalan, SPP
 - **Universitas** — SPP, registrasi, beasiswa, ijazah digital
 - **Instansi pemerintah** — retribusi, pajak, bansos, dana desa, SK digital
 - **Rumah sakit** — pembayaran pasien, klaim asuransi

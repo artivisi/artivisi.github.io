@@ -1,0 +1,58 @@
+graph TB
+    subgraph "Sawala Architecture"
+        subgraph "User Interface"
+            PWA[Web Browser PWA<br/>htmx + Alpine.js]
+            Offline[Offline Absensi<br/>IndexedDB Outbox]
+        end
+
+        subgraph "Application Layer - Laravel"
+            Blade[Blade Templates<br/>Server-Side Rendering]
+            Auth[Session Auth<br/>RBAC 4 Roles]
+            Akademik[Akademik Service<br/>Absensi, Nilai, Jadwal, Tugas]
+            Ibadah[Ibadah Service<br/>Mutabaah, Hafalan Quran]
+            SPP[SPP Billing Service<br/>Tagihan & Pembayaran]
+            Filament[Filament Admin<br/>Panel Tata Usaha]
+        end
+
+        subgraph "Data Layer"
+            Eloquent[Eloquent ORM<br/>Schema Migrations]
+            MySQL[(MySQL / MariaDB)]
+            S3[(S3-Compatible<br/>Media Galeri)]
+        end
+
+        subgraph "Integrasi - Phase 4"
+            Gateway[SNAP Payment Gateway<br/>VA / QRIS]
+            Balaka[Balaka REST<br/>Journal Posting]
+        end
+    end
+
+    PWA -->|HTTP| Blade
+    Offline -->|Idempotent Replay| Akademik
+    Blade --> Auth
+    Blade --> Akademik
+    Blade --> Ibadah
+    Blade --> SPP
+    Filament --> SPP
+
+    Akademik --> Eloquent
+    Ibadah --> Eloquent
+    SPP --> Eloquent
+    Eloquent --> MySQL
+    Filament --> S3
+
+    SPP -.-> Gateway
+    SPP -.-> Balaka
+
+    style PWA fill:#60a5fa
+    style Offline fill:#60a5fa
+    style Blade fill:#34d399
+    style Auth fill:#f59e0b
+    style Akademik fill:#8b5cf6
+    style Ibadah fill:#8b5cf6
+    style SPP fill:#8b5cf6
+    style Filament fill:#34d399
+    style Eloquent fill:#ec4899
+    style MySQL fill:#6366f1
+    style S3 fill:#6366f1
+    style Gateway fill:#ef4444
+    style Balaka fill:#ef4444
