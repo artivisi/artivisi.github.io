@@ -74,12 +74,12 @@ di produk sibling dan terhubung via REST API (Phase 4):
 | Fungsi | Produk | Relasi |
 |---|---|---|
 | Pembukuan (CoA, payroll, pajak) | [Balaka](/products/aplikasi-akunting/) | POST jurnal saat pembayaran terverifikasi |
-| Penerimaan pembayaran (VA/QRIS) | [SNAP Payment Gateway](/products/snap-payment-gateway/) | Klien HTTP + webhook |
+| Penerimaan pembayaran (VA) | [Payment Gateway](/products/payment-gateway/) | Klien HTTP + webhook |
 | Kartu prabayar kantin/koperasi | Closed-loop wallet (roadmap) | Tampilan saldo read-only + handoff topup |
 
 Tidak ada chart of accounts, payroll, atau modul pajak di Sawala — itu pekerjaan
 Balaka. Tidak ada bundling Midtrans/Xendit/aggregator SaaS — koneksi bank lewat
-gateway SNAP milik institusi sendiri, tanpa biaya per-transaksi ke pihak ketiga.
+payment gateway milik institusi sendiri, tanpa biaya per-transaksi ke pihak ketiga.
 
 ## Peran & Akses
 

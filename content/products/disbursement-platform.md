@@ -79,12 +79,12 @@ Keunggulan utama: domain knowledge dari aplikasi disbursement BNI yang sudah ber
 
 ## Hubungan dengan Payment Gateway
 
-Disbursement Platform adalah pelengkap [SNAP Payment Gateway](/products/snap-payment-gateway/):
+Disbursement Platform adalah pelengkap [Payment Gateway](/products/payment-gateway/):
 
-- **Gateway** mengumpulkan uang masuk (collection): VA, QRIS, Direct Debit
+- **Gateway** mengumpulkan uang masuk (collection): Virtual Account multi-bank
 - **Disbursement** mengirim uang keluar (payout): payroll, beasiswa, vendor
 
-Keduanya berbagi SNAP API client layer dan bank adapter pattern. Deploy bersama untuk solusi pembayaran lengkap — uang masuk dan uang keluar dalam satu platform.
+Keduanya memakai bank adapter pattern yang sama. Deploy bersama untuk solusi pembayaran lengkap — uang masuk dan uang keluar dalam satu platform — atau masing-masing berdiri sendiri.
 
 ## Repository
 
