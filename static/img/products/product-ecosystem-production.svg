@@ -12,12 +12,6 @@
     <marker id="arr-purple" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
       <polygon points="0 0, 8 3, 0 6" fill="#7c3aed"/>
     </marker>
-    <marker id="arr-rose" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
-      <polygon points="0 0, 8 3, 0 6" fill="#e11d48"/>
-    </marker>
-    <marker id="arr-teal" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
-      <polygon points="0 0, 8 3, 0 6" fill="#0d9488"/>
-    </marker>
     <marker id="arr-slate" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
       <polygon points="0 0, 8 3, 0 6" fill="#475569"/>
     </marker>
@@ -56,36 +50,24 @@
   <text x="666" y="118" font-family="sans-serif" font-size="9" fill="#475569">Batch Signing</text>
   <text x="666" y="132" font-family="sans-serif" font-size="9" fill="#475569">PKI via HashiCorp Vault</text>
 
-  <!-- ==================== CLIENT TIER: Sawala + generic client / source systems ==================== -->
+  <!-- ==================== CLIENT TIER: Sawala (peran aplikasi klien) ==================== -->
+  <rect x="560" y="200" width="280" height="72" rx="10" fill="#fff" stroke="#0d9488" stroke-width="1.5" filter="url(#sh-lg)"/>
+  <rect x="560" y="200" width="280" height="24" rx="10" fill="#0d9488"/>
+  <rect x="560" y="212" width="280" height="12" fill="#0d9488"/>
+  <text x="700" y="217" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#fff">Sawala</text>
+  <text x="700" y="238" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#0d9488" font-weight="600">APLIKASI SEKOLAH ISLAM — PERAN APLIKASI KLIEN</text>
+  <text x="700" y="252" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#475569">SDIT/SMPIT — Akademik, Hafalan, SPP</text>
+  <text x="700" y="265" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#475569">integrasi langsung ke tiap produk, tanpa perantara</text>
 
-  <!-- Sawala -->
-  <rect x="100" y="200" width="230" height="60" rx="10" fill="#fff" stroke="#0d9488" stroke-width="1.5" filter="url(#sh-lg)"/>
-  <rect x="100" y="200" width="230" height="24" rx="10" fill="#0d9488"/>
-  <rect x="100" y="212" width="230" height="12" fill="#0d9488"/>
-  <text x="215" y="217" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#fff">Sawala</text>
-  <text x="215" y="238" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#0d9488" font-weight="600">APLIKASI SEKOLAH ISLAM</text>
-  <text x="215" y="252" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#475569">SDIT/SMPIT — Akademik, Hafalan, SPP</text>
+  <!-- Sawala -> Balaka (posting jurnal, langsung) -->
+  <path d="M 620,200 C 620,170 330,190 300,145" stroke="#d97706" stroke-width="1.5" fill="none" marker-end="url(#arr-amber)"/>
+  <text x="430" y="176" font-family="sans-serif" font-size="8" fill="#d97706" font-weight="600">posting jurnal</text>
 
-  <!-- Generic client / source systems -->
-  <rect x="430" y="200" width="330" height="60" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2" filter="url(#sh-lg)"/>
-  <text x="595" y="225" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#fff">APLIKASI KLIEN / SISTEM SUMBER</text>
-  <text x="595" y="243" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#94a3b8">SIS Universitas / HIS Rumah Sakit / ERP /</text>
-  <text x="595" y="254" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#94a3b8">Registrasi / Aplikasi Yayasan</text>
+  <!-- Sawala -> Tawqi (Signing API) -->
+  <path d="M 760,200 C 760,175 775,175 775,145" stroke="#7c3aed" stroke-width="1.5" fill="none" marker-end="url(#arr-purple)"/>
+  <text x="682" y="178" font-family="sans-serif" font-size="8" fill="#7c3aed" font-weight="600">Signing API</text>
 
-  <!-- ==================== Arrows: client tier -> Balaka / Tawqi ==================== -->
-  <!-- Sawala -> Balaka (journals) -->
-  <line x1="160" y1="200" x2="160" y2="145" stroke="#d97706" stroke-width="1.5" marker-end="url(#arr-amber)"/>
-  <text x="168" y="178" font-family="sans-serif" font-size="8" fill="#d97706" font-weight="600">jurnal</text>
-
-  <!-- Client -> Balaka (Accounting API) -->
-  <path d="M 480,200 C 480,165 310,180 285,145" stroke="#d97706" stroke-width="1.5" fill="none" marker-end="url(#arr-amber)"/>
-  <text x="360" y="172" font-family="sans-serif" font-size="8" fill="#d97706" font-weight="600">Accounting API</text>
-
-  <!-- Client -> Tawqi (Signing API) -->
-  <path d="M 700,200 C 700,165 775,180 775,145" stroke="#7c3aed" stroke-width="1.5" fill="none" marker-end="url(#arr-purple)"/>
-  <text x="722" y="172" font-family="sans-serif" font-size="8" fill="#7c3aed" font-weight="600">Signing API</text>
-
-  <!-- ==================== ROW: Account Receivable (subledger) ==================== -->
+  <!-- ==================== Account Receivable (subledger, opsional) ==================== -->
   <rect x="100" y="310" width="330" height="100" rx="10" fill="#fff" stroke="#e11d48" stroke-width="1.5" filter="url(#sh)"/>
   <rect x="100" y="310" width="330" height="26" rx="10" fill="#e11d48"/>
   <rect x="100" y="323" width="330" height="13" fill="#e11d48"/>
@@ -95,20 +77,12 @@
   <text x="116" y="382" font-family="sans-serif" font-size="9" fill="#475569">Jadwal Cicilan, Aging, Dunning</text>
   <text x="116" y="396" font-family="sans-serif" font-size="9" fill="#475569">Cash Application</text>
   <text x="280" y="368" font-family="sans-serif" font-size="9" fill="#475569">Posting Jurnal ke GL</text>
-  <text x="280" y="382" font-family="sans-serif" font-size="9" fill="#475569">Statement &amp; Laporan Umur</text>
+  <text x="280" y="382" font-family="sans-serif" font-size="9" fill="#475569">Input: Admin UI · CSV · API</text>
   <text x="280" y="396" font-family="sans-serif" font-size="9" fill="#475569">Rekonsiliasi Subledger–GL</text>
 
-  <!-- Client -> AR (raise receivable) -->
-  <path d="M 500,260 C 500,295 350,285 350,310" stroke="#e11d48" stroke-width="1.5" fill="none" marker-end="url(#arr-rose)"/>
-  <text x="392" y="290" font-family="sans-serif" font-size="8" fill="#e11d48" font-weight="600">terbitkan piutang</text>
-
-  <!-- AR -> Balaka (post journals), through the gap between Sawala and client box -->
-  <path d="M 395,310 C 395,240 240,220 240,145" stroke="#d97706" stroke-width="1.5" fill="none" marker-end="url(#arr-amber)"/>
-  <text x="330" y="232" font-family="sans-serif" font-size="8" fill="#d97706" font-weight="600">posting jurnal</text>
-
-  <!-- Sawala -> Gateway (SPP charge, direct consumer) along left edge -->
-  <path d="M 115,260 C 45,290 45,410 90,470" stroke="#0d9488" stroke-width="1.5" fill="none" marker-end="url(#arr-teal)"/>
-  <text x="48" y="378" font-family="sans-serif" font-size="8" fill="#0d9488" font-weight="600" transform="rotate(-90 48 378)">VA SPP</text>
+  <!-- AR -> Balaka (post journals) -->
+  <path d="M 250,310 C 250,230 240,225 240,145" stroke="#d97706" stroke-width="1.5" fill="none" marker-end="url(#arr-amber)"/>
+  <text x="258" y="235" font-family="sans-serif" font-size="8" fill="#d97706" font-weight="600">posting jurnal</text>
 
   <!-- AR <-> Gateway -->
   <line x1="160" y1="410" x2="160" y2="470" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arr-blue)"/>
@@ -116,13 +90,13 @@
   <line x1="272" y1="470" x2="272" y2="415" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arr-blue)"/>
   <text x="280" y="432" font-family="sans-serif" font-size="8" fill="#2563eb" font-weight="600">webhook pembayaran</text>
 
-  <!-- Client -> Gateway direct (dashed: modular, no subledger needed) -->
-  <path d="M 560,260 C 560,340 470,350 470,410 C 470,445 320,440 300,470" stroke="#2563eb" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#arr-blue)"/>
-  <text x="480" y="378" font-family="sans-serif" font-size="8" fill="#2563eb" font-weight="600">atau langsung via Consumer API</text>
+  <!-- Sawala -> Gateway (langsung, tanpa AR) -->
+  <path d="M 640,272 C 640,380 480,390 480,430 C 480,462 330,458 305,470" stroke="#2563eb" stroke-width="1.5" fill="none" marker-end="url(#arr-blue)"/>
+  <text x="468" y="400" text-anchor="end" font-family="sans-serif" font-size="8" fill="#2563eb" font-weight="600">Consumer API — charge + VA, webhook</text>
 
-  <!-- Client -> Disbursement -->
-  <path d="M 700,260 C 700,330 775,390 775,470" stroke="#16a34a" stroke-width="1.5" fill="none" marker-end="url(#arr-green)"/>
-  <text x="728" y="368" font-family="sans-serif" font-size="8" fill="#16a34a" font-weight="600">Disbursement API</text>
+  <!-- Sawala -> Disbursement -->
+  <path d="M 800,272 C 800,340 775,400 775,470" stroke="#16a34a" stroke-width="1.5" fill="none" marker-end="url(#arr-green)"/>
+  <text x="728" y="372" font-family="sans-serif" font-size="8" fill="#16a34a" font-weight="600">Disbursement API</text>
 
   <!-- ==================== ROW: Payment Gateway + Disbursement ==================== -->
 
