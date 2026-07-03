@@ -9,7 +9,7 @@ Enam produk untuk operasional institusi. Semua open source (Apache 2.0), berjala
 
 ![Ekosistem Aplikasi Production](/img/products/product-ecosystem-production.svg)
 
-**Produk Pembayaran & Piutang** — rantai uang masuk: sistem sumber menerbitkan piutang ke Account Receivable, ditagih via Payment Gateway ke bank, jurnalnya diposting ke buku besar. Klien memiliki hubungan langsung dengan bank, tanpa perantara.
+**Produk Pembayaran & Piutang** — rantai uang masuk: piutang dikelola di Account Receivable (input via admin UI, upload CSV, atau API), ditagih via Payment Gateway ke bank, jurnal diposting ke buku besar. Aplikasi klien juga bisa langsung ke Payment Gateway dan Balaka tanpa melalui Account Receivable — seperti yang dilakukan Sawala. Klien memiliki hubungan langsung dengan bank, tanpa perantara.
 
 | Produk | Fungsi |
 |---|---|
