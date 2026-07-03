@@ -92,7 +92,8 @@
 
   <!-- Sawala -> Gateway (langsung, tanpa AR) -->
   <path d="M 640,272 C 640,380 480,390 480,430 C 480,462 330,458 305,470" stroke="#2563eb" stroke-width="1.5" fill="none" marker-end="url(#arr-blue)"/>
-  <text x="468" y="400" text-anchor="end" font-family="sans-serif" font-size="8" fill="#2563eb" font-weight="600">Consumer API — charge + VA, webhook</text>
+  <text x="650" y="326" font-family="sans-serif" font-size="8" fill="#2563eb" font-weight="600">Consumer API</text>
+  <text x="650" y="338" font-family="sans-serif" font-size="8" fill="#2563eb" font-weight="600">charge + VA, webhook</text>
 
   <!-- Sawala -> Disbursement -->
   <path d="M 800,272 C 800,340 775,400 775,470" stroke="#16a34a" stroke-width="1.5" fill="none" marker-end="url(#arr-green)"/>
