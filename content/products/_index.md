@@ -9,7 +9,7 @@ Enam produk untuk operasional institusi. Semua open source (Apache 2.0), berjala
 
 ![Ekosistem Aplikasi Production](/img/products/product-ecosystem-production.svg)
 
-**Produk Pembayaran & Piutang** — rantai uang masuk: piutang dikelola di Account Receivable (input via admin UI, upload CSV, atau API), ditagih via Payment Gateway ke bank, jurnal diposting ke buku besar. Aplikasi klien juga bisa langsung ke Payment Gateway dan Balaka tanpa melalui Account Receivable — seperti yang dilakukan Sawala. Klien memiliki hubungan langsung dengan bank, tanpa perantara.
+**Produk Pembayaran & Piutang** — rantai uang masuk: piutang dikelola di Account Receivable (input via admin UI, upload CSV, atau API), ditagih via Payment Gateway ke bank, jurnal diposting ke buku besar. Aplikasi klien vertikal seperti Sawala dan Religio Pro terhubung ke Account Receivable sebagai lapisan piutang. Klien yang sudah memiliki aplikasi billing sendiri tetap bisa memakai Payment Gateway langsung via Consumer API. Klien memiliki hubungan langsung dengan bank, tanpa perantara.
 
 | Produk | Fungsi |
 |---|---|
@@ -26,7 +26,9 @@ Enam produk untuk operasional institusi. Semua open source (Apache 2.0), berjala
 | [Sawala](/products/sawala/) | Aplikasi sekolah Islam terpadu (SDIT/SMPIT) — akademik, ibadah harian, hafalan Quran, SPP |
 | [Tawqi](/products/tawqi/) | Tanda tangan digital PDF berbasis PKI — kontrak, sertifikat, SK, ijazah |
 
-Kombinasi mengikuti kebutuhan: institusi greenfield memakai rantai lengkap (Account Receivable + Payment Gateway + Balaka); yang sudah punya aplikasi billing sendiri memakai Payment Gateway langsung via Consumer API; yang sudah punya ERP/GL sendiri tetap bisa memakai Account Receivable — API jurnalnya generik, tidak terikat Balaka. Sawala adalah wedge vertikal segmen sekolah: billing SPP di Sawala, pembukuan di Balaka, penerimaan VA via Payment Gateway.
+Kombinasi mengikuti kebutuhan: institusi greenfield memakai rantai lengkap (Account Receivable + Payment Gateway + Balaka); yang sudah punya aplikasi billing sendiri memakai Payment Gateway langsung via Consumer API; yang sudah punya ERP/GL sendiri tetap bisa memakai Account Receivable — API jurnalnya generik, tidak terikat Balaka. Sawala adalah titik masuk untuk segmen sekolah: piutang SPP dikelola di Account Receivable, penerimaan VA via Payment Gateway, pembukuan di Balaka.
+
+Religio Pro (roadmap) adalah titik masuk untuk segmen travel umrah/haji dengan kebutuhan piutang lebih kompleks: DP dan cicilan jemaah dikelola di Account Receivable, penerimaan setoran via Payment Gateway, pembukuan di Balaka, dan pembayaran keluar (komisi agen, refund, vendor) via Disbursement Platform. Sama seperti Sawala, Religio Pro adalah aplikasi klien Account Receivable; bedanya, sisi pengeluaran yang besar membuatnya juga bergantung pada Disbursement Platform.
 
 ---
 
@@ -54,6 +56,7 @@ Simulator ekosistem pembayaran untuk keperluan training dan pengembangan. Merepl
 | Payment Gateway | **Pengembangan aktif** — adapter Maybank (SNAP), BSI (REST/JSON), CIMB (SOAP/XML); rekonsiliasi; admin UI + MFA | Deployment perdana: Yayasan Tazkia Cendekia |
 | Account Receivable | **Pengembangan aktif** — core piutang, integrasi gateway, manual pengguna | 2026 |
 | Disbursement Platform | Spesifikasi dari production app bank BUMN | Q4 2026 |
+| Religio Pro (Travel Umrah/Haji) | **Roadmap** — aplikasi klien vertikal untuk Account Receivable + Disbursement Platform; klien pertama live | Produktisasi 2026 |
 
 ### Target Pengguna
 
@@ -62,5 +65,6 @@ Simulator ekosistem pembayaran untuk keperluan training dan pengembangan. Merepl
 - **Instansi pemerintah** — retribusi, pajak, bansos, dana desa, SK digital
 - **Rumah sakit** — pembayaran pasien, klaim asuransi
 - **Perusahaan besar** — payroll, vendor payment, laporan keuangan
+- **Travel umrah & haji (PPIU)** — paket, jemaah, agen/komisi, arus dana setoran & pembayaran vendor
 
 ---
