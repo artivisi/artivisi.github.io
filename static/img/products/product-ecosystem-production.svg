@@ -15,6 +15,9 @@
     <marker id="arr-slate" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
       <polygon points="0 0, 8 3, 0 6" fill="#475569"/>
     </marker>
+    <marker id="arr-red" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 3, 0 6" fill="#e11d48"/>
+    </marker>
     <filter id="sh">
       <feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.08"/>
     </filter>
@@ -57,11 +60,7 @@
   <text x="700" y="217" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#fff">Sawala</text>
   <text x="700" y="238" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#0d9488" font-weight="600">APLIKASI SEKOLAH ISLAM — PERAN APLIKASI KLIEN</text>
   <text x="700" y="252" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#475569">SDIT/SMPIT — Akademik, Hafalan, SPP</text>
-  <text x="700" y="265" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#475569">integrasi langsung ke tiap produk, tanpa perantara</text>
-
-  <!-- Sawala -> Balaka (posting jurnal, langsung) -->
-  <path d="M 620,200 C 620,170 330,190 300,145" stroke="#d97706" stroke-width="1.5" fill="none" marker-end="url(#arr-amber)"/>
-  <text x="430" y="176" font-family="sans-serif" font-size="8" fill="#d97706" font-weight="600">posting jurnal</text>
+  <text x="700" y="265" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#475569">piutang SPP via Account Receivable</text>
 
   <!-- Sawala -> Tawqi (Signing API) -->
   <path d="M 760,200 C 760,175 775,175 775,145" stroke="#7c3aed" stroke-width="1.5" fill="none" marker-end="url(#arr-purple)"/>
@@ -90,14 +89,30 @@
   <line x1="272" y1="470" x2="272" y2="415" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arr-blue)"/>
   <text x="280" y="432" font-family="sans-serif" font-size="8" fill="#2563eb" font-weight="600">webhook pembayaran</text>
 
-  <!-- Sawala -> Gateway (langsung, tanpa AR) -->
-  <path d="M 640,272 C 640,380 480,390 480,430 C 480,462 330,458 305,470" stroke="#2563eb" stroke-width="1.5" fill="none" marker-end="url(#arr-blue)"/>
-  <text x="650" y="326" font-family="sans-serif" font-size="8" fill="#2563eb" font-weight="600">Consumer API</text>
-  <text x="650" y="338" font-family="sans-serif" font-size="8" fill="#2563eb" font-weight="600">charge + VA, webhook</text>
+  <!-- Sawala -> Account Receivable (piutang SPP) -->
+  <path d="M 590,272 C 590,326 480,340 432,352" stroke="#e11d48" stroke-width="1.5" fill="none" marker-end="url(#arr-red)"/>
+  <text x="486" y="330" font-family="sans-serif" font-size="8" fill="#e11d48" font-weight="600">tagihan SPP</text>
 
   <!-- Sawala -> Disbursement -->
   <path d="M 800,272 C 800,340 775,400 775,470" stroke="#16a34a" stroke-width="1.5" fill="none" marker-end="url(#arr-green)"/>
   <text x="728" y="372" font-family="sans-serif" font-size="8" fill="#16a34a" font-weight="600">Disbursement API</text>
+
+  <!-- ==================== CLIENT TIER: Religio Pro (roadmap) — pakai AR + Disbursement ==================== -->
+  <rect x="322" y="210" width="216" height="76" rx="10" fill="#fff" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="6,3" filter="url(#sh-lg)"/>
+  <rect x="322" y="210" width="216" height="24" rx="10" fill="#0d9488"/>
+  <rect x="322" y="222" width="216" height="12" fill="#0d9488"/>
+  <text x="430" y="227" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#fff">Religio Pro</text>
+  <text x="430" y="248" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#0d9488" font-weight="600">TRAVEL UMRAH/HAJI — APLIKASI KLIEN (ROADMAP)</text>
+  <text x="430" y="262" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#475569">Paket · Jemaah · Agen/Komisi · Payout</text>
+  <text x="430" y="276" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#475569">memakai Account Receivable + Disbursement</text>
+
+  <!-- Religio -> Account Receivable (piutang jemaah) -->
+  <line x1="404" y1="286" x2="386" y2="310" stroke="#e11d48" stroke-width="1.5" marker-end="url(#arr-red)"/>
+  <text x="412" y="302" font-family="sans-serif" font-size="8" fill="#e11d48" font-weight="600">piutang jemaah</text>
+
+  <!-- Religio -> Disbursement (komisi/refund/vendor) -->
+  <path d="M 510,286 C 545,360 640,430 742,470" stroke="#16a34a" stroke-width="1.5" fill="none" marker-end="url(#arr-green)"/>
+  <text x="556" y="372" font-family="sans-serif" font-size="8" fill="#16a34a" font-weight="600">komisi/refund/vendor</text>
 
   <!-- ==================== ROW: Payment Gateway + Disbursement ==================== -->
 
