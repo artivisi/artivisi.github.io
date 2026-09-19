@@ -17,19 +17,23 @@ Payment gateway Virtual Account (VA) multi-bank yang berjalan di infrastruktur k
 
 Institusi yang menagih via VA (kampus, rumah sakit, yayasan) selama ini memilih antara:
 
-- **Aggregator SaaS** — biaya per-transaksi pada setiap penagihan. Untuk nominal skala pendidikan (SPP, uang gedung), biaya tersebut besar secara absolut.
+- **Provider SaaS** (Midtrans, Xendit, DOKU) — biaya per-transaksi pada setiap penagihan, baik pada model agregator maupun fasilitator. Untuk nominal skala pendidikan (SPP, uang gedung), biaya tersebut besar secara absolut.
 - **Integrasi langsung per bank** — satu integrasi terpisah dengan bentuk berbeda untuk tiap bank, tanpa rekonsiliasi terpadu lintas bank.
 
 Gateway ini menyediakan satu API untuk banyak bank, self-hosted, tanpa biaya perantara — hanya biaya bank itu sendiri — dengan satu tampilan rekonsiliasi.
 
-| Aspek | Gateway Ini (Self-Hosted) | Midtrans / Xendit / DOKU (SaaS) |
-|---|---|---|
-| Deployment | Infrastruktur klien | Cloud vendor |
-| Biaya per-transaksi | Tidak ada (hanya biaya bank) | Rp 1.500–4.000+ per transaksi |
-| Hubungan bank | Klien kontrak langsung dengan tiap bank | Vendor yang pegang hubungan bank |
-| Kepemilikan data | Milik klien sepenuhnya | Data di infrastruktur vendor |
-| Protokol bank | SNAP + REST/JSON + SOAP/XML | Tergantung vendor |
-| Source code | Open source (Apache 2.0) | Proprietary |
+| Aspek | Gateway Ini (Self-Hosted) | Provider SaaS, Model Agregator | Provider SaaS, Model Fasilitator |
+|---|---|---|---|
+| Nama model di provider | — | Aggregator, bawaan di semua provider | Midtrans: Fasilitator · DOKU: Direct · Xendit: Switcher · Faspay: Direct |
+| Hubungan kontrak | Klien berkontrak langsung dengan tiap bank. Penyedia gateway hanya menjadi penghubung dan konsultan. | Klien berkontrak dengan provider saja. VA menggunakan *company code* milik provider. | Klien berkontrak langsung dengan bank dan mendapat *company code* sendiri. Provider menjadi penghubung (BCA menyebutnya *IT Gateway*) dan membantu pengurusan berkas. |
+| Jalur integrasi API | Aplikasi klien → gateway di server klien → API tiap bank | Aplikasi klien → API provider → API bank | Aplikasi klien → API provider → API bank |
+| Aliran dana | Bank → rekening klien | Bank → rekening provider → dicairkan ke klien, T+0 hingga 3 hari kerja | Bank → rekening klien, sesuai perjanjian dengan bank |
+| Biaya per-transaksi | Biaya bank saja | Tarif flat yang sudah mencakup biaya bank (Midtrans, DOKU: Rp 4.000 + PPN) | Biaya bank ditambah fee provider (Midtrans, Xendit: sekitar Rp 2.000 + PPN) |
+| Deployment dan data | Infrastruktur dan data milik klien | Cloud dan data di provider | Cloud dan data di provider |
+| Protokol bank | SNAP + REST/JSON + SOAP/XML | Tergantung provider | Tergantung provider |
+| Source code | Open source (Apache 2.0) | Proprietary | Proprietary |
+
+Perbandingan model provider disusun dari dokumentasi dan halaman harga Midtrans, DOKU, Xendit, dan Faspay, serta halaman Virtual Account BCA, per September 2026. BCA mewajibkan rekening BCA atas nama badan usaha, termasuk pada model agregator.
 
 ## Cakupan
 
