@@ -1,0 +1,22 @@
+graph TB
+    App[Aplikasi Partner<br/>Sistem Tagihan / Payment Gateway]
+
+    subgraph "SNAP Provider Simulator"
+        BRI[Profil BRI<br/>VA + BRIVA Online]
+        BCA[Profil BCA<br/>VA for Biller]
+        Portal[Portal Partner<br/>Onboarding & Checklist]
+        Inject[Error Injection<br/>Diagnostic Mode]
+        Ledger[(Ledger & Exchange Log<br/>PostgreSQL)]
+    end
+
+    App <-->|SNAP| BRI
+    App <-->|SNAP| BCA
+    BRI --> Ledger
+    BCA --> Ledger
+
+    style App fill:#60a5fa
+    style Portal fill:#34d399
+    style BRI fill:#8b5cf6
+    style BCA fill:#8b5cf6
+    style Inject fill:#f59e0b
+    style Ledger fill:#6366f1

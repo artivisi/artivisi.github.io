@@ -93,10 +93,10 @@ Enam integrasi VA bank telah dibangun dan berjalan produksi untuk dua klien: **P
 - PostgreSQL 18 + Flyway
 - Spring Security (auth operator, TOTP MFA)
 - Thymeleaf + HTMX + Tailwind (admin)
-- Testcontainers + RestAssured + Playwright + [SNAP Provider Simulator](https://github.com/artivisi/snap-provider-simulator) (test)
+- Testcontainers + RestAssured + Playwright (test)
 
 ## Repository
 
 - Gateway: [artivisi/payment-gateway](https://github.com/artivisi/payment-gateway)
-- SP Simulator: [artivisi/snap-provider-simulator](https://github.com/artivisi/snap-provider-simulator)
+- Simulator bank SNAP untuk pengujian integrasi (BRI, BCA): [SNAP Provider Simulator](/products/snap-provider-simulator/)
 - Lisensi: Apache 2.0

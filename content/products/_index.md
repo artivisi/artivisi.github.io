@@ -16,7 +16,7 @@ Enam produk untuk operasional institusi. Semua open source (Apache 2.0), berjala
 | [Payment Gateway](/products/payment-gateway/) | Terima pembayaran Virtual Account multi-bank — adapter multi-protokol: SNAP, REST/JSON, SOAP/XML |
 | [Account Receivable](/products/account-receivable/) | Subledger piutang — debitur, invoice, jadwal cicilan, aging, dunning, cash application |
 | [Disbursement Platform](/products/disbursement-platform/) | Transfer batch ke banyak penerima — payroll, beasiswa, vendor, bansos |
-| [SNAP Provider Simulator](https://github.com/artivisi/snap-provider-simulator) | Test double untuk produk payment — simulasi bank SP side |
+| [SNAP Provider Simulator](/products/snap-provider-simulator/) | Simulator sisi bank SNAP (BRI, BCA) — uji integrasi Virtual Account tanpa sandbox bank |
 
 **Produk Institusional** — aplikasi standalone yang terhubung langsung ke sistem klien. Tidak bergantung pada produk pembayaran.
 
@@ -53,6 +53,7 @@ Simulator ekosistem pembayaran untuk keperluan training dan pengembangan. Merepl
 | Sawala (Aplikasi Sekolah) | **Demo live** — Phase 0–3 selesai, 2 instance demo | [sdit.demo.sawala.artivisi.id](https://sdit.demo.sawala.artivisi.id) |
 | Payment Simulator | Dalam pengembangan | Q2 2026 |
 | Tawqi | Dalam pengembangan | Q2 2026 |
+| SNAP Provider Simulator | **Rilis 2026.10** — BRI dan BCA, image Docker amd64/arm64 | [GitHub](https://github.com/artivisi/snap-provider-simulator) |
 | Payment Gateway | **Pengembangan aktif** — adapter Maybank (SNAP), BSI (REST/JSON), CIMB (SOAP/XML); rekonsiliasi; admin UI + MFA | Deployment perdana: Yayasan Tazkia Cendekia |
 | Account Receivable | **Pengembangan aktif** — core piutang, integrasi gateway, manual pengguna | 2026 |
 | Disbursement Platform | Spesifikasi dari production app bank BUMN | Q4 2026 |
