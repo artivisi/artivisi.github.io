@@ -1,6 +1,6 @@
 ---
 title: "SNAP Provider Simulator"
-description: "Simulator sisi bank untuk SNAP Virtual Account BRI dan BCA. Aplikasi partner diuji tanpa sandbox bank: signature, inquiry, payment, error injection, dan rekonsiliasi."
+description: "Akses sandbox bank perlu pendaftaran dan persetujuan bank, dan developer tidak bisa mensimulasikan berbagai skenario gagal. Dengan simulator ini, pengujian signature, inquiry, payment, skenario gagal, dan rekonsiliasi pada aplikasi partner bisa dimulai tanpa menunggu akses tersebut."
 icon: "/img/products/snap-provider-simulator/thumbnail.png"
 weight: 6
 ---
