@@ -5,20 +5,18 @@ icon: "/img/products/snap-provider-simulator/thumbnail.png"
 weight: 6
 ---
 
-> **Rilis 2026.10** — open source (Apache 2.0), image Docker siap pakai untuk linux/amd64 dan linux/arm64.
+> **Rilis 2026.10** — open source, image Docker siap pakai.
 
 ## Deskripsi Produk
 
-SNAP Provider Simulator menjalankan sisi bank dari SNAP (Standar Nasional Open API Pembayaran) di komputer developer. Aplikasi yang menerima pembayaran Virtual Account, misalnya sistem tagihan kampus atau payment gateway, bisa diuji dari awal sampai akhir tanpa menunggu akses sandbox bank: meminta access token, memanggil API bank, lalu menerima inquiry dan notifikasi pembayaran dari bank.
+SNAP Provider Simulator menjalankan sisi bank dari SNAP (Standar Nasional Open API Pembayaran) di komputer developer, untuk menguji aplikasi yang menerima pembayaran Virtual Account, misalnya sistem tagihan kampus atau payment gateway.
 
-Simulator meniru dua bank berdasarkan dokumentasi publik masing-masing:
+Simulator meniru dua bank berdasarkan dokumentasi publik masing-masing. Hal yang tidak dijelaskan dokumentasi bank mengikuti standar SNAP dari ASPI, dan setiap interpretasi dicatat sebagai asumsi di repository.
 
-| Bank | Cakupan |
-|---|---|
-| BRI | VA yang dikelola bank (create, update, inquiry, delete, inquiry status) dan BRIVA Online, yaitu bank memanggil aplikasi partner untuk inquiry dan payment |
-| BCA | Virtual Account for Biller, yaitu bank memanggil aplikasi partner untuk inquiry dan payment flag, serta inquiry status |
-
-Hal yang tidak dijelaskan dokumentasi publik bank mengikuti standar SNAP dari ASPI. Setiap keputusan interpretasi dicatat sebagai asumsi di repository.
+| Bank | Aplikasi Partner Memanggil Bank | Bank Memanggil Aplikasi Partner |
+|---|---|---|
+| BRI | Create, update, inquiry, dan delete VA; inquiry status | Inquiry dan payment (BRIVA Online) |
+| BCA | Inquiry status | Inquiry dan payment flag (Virtual Account for Biller) |
 
 ## Fitur
 
@@ -63,12 +61,12 @@ curl -O https://raw.githubusercontent.com/artivisi/snap-provider-simulator/main/
 docker compose up -d
 ```
 
-Portal tersedia di `http://localhost:9090/portal`. Image: `ghcr.io/artivisi/snap-provider-simulator:2026.10`, termasuk untuk Mac Apple Silicon.
+Portal tersedia di `http://localhost:9090/portal`. Image `ghcr.io/artivisi/snap-provider-simulator:2026.10` tersedia untuk linux/amd64 dan linux/arm64, termasuk Mac Apple Silicon.
 
 ## Kegunaan
 
-- **Developer aplikasi partner** — menguji integrasi SNAP sebelum mendapat akses sandbox bank
-- **Tim QA** — menjalankan skenario gagal yang sulit dipicu di sandbox bank
+- **Developer aplikasi partner** — membangun dan memperbaiki integrasi SNAP, dibantu diagnostic mode dan exchange log
+- **Tim QA** — pengujian otomatis yang bisa diulang dengan hasil sama, termasuk skenario gagal
 - **Pelatihan** — lab integrasi SNAP yang berjalan di laptop peserta
 
 ## Teknologi
